@@ -1,7 +1,7 @@
 ---
 name: EPIC
 about: An epic for the GameVote board
-title: ''
+title: 'EPIC: '
 labels: epic
 assignees: CI-Dominik
 
