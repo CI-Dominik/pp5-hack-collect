@@ -1,6 +1,6 @@
 ---
 name: EPIC
-about: An epic for the GameVote board
+about: An epic for the Hack Collect board
 title: 'EPIC: '
 labels: epic
 assignees: CI-Dominik
