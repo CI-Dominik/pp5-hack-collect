@@ -1,6 +1,6 @@
 ---
 name: USER STORY
-about: A user story for GameVote
+about: A user story for Hack Collect
 title: 'USER STORY: '
 labels: userstory
 assignees: CI-Dominik
