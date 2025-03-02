@@ -11,6 +11,23 @@ assignees: CI-Dominik
 As a *PERSON*, I want *FEATURE* so that I can *BENEFIT*.
 
 **User Stories**
-- [ ] User Story 1: 
-- [ ] User Story 2: 
-- [ ] User Story 3:
+
+*Must have*
+- [ ] User Story: 
+- [ ] User Story: 
+- [ ] User Story:
+
+*Should have*
+- [ ] User Story: 
+- [ ] User Story: 
+- [ ] User Story:
+
+*Could have*
+- [ ] User Story: 
+- [ ] User Story: 
+- [ ] User Story:
+
+*Won't have*
+- [ ] User Story: 
+- [ ] User Story: 
+- [ ] User Story:
