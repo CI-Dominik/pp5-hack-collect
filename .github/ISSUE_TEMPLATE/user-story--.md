@@ -11,6 +11,6 @@ assignees: CI-Dominik
 As a *PERSON*, I want *FEATURE* so that I can *BENEFIT*.
 
 **Acceptance Criteria**
-- [ ] Criterion 1:  
-- [ ] Criterion 2:  
-- [ ] Criterion 3:
+- [ ] Criterion 1: 
+- [ ] Criterion 2: 
+- [ ] Criterion 3: 
