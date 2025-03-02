@@ -8,26 +8,26 @@ assignees: CI-Dominik
 ---
 
 **Description:**
-As a *PERSON*, I want *FEATURE* so that I can *BENEFIT*.
+As a *PERSON*, I want *FEATURE* so that I can *BENEFIT*
 
 **User Stories**
 
 *Must have*
-- [ ] User Story: 
-- [ ] User Story: 
-- [ ] User Story:
+- [ ] User Story: [PLACEHOLDER](LINK)
+- [ ] User Story: [PLACEHOLDER](LINK)
+- [ ] User Story: [PLACEHOLDER](LINK)
 
 *Should have*
-- [ ] User Story: 
-- [ ] User Story: 
-- [ ] User Story:
+- [ ] User Story: [PLACEHOLDER](LINK)
+- [ ] User Story: [PLACEHOLDER](LINK)
+- [ ] User Story: [PLACEHOLDER](LINK)
 
 *Could have*
-- [ ] User Story: 
-- [ ] User Story: 
-- [ ] User Story:
+- [ ] User Story: [PLACEHOLDER](LINK)
+- [ ] User Story: [PLACEHOLDER](LINK)
+- [ ] User Story: [PLACEHOLDER](LINK)
 
 *Won't have*
-- [ ] User Story: 
-- [ ] User Story: 
-- [ ] User Story:
+- [ ] User Story: [PLACEHOLDER](LINK)
+- [ ] User Story: [PLACEHOLDER](LINK)
+- [ ] User Story: [PLACEHOLDER](LINK)
