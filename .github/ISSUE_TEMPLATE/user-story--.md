@@ -1,5 +1,5 @@
 ---
-name: 'USER STORY'
+name: USER STORY
 about: A user story for GameVote
 title: 'USER STORY: '
 labels: userstory
@@ -13,4 +13,4 @@ As a *PERSON*, I want *FEATURE* so that I can *BENEFIT*.
 **Acceptance Criteria**
 - [ ] Criterion 1: 
 - [ ] Criterion 2: 
-- [ ] Criterion 3: 
+- [ ] Criterion 3:
