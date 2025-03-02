@@ -1,7 +1,7 @@
 ---
-name: 'USER STORY: '
+name: 'USER STORY'
 about: A user story for GameVote
-title: ''
+title: 'USER STORY: '
 labels: userstory
 assignees: CI-Dominik
 
