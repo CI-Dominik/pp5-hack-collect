@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -14,13 +14,14 @@ const NavBar = () => {
             <Navbar collapseOnSelect bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary">
                 <Container>
                     <NavLink to="/">
-                        <Navbar.Brand href="#home">Hack Collect</Navbar.Brand>
+                        <Navbar.Brand>Hack Collect</Navbar.Brand>
                     </NavLink>
                     <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse>
                         <Nav className="ms-auto">
-                            <Nav.Link href="#">Home</Nav.Link>
-                            <Nav.Link href="#">Hacks</Nav.Link>
+                            <NavLink exact to="/">Home</NavLink>
+                            <NavLink exact to="/sign-in">Sign-in</NavLink>
+                            <NavLink>Hacks</NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
