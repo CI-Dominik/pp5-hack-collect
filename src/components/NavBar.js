@@ -21,7 +21,7 @@ const NavBar = () => {
                         <Nav className="ms-auto">
                             <NavLink exact to="/">Home</NavLink>
                             <NavLink exact to="/sign-in">Sign-in</NavLink>
-                            <NavLink>Hacks</NavLink>
+                            <NavLink exact to="/hacks">Hacks</NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
