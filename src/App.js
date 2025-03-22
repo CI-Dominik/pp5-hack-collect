@@ -4,14 +4,16 @@ import Container from 'react-bootstrap/Container'
 import { Route, Switch } from 'react-router-dom'
 import SignInForm from './pages/auth/SignInForm';
 import SignUpForm from './pages/auth/SignUpForm';
+import HeroArea from './components/HeroArea';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <Container>
+
+      <Container className="p-0">
+        <NavBar />
         <Switch>
-          <Route exact path="/" render={() => <h1>Starting page</h1>} />
+          <Route exact path="/" render={() => <HeroArea />} />
           <Route exact path="/hacks" render={() => <h1>Hacks</h1>} />
           <Route exact path="/sign-in" render={() => <SignInForm />} />
           <Route exact path="/sign-up" render={() => <SignUpForm />} />

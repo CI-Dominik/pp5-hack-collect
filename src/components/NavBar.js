@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import useClickOutside from '../hooks/useClickOutside';
@@ -59,8 +58,8 @@ const NavBar = () => {
 
     return (
         <>
-            <Navbar collapseOnSelect bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary">
-                <Container>
+            <Navbar collapseOnSelect bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary p-2">
+
                     <NavLink to="/">
                         <Navbar.Brand className={styles.Title}>Hack Collect</Navbar.Brand>
                     </NavLink>
@@ -73,7 +72,7 @@ const NavBar = () => {
                             <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/hacks">Hacks</NavLink>
                         </Nav>
                     </Navbar.Collapse>
-                </Container>
+
             </Navbar>
         </>
     )
