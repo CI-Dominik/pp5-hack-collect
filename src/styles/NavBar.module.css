@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.NavLink {
+    color: white;
+    text-decoration: none;
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+.Active {
+    border-bottom: 1px white solid;
+}
+
+.NavLink:hover {
+    color: grey;
+}
+
+.Title {
+    color: white;
+    text-decoration: none !important;
+    font-weight: bold;
+}

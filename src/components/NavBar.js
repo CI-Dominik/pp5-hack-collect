@@ -62,15 +62,15 @@ const NavBar = () => {
             <Navbar collapseOnSelect bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary">
                 <Container>
                     <NavLink to="/">
-                        <Navbar.Brand>Hack Collect</Navbar.Brand>
+                        <Navbar.Brand className={styles.Title}>Hack Collect</Navbar.Brand>
                     </NavLink>
                     <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse>
                         <Nav className="ms-auto">
-                            <NavLink exact to="/">Home</NavLink>
-                            <NavLink exact to="/sign-in">Sign-in</NavLink>
-                            <NavLink exact to="/sign-up">Sign-up</NavLink>
-                            <NavLink exact to="/hacks">Hacks</NavLink>
+                            <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/">Home</NavLink>
+                            <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/sign-in">Sign-in</NavLink>
+                            <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/sign-up">Sign-up</NavLink>
+                            <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/hacks">Hacks</NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
