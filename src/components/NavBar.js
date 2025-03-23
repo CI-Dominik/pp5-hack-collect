@@ -4,11 +4,24 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import useClickOutside from '../hooks/useClickOutside';
 import styles from '../styles/NavBar.module.css';
+import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
+import axios from 'axios';
 
 const NavBar = () => {
 
     const { expanded, setExpanded, ref } = useClickOutside();
+    const currentUser = useCurrentUser();
+    const setCurrentUser = useSetCurrentUser();
 
+    const handleSignOut = async () => {
+        try {
+            await axios.post('/dj-rest-auth/logout/');
+            setCurrentUser(null);
+        } catch (error) {
+            console.log("Error:", error)
+        }
+
+    }
 
     const loggedInLinks = (
         <>
@@ -30,7 +43,7 @@ const NavBar = () => {
                 exact
                 className={styles.NavLink}
                 to="/"
-                onClick={() => {}}
+                onClick={handleSignOut}
             >
                 <i className="fas fa-sign-out-alt"></i> Sign-out
             </NavLink>
@@ -67,9 +80,8 @@ const NavBar = () => {
                     <Navbar.Collapse>
                         <Nav className="ms-auto">
                             <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/">Home</NavLink>
-                            <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/sign-in">Sign-in</NavLink>
-                            <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/sign-up">Sign-up</NavLink>
                             <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/hacks">Hacks</NavLink>
+                            {currentUser ? loggedInLinks : loggedOutLinks}
                         </Nav>
                     </Navbar.Collapse>
 
