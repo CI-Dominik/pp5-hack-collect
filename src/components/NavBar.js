@@ -6,6 +6,7 @@ import useClickOutside from '../hooks/useClickOutside';
 import styles from '../styles/NavBar.module.css';
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 import axios from 'axios';
+import { removeTokenTimestamp } from '../utils/utils';
 
 const NavBar = () => {
 
@@ -17,6 +18,7 @@ const NavBar = () => {
         try {
             await axios.post('/dj-rest-auth/logout/');
             setCurrentUser(null);
+            removeTokenTimestamp();
         } catch (error) {
             console.log("Error:", error)
         }
