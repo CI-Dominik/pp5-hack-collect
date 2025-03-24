@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-import { Form, Button, Col, Row, Container } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({

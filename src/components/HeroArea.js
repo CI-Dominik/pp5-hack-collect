@@ -1,10 +1,10 @@
 import React from 'react'
-import { Container, Image } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 import heroImage from '../assets/hero.jpg'
 
 const HeroArea = () => {
     return (
-            <Image className="p-0" src={heroImage} fluid />
+        <Image className="p-0" src={heroImage} fluid />
     );
 }
 
