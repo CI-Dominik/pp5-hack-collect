@@ -31,6 +31,13 @@ const NavBar = () => {
                 exact
                 className={styles.NavLink}
                 activeClassName={styles.Active}
+                to="/add-hack">
+                <i className="fas fa-plus"></i> Add Hack
+            </NavLink>
+            <NavLink
+                exact
+                className={styles.NavLink}
+                activeClassName={styles.Active}
                 to="/followed">
                 <i className="fas fa-stream"></i> Followed
             </NavLink>
@@ -75,17 +82,17 @@ const NavBar = () => {
         <>
             <Navbar collapseOnSelect bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary p-2">
 
-                    <NavLink to="/">
-                        <Navbar.Brand className={styles.Title}>Hack Collect</Navbar.Brand>
-                    </NavLink>
-                    <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse>
-                        <Nav className="ms-auto">
-                            <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/">Home</NavLink>
-                            <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/hacks">Hacks</NavLink>
-                            {currentUser ? loggedInLinks : loggedOutLinks}
-                        </Nav>
-                    </Navbar.Collapse>
+                <NavLink to="/">
+                    <Navbar.Brand className={styles.Title}>Hack Collect</Navbar.Brand>
+                </NavLink>
+                <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse>
+                    <Nav className="ms-auto">
+                        <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/">Home</NavLink>
+                        <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/hacks">Hacks</NavLink>
+                        {currentUser ? loggedInLinks : loggedOutLinks}
+                    </Nav>
+                </Navbar.Collapse>
 
             </Navbar>
         </>
