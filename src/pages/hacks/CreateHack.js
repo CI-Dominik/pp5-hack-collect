@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosReq } from '../../api/axiosDefaults';
 
 const CreateHack = () => {
   const [errors, setErrors] = useState({});
   const [categories, setCategories] = useState([]);
   const [success, setSuccess] = useState(null);
-  const currentUser = useCurrentUser();
   const imageInput = React.createRef();
 
   useEffect(() => {
