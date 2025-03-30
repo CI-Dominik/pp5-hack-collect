@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Image } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
+import Hack from './Hack';
 
 const HackList = () => {
   const [hacks, setHacks] = useState({ results: [] });
@@ -33,21 +34,7 @@ const HackList = () => {
         ) : (
           hacks.results.map(hack => (
             <Col key={hack.id} md={4} lg={3}>
-              <Card>
-                <Image src={hack.image} alt={hack.title} />
-                <Card.Body>
-                  <Card.Title>{hack.title}</Card.Title>
-                  <Card.Subtitle>by {hack.owner}</Card.Subtitle>
-                  <Card.Text>
-                    {hack.content}
-                  </Card.Text>
-                  <Card.Footer>
-                    <small className="text-muted">Created at {hack.created_at}</small>
-                    <small className="text-muted">Updated at {hack.updated_at}</small>
-                    <small className="text-muted">Category: {hack.category}</small>
-                  </Card.Footer>
-                </Card.Body>
-              </Card>
+              <Hack hack={hack} />
             </Col>
           ))
         )}
