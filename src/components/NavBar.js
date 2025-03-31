@@ -7,6 +7,7 @@ import styles from '../styles/NavBar.module.css';
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 import axios from 'axios';
 import { removeTokenTimestamp } from '../utils/utils';
+import Avatar from './Avatar';
 
 const NavBar = () => {
 
@@ -75,6 +76,7 @@ const NavBar = () => {
                 to="/sign-up">
                 <i className="fas fa-user-plus"></i> Sign-up
             </NavLink>
+            <Avatar src={currentUser?.profile_image} text="Profile" />
         </>
     );
 
