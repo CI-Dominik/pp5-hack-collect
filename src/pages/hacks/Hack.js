@@ -1,30 +1,61 @@
-import React from 'react';
-import { Card, Image } from 'react-bootstrap';
+import React from "react";
+import styles from "../../styles/Hack.module.css";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { Card, Media } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+import { axiosRes } from "../../api/axiosDefaults";
+import ActionDropdown from "../../components/ActionDropdown";
 
-const Hack = ({ hack }) => {
-  const averageRating = Math.round(hack.average_rating);
-  const stars = Array.from({ length: 5 }, (_, i) => (
-    <i key={i} className={i < averageRating ? 'fas fa-star text-warning' : 'far fa-star text-muted'} />
-  ));
+const Hack = (props) => {
+  const {
+    id,
+    owner,
+    title,
+    content,
+    image,
+    updated_at,
+    created_at,
+    category,
+  } = props;
+
+  const currentUser = useCurrentUser();
+  const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/hacks/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/hacks/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
-    <Card className="text-center">
-      <Image src={hack.image} alt={hack.title} className="mb-3" />
-      <Card.Body>
-        <Card.Title>{hack.title}</Card.Title>
-        <Card.Subtitle className="mb-2">by {hack.owner}</Card.Subtitle>
-        <Card.Text className="mb-4">{hack.content}</Card.Text>
-        <Card.Footer className="text-muted">
-          <small>Created at {hack.created_at}</small>
-          <br />
-          <small>Updated at {hack.updated_at}</small>
-          <br />
-          <small>Category: {hack.category}</small>
-          <div className="d-flex justify-content-center align-items-center mt-3">
-            {stars}
-            <small className="ml-2"> {averageRating}/5</small>
+    <Card className={styles.Hack}>
+      <Card.Header>
+        <Media className="align-items-center">
+          <img src={image} alt={title} className={styles.HackImage} />
+          <div className="d-flex align-items-center">
+            <span>
+              {updated_at} ({created_at})
+            </span>
+            {is_owner && (
+              <div className="ml-auto">
+                <ActionDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
+              </div>
+            )}
           </div>
-        </Card.Footer>
+        </Media>
+      </Card.Header>
+      <Card.Body>
+        <Card.Title className="text-center">{title}</Card.Title>
+        <Card.Subtitle className="text-muted">{category}</Card.Subtitle>
+        <Card.Text>{content}</Card.Text>
       </Card.Body>
     </Card>
   );
