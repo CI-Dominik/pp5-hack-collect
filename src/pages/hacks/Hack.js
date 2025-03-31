@@ -28,7 +28,7 @@ const Hack = (props) => {
 
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/hacks/${id}/`);
+      await axiosRes.delete(`/hacks/${id}`);
       history.goBack();
     } catch (err) {
       console.log(err);
