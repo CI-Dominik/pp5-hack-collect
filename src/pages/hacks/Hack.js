@@ -51,10 +51,14 @@ const Hack = (props) => {
           )}
         </div>}
         <Media className="align-items-center">
-
-          <Link to={`/hacks/${id}`}>
+          {hackPage ? (
             <img src={image} alt={title} className={styles.HackImage} />
-          </Link>
+          ) : (
+            <Link to={`/hacks/${id}`}>
+              <img src={image} alt={title} className={styles.HackImage} />
+            </Link>
+          )}
+
           <div>
             <p>
               (Created: {created_at} by {owner})
@@ -67,9 +71,14 @@ const Hack = (props) => {
         </Media>
       </Card.Header>
       <Card.Body>
-        <Link to={`/hacks/${id}`}>
+        {hackPage ? (
           <Card.Title className="text-center">{title}</Card.Title>
-        </Link>
+        ) : (
+          <Link to={`/hacks/${id}`}>
+            <Card.Title className="text-center">{title}</Card.Title>
+          </Link>
+        )}
+
         <Card.Subtitle className="text-muted">{category}</Card.Subtitle>
         <Card.Text>{content}</Card.Text>
       </Card.Body>
