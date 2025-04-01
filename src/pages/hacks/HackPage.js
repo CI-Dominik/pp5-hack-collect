@@ -10,6 +10,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import Hack from "./Hack";
 import Asset from "../../components/Asset";
+import { Container } from "react-bootstrap";
 
 function HackPage() {
   const { id } = useParams();
@@ -37,17 +38,19 @@ function HackPage() {
   }, [id]);
 
   return (
-    <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        {isLoading ? (
-          <Asset spinner />
-        ) : hack.results.length ? (
-          <Hack {...hack.results[0]} hackPage />
-        ) : (
-          <h1>No hack found!</h1>
-        )}
-      </Col>
-    </Row>
+    <Container>
+      <Row className="h-100">
+        <Col className="py-2 p-0 p-lg-2" lg={6}>
+          {isLoading ? (
+            <Asset spinner />
+          ) : hack.results.length ? (
+            <Hack {...hack.results[0]} hackPage />
+          ) : (
+            <h1>No hack found!</h1>
+          )}
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

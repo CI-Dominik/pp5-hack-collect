@@ -5,6 +5,7 @@ import { Card, Media } from "react-bootstrap";
 import { useHistory, Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import ActionDropdown from "../../components/ActionDropdown";
+import Avatar from '../../components/Avatar'
 
 const Hack = (props) => {
   const {
@@ -41,19 +42,27 @@ const Hack = (props) => {
   return (
     <Card className={styles.Hack}>
       <Card.Header>
+        {hackPage && <div className="d-flex align-items-center justify-content-between">
+          <Avatar src={profile_image} text={owner} />
+          {is_owner && (
+            <div className="ms-auto text-right">
+              <ActionDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
+            </div>
+          )}
+        </div>}
         <Media className="align-items-center">
+
           <Link to={`/hacks/${id}`}>
             <img src={image} alt={title} className={styles.HackImage} />
           </Link>
-          <div className="d-flex align-items-center">
-            <span>
-              {updated_at} ({created_at})
-            </span>
-            {is_owner && hackPage && (
-              <div className="ml-auto">
-                <ActionDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
-              </div>
-            )}
+          <div>
+            <p>
+              (Created: {created_at} by {owner})
+            </p>
+            <p>
+              Last updated: {updated_at}
+            </p>
+
           </div>
         </Media>
       </Card.Header>
