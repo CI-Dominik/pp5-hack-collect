@@ -43,9 +43,12 @@ const CreateHack = () => {
   };
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-3">
       <Row className="justify-content-center">
         <Col md={6} className="bg-light p-4 border rounded">
+        <p>ADD HACK INFORMATION</p>
+        </Col>
+        <Col md={6} className="bg-light p-4 rounded">
           <h2 className="text-center mb-4">Create Hack</h2>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="title" className="mb-3">
