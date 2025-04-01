@@ -7,6 +7,7 @@ import SignUpForm from './pages/auth/SignUpForm';
 import HeroArea from './components/HeroArea';
 import HackList from './pages/hacks/HackList';
 import CreateHack from './pages/hacks/CreateHack';
+import HackPage from './pages/hacks/HackPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           <Route exact path="/" render={() => <HeroArea />} />
           <Route exact path="/hacks" render={() => <HackList />} />
+          <Route exact path="/hacks/:id" render={() => <HackPage />} />
           <Route exact path="/add-hack" render={() => <CreateHack />} />
           <Route exact path="/sign-in" render={() => <SignInForm />} />
           <Route exact path="/sign-up" render={() => <SignUpForm />} />
