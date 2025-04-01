@@ -18,6 +18,7 @@ const Hack = (props) => {
     category,
     profile_id,
     profile_image,
+    hackPage,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -48,7 +49,7 @@ const Hack = (props) => {
             <span>
               {updated_at} ({created_at})
             </span>
-            {is_owner && (
+            {is_owner && hackPage && (
               <div className="ml-auto">
                 <ActionDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
               </div>
