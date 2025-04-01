@@ -24,3 +24,9 @@
     text-decoration: none !important;
     font-weight: bold;
 }
+
+@media (width <= 991px) {
+    .NavLink {
+        padding: 5px 0;
+    }
+}
