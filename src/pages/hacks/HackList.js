@@ -44,47 +44,49 @@ function HacksPage({ message, filter = "" }) {
   }, [filter, query, pathname]);
 
   return (
-    <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <i className={`fas fa-search ${styles.SearchIcon}`} />
-        <Form
-          className={styles.SearchBar}
-          onSubmit={(event) => event.preventDefault()}
-        >
-          <Form.Control
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            type="text"
-            className="mr-sm-2"
-            placeholder="Search hacks"
-          />
-        </Form>
+    <Container>
+      <Row className="h-100">
+        <Col className="py-2 p-0 p-lg-2" lg={8}>
+          <i className={`fas fa-search ${styles.SearchIcon}`} />
+          <Form
+            className={styles.SearchBar}
+            onSubmit={(event) => event.preventDefault()}
+          >
+            <Form.Control
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              type="text"
+              className="mr-sm-2"
+              placeholder="Search hacks"
+            />
+          </Form>
 
-        {hasLoaded ? (
-          <>
-            {hacks.results.length ? (
-              <InfiniteScroll
-                children={hacks.results.map((hack) => (
-                  <Hack key={hack.id} {...hack} setHacks={setHacks} />
-                ))}
-                dataLength={hacks.results.length}
-                loader={<Asset spinner />}
-                hasMore={!!hacks.next}
-                next={() => fetchMoreData(hacks, setHacks)}
-              />
-            ) : (
-              <Container>
-                <p>No results</p>
-              </Container>
-            )}
-          </>
-        ) : (
-          <Container>
-            <Asset spinner />
-          </Container>
-        )}
-      </Col>
-    </Row>
+          {hasLoaded ? (
+            <>
+              {hacks.results.length ? (
+                <InfiniteScroll
+                  children={hacks.results.map((hack) => (
+                    <Hack key={hack.id} {...hack} setHacks={setHacks} />
+                  ))}
+                  dataLength={hacks.results.length}
+                  loader={<Asset spinner />}
+                  hasMore={!!hacks.next}
+                  next={() => fetchMoreData(hacks, setHacks)}
+                />
+              ) : (
+                <Container>
+                  <p>No results</p>
+                </Container>
+              )}
+            </>
+          ) : (
+            <Container>
+              <Asset spinner />
+            </Container>
+          )}
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
