@@ -6,6 +6,8 @@ import { useHistory, Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import ActionDropdown from "../../components/ActionDropdown";
 import Avatar from '../../components/Avatar'
+import RatingComponent from "../../components/RatingComponent";
+import { Rating } from "@mui/material";
 
 const Hack = (props) => {
   const {
@@ -17,6 +19,7 @@ const Hack = (props) => {
     updated_at,
     created_at,
     category,
+    average_rating,
     profile_id,
     profile_image,
     hackPage,
@@ -66,6 +69,15 @@ const Hack = (props) => {
             <p>
               Last updated: {updated_at}
             </p>
+            <p>Average rating:</p>
+            <Rating
+              name={`rating-${id}`}
+              value={average_rating}
+              precision={1}
+              readOnly
+            />
+            {hackPage && <RatingComponent hackId={id} />}
+            
 
           </div>
         </Media>
