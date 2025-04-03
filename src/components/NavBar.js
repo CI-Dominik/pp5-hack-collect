@@ -79,14 +79,14 @@ const NavBar = () => {
 
                 <NavLink className="text-decoration-none" to="/">
                     <Navbar.Brand className={styles.Title}>Hack Collect</Navbar.Brand>
-                    {currentUser && <NavLink
-                        exact
-                        className={styles.NavLink}
-                        activeClassName={styles.Active}
-                        to="/add-hack">
-                        <i className="fas fa-plus"></i> Add Hack
-                    </NavLink>}
                 </NavLink>
+                {currentUser && <NavLink
+                    exact
+                    className={styles.NavLink}
+                    activeClassName={styles.Active}
+                    to="/add-hack">
+                    <i className="fas fa-plus"></i> Add Hack
+                </NavLink>}
                 <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse>
                     <Nav className="ms-auto">
