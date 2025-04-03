@@ -1,9 +1,10 @@
 .Hack {
   background-color: #ffffff;
   border: 1px solid #dadadf;
-  border-radius: 2px;
+  border-radius: 25px;
   margin-bottom: 16px;
   text-align: center;
+  color: #2b3035;
 }
 
 .Hack figure,
@@ -16,5 +17,6 @@ h5 {
   height: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
+  margin-top: 10px;
   border-radius: 10px;
 }

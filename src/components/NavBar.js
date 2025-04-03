@@ -32,13 +32,6 @@ const NavBar = () => {
                 exact
                 className={styles.NavLink}
                 activeClassName={styles.Active}
-                to="/add-hack">
-                <i className="fas fa-plus"></i> Add Hack
-            </NavLink>
-            <NavLink
-                exact
-                className={styles.NavLink}
-                activeClassName={styles.Active}
                 to="/followed">
                 <i className="fas fa-stream"></i> Followed
             </NavLink>
@@ -47,7 +40,7 @@ const NavBar = () => {
                 className={styles.NavLink}
                 activeClassName={styles.Active}
                 to="/liked">
-                <i className="fas fa-heart"></i> Liked
+                <i className="fas fa-star"></i> Rated
             </NavLink>
             <NavLink
                 exact
@@ -82,10 +75,17 @@ const NavBar = () => {
 
     return (
         <>
-            <Navbar collapseOnSelect bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary p-2">
+            <Navbar collapseOnSelect bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary p-2 sticky-top">
 
-                <NavLink to="/">
+                <NavLink className="text-decoration-none" to="/">
                     <Navbar.Brand className={styles.Title}>Hack Collect</Navbar.Brand>
+                    {currentUser && <NavLink
+                        exact
+                        className={styles.NavLink}
+                        activeClassName={styles.Active}
+                        to="/add-hack">
+                        <i className="fas fa-plus"></i> Add Hack
+                    </NavLink>}
                 </NavLink>
                 <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse>
