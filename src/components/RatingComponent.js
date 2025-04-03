@@ -29,7 +29,7 @@ const RatingComponent = ({ hackId }) => {
     };
 
     fetchRating();
-  }, [hackId, currentUser]);
+  }, [hackId, rating, currentUser]);
 
   const handleRatingChange = async (event, newValue) => {
     if (currentUser) {
