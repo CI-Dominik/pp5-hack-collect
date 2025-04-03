@@ -50,7 +50,7 @@ const NavBar = () => {
             >
                 <i className="fas fa-sign-out-alt"></i> Sign-out
             </NavLink>
-            <Avatar src={currentUser?.profile_image} text="Profile" height={30} />
+            <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={30} />
         </>
     );
 
@@ -75,7 +75,7 @@ const NavBar = () => {
 
     return (
         <>
-            <Navbar collapseOnSelect bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary p-2 sticky-top">
+            <Navbar collapseOnSelect bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary p-2 sticky-top text-white">
 
                 <NavLink className="text-decoration-none" to="/">
                     <Navbar.Brand className={styles.Title}>Hack Collect</Navbar.Brand>
