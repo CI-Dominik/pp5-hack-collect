@@ -75,7 +75,7 @@ const Hack = (props) => {
               readOnly
               allowHover={false}
             />
-            {hackPage && <RatingComponent hackId={id} />}
+            {hackPage && currentUser && <RatingComponent hackId={id} />}
             
 
           </div>
