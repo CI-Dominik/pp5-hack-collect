@@ -53,13 +53,15 @@ const RatingComponent = ({ hackId }) => {
   };
 
   return (
-    <div className="d-flex align-items-center justify-content-center">
+    <div className="d-flex flex-column">
+      <p>Your rating:</p>
       <Rating
         onClick={handleRatingChange}
         initialValue={rating ? rating.rating : 0}
       />
       <Button
-        variant="secondary"
+      className="mb-2"
+        variant={!hasRating ? "secondary" : "warning"}
         onClick={handleRatingDelete}
         disabled={!hasRating || !currentUser}
       >

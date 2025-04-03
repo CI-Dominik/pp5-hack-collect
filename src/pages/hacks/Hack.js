@@ -62,7 +62,7 @@ const Hack = (props) => {
             </Link>
           )}
           {hackPage ? (
-            <Card.Title className="text-center">{title}</Card.Title>
+            <Card.Title className="text-center fw-bold"><h1>{title}</h1></Card.Title>
           ) : (
             <Link to={`/hacks/${id}`}>
               <Card.Title className="text-center fw-bold text-decoration-none link-dark"><h1>{title}</h1></Card.Title>
@@ -70,19 +70,22 @@ const Hack = (props) => {
           )}
           <h3>Preview</h3>
           <Card.Text>{content.slice(0, 50)}{content.length > 50 && "..."}</Card.Text>
-
         </Media>
       </Card.Header>
       <Card.Body>
-        <div className="d-flex flex-column">
-          <p>Average rating:</p>
-          <Rating
-            initialValue={average_rating}
-            readonly
-            allowHover={false}
-          />
-          {!average_rating > 0 && <p>Not rated yet.</p>}
+        <div className="d-flex justify-content-between">
+          <div className="d-flex flex-column">
+            <p>Average rating:</p>
+            <Rating
+              initialValue={average_rating}
+              readonly
+              allowHover={false}
+            />
+            {!average_rating > 0 && <p>Not rated yet.</p>}
+          </div>
           {hackPage && currentUser && !is_owner && <RatingComponent hackId={id} />}
+        </div>
+        <div className="d-flex flex-column">
           <div className="d-flex justify-content-between mt-1">
             <p>
               (Created: {created_at} by <span className="fw-bold">{owner}</span>)
