@@ -77,7 +77,7 @@ function HacksPage({ message, filter = "" }) {
                 />
               ) : (
                 <Container>
-                  <p>No results</p>
+                  <h1 className="text-white fw-bold">No results found.</h1>
                 </Container>
               )}
             </>

@@ -53,7 +53,7 @@ const Hack = (props) => {
             </div>
           )}
         </div>}
-        <Media className="align-items-center">
+        <Media>
           {hackPage ? (
             <img src={image} alt={title} className={styles.HackImage} />
           ) : (
@@ -61,37 +61,37 @@ const Hack = (props) => {
               <img src={image} alt={title} className={styles.HackImage} />
             </Link>
           )}
+          {hackPage ? (
+            <Card.Title className="text-center">{title}</Card.Title>
+          ) : (
+            <Link to={`/hacks/${id}`}>
+              <Card.Title className="text-center fw-bold text-decoration-none link-dark"><h1>{title}</h1></Card.Title>
+            </Link>
+          )}
+          <h3>Preview</h3>
+          <Card.Text>{content.slice(0, 50)}{content.length > 50 && "..."}</Card.Text>
 
-          <div>
+        </Media>
+      </Card.Header>
+      <Card.Body>
+        <div className="d-flex flex-column">
+          <p>Average rating:</p>
+          <Rating
+            initialValue={average_rating}
+            readonly
+            allowHover={false}
+          />
+          {!average_rating > 0 && <p>Not rated yet.</p>}
+          {hackPage && currentUser && !is_owner && <RatingComponent hackId={id} />}
+          <div className="d-flex justify-content-between mt-1">
             <p>
-              (Created: {created_at} by {owner})
+              (Created: {created_at} by <span className="fw-bold">{owner}</span>)
             </p>
             <p>
               Last updated: {updated_at}
             </p>
-            <p>Average rating:</p>
-            <Rating
-              initialValue={average_rating}
-              readOnly
-              allowHover={false}
-            />
-            {hackPage && currentUser && !is_owner && <RatingComponent hackId={id} />}
-            
-
           </div>
-        </Media>
-      </Card.Header>
-      <Card.Body>
-        {hackPage ? (
-          <Card.Title className="text-center">{title}</Card.Title>
-        ) : (
-          <Link to={`/hacks/${id}`}>
-            <Card.Title className="text-center">{title}</Card.Title>
-          </Link>
-        )}
-
-        <Card.Subtitle className="text-muted">{category}</Card.Subtitle>
-        <Card.Text>{content}</Card.Text>
+        </div>
       </Card.Body>
     </Card>
   );
