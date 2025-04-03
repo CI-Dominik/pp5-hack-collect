@@ -59,7 +59,7 @@ const RatingComponent = ({ hackId }) => {
     <div className="d-flex align-items-center justify-content-center">
       <Rating
         onClick={handleRatingChange}
-        initialValue={rating ? rating : 0}
+        initialValue={rating === undefined ? 3 : rating}
       />
       <Button
         variant="secondary"
