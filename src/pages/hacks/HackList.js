@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Hack from "./Hack";
 import Asset from "../../components/Asset";
 
-import styles from "../../styles/HacksPage.module.css";
+import styles from "../../styles/HackList.module.css";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -47,19 +47,21 @@ function HacksPage({ message, filter = "" }) {
     <Container>
       <Row className="h-100">
         <Col className="py-2 p-0 p-lg-2" lg={8}>
-          <i className={`fas fa-search ${styles.SearchIcon}`} />
-          <Form
-            className={styles.SearchBar}
-            onSubmit={(event) => event.preventDefault()}
-          >
-            <Form.Control
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              type="text"
-              className="mr-sm-2"
-              placeholder="Search hacks"
-            />
-          </Form>
+          <div className="d-flex justify-content-between">
+            <i className={`fas fa-search ${styles.SearchIcon}`} />
+            <Form
+              className={`w-100 ${styles.SearchBar}`}
+              onSubmit={(event) => event.preventDefault()}
+            >
+              <Form.Control
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                type="text"
+                className="mr-sm-2"
+                placeholder="Search hacks"
+              />
+            </Form>
+          </div>
 
           {hasLoaded ? (
             <>
