@@ -45,14 +45,14 @@ const Hack = (props) => {
   return (
     <Card className={styles.Hack}>
       <Card.Header>
-        {hackPage && <div className="d-flex align-items-center justify-content-between">
+        <div className="d-flex align-items-center justify-content-between">
           <Avatar src={profile_image} text={owner} />
           {is_owner && (
             <div className="ms-auto text-right">
               <ActionDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
             </div>
           )}
-        </div>}
+        </div>
         <Media>
           {hackPage ? (
             <img src={image} alt={title} className={styles.HackImage} />
