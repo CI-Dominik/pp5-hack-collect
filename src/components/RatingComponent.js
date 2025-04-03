@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Rating from "@mui/material/Rating";
+import { Rating } from 'react-simple-star-rating'
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { Button } from "react-bootstrap";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
@@ -31,7 +31,7 @@ const RatingComponent = ({ hackId }) => {
     fetchRating();
   }, [hackId, rating, currentUser]);
 
-  const handleRatingChange = async (event, newValue) => {
+  const handleRatingChange = async (newValue) => {
     if (currentUser) {
       try {
         const response = await axiosReq.post("/ratings/", { hack: hackId, rating: newValue });
@@ -45,9 +45,11 @@ const RatingComponent = ({ hackId }) => {
 
   const handleRatingDelete = async () => {
     try {
-      await axiosRes.delete(`/ratings/${rating.id}`);
-      setRating(0);
-      setHasRating(false);
+      if (rating) {
+        await axiosRes.delete(`/ratings/${rating.id}`);
+        setRating(0);
+        setHasRating(false);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -56,16 +58,13 @@ const RatingComponent = ({ hackId }) => {
   return (
     <div className="d-flex align-items-center justify-content-center">
       <Rating
-        name={`rating-${hackId}`}
-        value={rating?.rating || 0}
-        precision={1}
-        onChange={handleRatingChange}
-        disabled={!currentUser}
+        onClick={handleRatingChange}
+        initialValue={rating ? rating : 0}
       />
       <Button
         variant="secondary"
         onClick={handleRatingDelete}
-        disabled={!hasRating || !currentUser}
+        disabled={rating === undefined || !currentUser}
       >
         Delete Rating
       </Button>

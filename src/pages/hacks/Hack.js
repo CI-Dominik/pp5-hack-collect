@@ -7,7 +7,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import ActionDropdown from "../../components/ActionDropdown";
 import Avatar from '../../components/Avatar'
 import RatingComponent from "../../components/RatingComponent";
-import { Rating } from "@mui/material";
+import { Rating } from 'react-simple-star-rating'
 
 const Hack = (props) => {
   const {
@@ -71,10 +71,9 @@ const Hack = (props) => {
             </p>
             <p>Average rating:</p>
             <Rating
-              name={`rating-${id}`}
-              value={average_rating}
-              precision={1}
+              initialValue={average_rating}
               readOnly
+              allowHover={false}
             />
             {hackPage && <RatingComponent hackId={id} />}
             
