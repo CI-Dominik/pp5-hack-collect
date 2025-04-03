@@ -14,7 +14,7 @@ const RatingComponent = ({ hackId }) => {
     const fetchRating = async () => {
       try {
         if (currentUser) {
-          const response = await axiosReq.get(`/ratings/?hack=${hackId}&owner=${currentUser.username}`);
+          const response = await axiosReq.get(`/ratings/?hack=${hackId}&owner=${currentUser.id}`);
           if (response.data.results) {
             setRating(response?.data?.results[0]);
             setHasRating(true);
