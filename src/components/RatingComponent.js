@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 const RatingComponent = ({ hackId }) => {
-  const [rating, setRating] = useState({});
+  const [rating, setRating] = useState(null);
   const [hasRating, setHasRating] = useState(false);
 
   const currentUser = useCurrentUser();
@@ -14,14 +14,11 @@ const RatingComponent = ({ hackId }) => {
     const fetchRating = async () => {
       try {
         if (currentUser) {
-          const response = await axiosReq.get(`/ratings/?hack=${hackId}&owner=${currentUser.id}`);
-          if (response.data.results) {
-            setRating(response?.data?.results[0]);
+          const response = await axiosReq.get(`/ratings/?hack=${hackId}&owner=${currentUser.pk}`);
+          if (response.data.results.length) {
+            setRating({ id: response.data.results[0]?.id, rating: response.data.results[0].rating });
             setHasRating(true);
           }
-        } else {
-          setRating(0);
-          setHasRating(false);
         }
       } catch (error) {
         console.error(error);
@@ -29,13 +26,13 @@ const RatingComponent = ({ hackId }) => {
     };
 
     fetchRating();
-  }, [hackId, rating, currentUser]);
+  }, [hackId, currentUser]);
 
   const handleRatingChange = async (newValue) => {
     if (currentUser) {
       try {
         const response = await axiosReq.post("/ratings/", { hack: hackId, rating: newValue });
-        setRating(response?.data?.rating);
+        setRating({ id: response.data.id, rating: newValue });
         setHasRating(true);
       } catch (error) {
         console.error(error);
@@ -47,7 +44,7 @@ const RatingComponent = ({ hackId }) => {
     try {
       if (rating) {
         await axiosRes.delete(`/ratings/${rating.id}`);
-        setRating(0);
+        setRating(null);
         setHasRating(false);
       }
     } catch (error) {
@@ -59,12 +56,12 @@ const RatingComponent = ({ hackId }) => {
     <div className="d-flex align-items-center justify-content-center">
       <Rating
         onClick={handleRatingChange}
-        initialValue={rating === undefined ? 3 : rating}
+        initialValue={rating ? rating.rating : 0}
       />
       <Button
         variant="secondary"
         onClick={handleRatingDelete}
-        disabled={rating === undefined || !currentUser}
+        disabled={!hasRating || !currentUser}
       >
         Delete Rating
       </Button>
