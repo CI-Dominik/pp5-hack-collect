@@ -74,7 +74,7 @@ const Hack = (props) => {
               content
             ) : (
               content.length > 50 ? (
-                content.slice(0,50) + "..."
+                content.slice(0, 50) + "..."
               ) : (
                 content
               )
