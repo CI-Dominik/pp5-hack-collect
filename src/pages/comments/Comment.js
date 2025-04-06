@@ -31,16 +31,15 @@ const Comment = (props) => {
     }
 
     return (
-        <div>
-            <Media className="d-flex">
+        <>
+            <Media className="d-flex w-100 my-2 text-white">
                 <Avatar src={profile_image} />
                 <Media.Body className="align-self-center ml-2">
-                    <span>{owner}</span>
-                    <span>{updated_at}</span>
+                    <span>{owner} - {updated_at}</span>
                     <p>{content}</p>
                 </Media.Body>
             </Media>
-        </div>
+        </>
     );
 };
 
