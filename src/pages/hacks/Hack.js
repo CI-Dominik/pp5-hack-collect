@@ -68,8 +68,17 @@ const Hack = (props) => {
               <Card.Title className="text-center fw-bold text-decoration-none link-dark"><h1>{title}</h1></Card.Title>
             </Link>
           )}
-          <h3>Preview</h3>
-          <Card.Text>{content.slice(0, 50)}{content.length > 50 && "..."}</Card.Text>
+          {!hackPage && <h3>Preview</h3>}
+          <Card.Text>
+            {hackPage ? (
+              content
+            ) : (
+              content.length > 50 ? (
+                content.slice(0,50) + "..."
+              ) : (
+                content
+              )
+            )}</Card.Text>
         </Media>
       </Card.Header>
       <Card.Body>
