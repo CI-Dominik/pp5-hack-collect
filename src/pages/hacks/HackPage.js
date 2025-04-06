@@ -58,7 +58,7 @@ function HackPage() {
           )}
         </Col>
         <Col className="py-2 p-0 p-lg-2" lg={6}>
-        {currentUser && hack?.results?.length ? (
+          {currentUser && hack?.results?.length ? (
             <CommentCreateForm
               profile_id={currentUser.profile_id}
               profileImage={profile_image}
@@ -89,7 +89,6 @@ function HackPage() {
           ) : (
             <span className="text-white fw bold">No comments found.</span>
           )}
-  {console.log(hack)}
         </Col>
       </Row>
     </Container>
