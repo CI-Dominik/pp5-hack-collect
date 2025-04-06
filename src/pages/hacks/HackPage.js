@@ -15,6 +15,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Comment from "../comments/Comment";
 
 import { fetchMoreData } from "../../utils/utils";
+import CommentCreateForm from "../comments/CommentCreateForm";
 
 function HackPage() {
   const { id } = useParams();
@@ -57,7 +58,18 @@ function HackPage() {
           )}
         </Col>
         <Col className="py-2 p-0 p-lg-2" lg={6}>
-          {comments.results.length ? (
+        {currentUser && hack?.results?.length ? (
+            <CommentCreateForm
+              profile_id={currentUser.profile_id}
+              profileImage={profile_image}
+              hack={id}
+              setHack={setHack}
+              setComments={setComments}
+            />
+          ) : comments.results.length ? (
+            "Comments"
+          ) : null}
+          {comments.results.length && hack?.results?.length ? (
             <InfiniteScroll
               children={comments.results.map((comment) => (
                 <Comment
@@ -72,12 +84,12 @@ function HackPage() {
               hasMore={!!comments.next}
               next={() => fetchMoreData(comments, setComments)}
             />
-          ) : currentUser ? (
+          ) : currentUser && hack?.results?.length ? (
             <span className="text-white fw-bold">No comments found. Do you want to start?</span>
           ) : (
-            <span className="text-white fw bold">No comments found. Log in and leave your comment!</span>
+            <span className="text-white fw bold">No comments found.</span>
           )}
-
+  {console.log(hack)}
         </Col>
       </Row>
     </Container>
