@@ -8,17 +8,18 @@ import HeroArea from './components/HeroArea';
 import HackList from './pages/hacks/HackList';
 import CreateHack from './pages/hacks/CreateHack';
 import HackPage from './pages/hacks/HackPage';
+import HackEdit from './pages/hacks/HackEdit';
 
 function App() {
   return (
     <div className="App">
-
       <Container className="p-0">
         <NavBar />
         <Switch>
           <Route exact path="/" render={() => <HeroArea />} />
           <Route exact path="/hacks" render={() => <HackList />} />
           <Route exact path="/hacks/:id" render={() => <HackPage />} />
+          <Route exact path="/hacks/:id/edit" render={() => <HackEdit />} />
           <Route exact path="/add-hack" render={() => <CreateHack />} />
           <Route exact path="/sign-in" render={() => <SignInForm />} />
           <Route exact path="/sign-up" render={() => <SignUpForm />} />
