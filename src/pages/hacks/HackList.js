@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 
 import Hack from "./Hack";
 import Asset from "../../components/Asset";
@@ -21,11 +22,26 @@ function HackList({ message, filter = "" }) {
   const { pathname } = useLocation();
 
   const [query, setQuery] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("");
+  const [activeCategory, setActiveCategory] = useState("");
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const { data } = await axiosReq.get("/categories/");
+        setCategories(data.results);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchCategories();
+  }, []);
 
   useEffect(() => {
     const fetchHacks = async () => {
       try {
-        const { data } = await axiosReq.get(`/hacks/?${filter}search=${query}`);
+        const { data } = await axiosReq.get(`/hacks/?${categoryFilter}${filter}search=${query}`);
         setHacks(data);
         setHasLoaded(true);
       } catch (err) {
@@ -41,11 +57,32 @@ function HackList({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, categoryFilter]);
+
+  const handleCategoryClick = (slug) => {
+    if (slug === activeCategory) {
+      setCategoryFilter("");
+      setActiveCategory("");
+    } else {
+      setCategoryFilter(`category=${slug}&`);
+      setActiveCategory(slug);
+    }
+  };
 
   return (
     <Container>
       <Row className="h-100">
+        <div className="mb-3 d-flex flex-wrap gap-2">
+          {categories.map((cat) => (
+            <Button
+              key={cat.id}
+              variant={activeCategory === cat.slug ? "primary" : "outline-primary"}
+              onClick={() => handleCategoryClick(cat.slug)}
+            >
+              {cat.name}
+            </Button>
+          ))}
+        </div>
         <Col className="py-2 p-0 p-lg-2" lg={8}>
           <div className="d-flex justify-content-between">
             <i className={`fas fa-search ${styles.SearchIcon}`} />
