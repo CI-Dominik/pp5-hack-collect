@@ -15,7 +15,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
-function HacksPage({ message, filter = "" }) {
+function HackList({ message, filter = "" }) {
   const [hacks, setHacks] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -92,4 +92,4 @@ function HacksPage({ message, filter = "" }) {
   );
 }
 
-export default HacksPage;
+export default HackList;

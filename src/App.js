@@ -9,8 +9,13 @@ import HackList from './pages/hacks/HackList';
 import CreateHack from './pages/hacks/CreateHack';
 import HackPage from './pages/hacks/HackPage';
 import HackEdit from './pages/hacks/HackEdit';
+import { useCurrentUser } from './contexts/CurrentUserContext';
 
 function App() {
+
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
+
   return (
     <div className="App">
       <Container className="p-0">
@@ -23,6 +28,7 @@ function App() {
           <Route exact path="/add-hack" render={() => <CreateHack />} />
           <Route exact path="/sign-in" render={() => <SignInForm />} />
           <Route exact path="/sign-up" render={() => <SignUpForm />} />
+          <Route exact path="/rated" render={() => <HackList filter={`ratings__owner__profile=${profile_id}&`} />} />
           <Route render={() => <h1>Page not found!</h1>} />
         </Switch>
       </Container>
