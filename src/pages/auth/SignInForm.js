@@ -42,10 +42,10 @@ function SignInForm() {
         <div className="col-md-4">
           <div className="card">
             <div className="card-body">
-              <h2 className="text-center">Anmelden</h2>
+              <h2 className="text-center">Sign-in</h2>
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="username">
-                  <Form.Label>Benutzername</Form.Label>
+                  <Form.Label>Username</Form.Label>
                   <Form.Control
                     type="text"
                     value={username}
@@ -55,7 +55,7 @@ function SignInForm() {
                   {errors.username && <div className="text-danger">{errors.username}</div>}
                 </Form.Group>
                 <Form.Group controlId="password">
-                  <Form.Label>Passwort</Form.Label>
+                  <Form.Label>Password</Form.Label>
                   <Form.Control
                     type="password"
                     value={password}
@@ -64,7 +64,7 @@ function SignInForm() {
                   />
                   {errors.password && <div className="text-danger">{errors.password}</div>}
                 </Form.Group>
-                <Button type="submit" className="btn btn-primary btn-block">Anmelden</Button>
+                <Button type="submit" className="btn btn-primary btn-block">Sign-in</Button>
               </Form>
             </div>
           </div>
