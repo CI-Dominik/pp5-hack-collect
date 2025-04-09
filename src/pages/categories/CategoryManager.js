@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Form, Row, Col } from "react-bootstrap";
+import { Button, Card, Form, Row, Col, Modal } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
@@ -9,6 +9,7 @@ const CategoryManager = () => {
   const [newCategory, setNewCategory] = useState("");
   const [editingId, setEditingId] = useState(null);
   const [editingName, setEditingName] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     fetchCategories();
@@ -35,6 +36,10 @@ const CategoryManager = () => {
   };
 
   const handleDelete = async (id) => {
+    if (categories.length <= 1) {
+      setShowModal(true);
+      return;
+    }
     try {
       await axiosReq.delete(`/categories/${id}/`);
       fetchCategories();
@@ -59,6 +64,8 @@ const CategoryManager = () => {
       console.error(error);
     }
   };
+
+  const handleCloseModal = () => setShowModal(false);
 
   if (!currentUser || !currentUser.is_staff) {
     return <p>You need to be logged in and have admin privileges to use this page.</p>;
@@ -131,6 +138,20 @@ const CategoryManager = () => {
           </Card.Body>
         </Card>
       ))}
+
+      <Modal show={showModal} onHide={handleCloseModal} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Deletion Not Allowed</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          At least one category must exist. You cannot delete the last remaining category.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
