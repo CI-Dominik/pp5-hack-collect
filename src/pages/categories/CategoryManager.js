@@ -56,7 +56,7 @@ const CategoryManager = () => {
       setEditingName("");
       fetchCategories();
     } catch (error) {
-      console.error("Fehler beim Aktualisieren:", error);
+      console.error(error);
     }
   };
 
@@ -73,7 +73,7 @@ const CategoryManager = () => {
           <Col xs={8}>
             <Form.Control
               type="text"
-              placeholder="Neue Kategorie"
+              placeholder="New Category"
               value={newCategory}
               onChange={(e) => setNewCategory(e.target.value)}
             />
