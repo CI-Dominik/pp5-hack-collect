@@ -1,7 +1,7 @@
 import './App.css';
 import NavBar from './components/NavBar';
 import Container from 'react-bootstrap/Container'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import SignInForm from './pages/auth/SignInForm';
 import SignUpForm from './pages/auth/SignUpForm';
 import HeroArea from './components/HeroArea';
@@ -10,11 +10,14 @@ import CreateHack from './pages/hacks/CreateHack';
 import HackPage from './pages/hacks/HackPage';
 import HackEdit from './pages/hacks/HackEdit';
 import { useCurrentUser } from './contexts/CurrentUserContext';
+import CategoryManager from './pages/categories/CategoryManager';
 
 function App() {
 
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
+
+  const isAdmin = currentUser?.is_staff;
 
   return (
     <div className="App">
@@ -29,6 +32,13 @@ function App() {
           <Route exact path="/sign-in" render={() => <SignInForm />} />
           <Route exact path="/sign-up" render={() => <SignUpForm />} />
           <Route exact path="/rated" render={() => <HackList filter={`ratings__owner__profile=${profile_id}&`} />} />
+          <Route
+            exact
+            path="/category-manager"
+            render={() =>
+              isAdmin ? <CategoryManager /> : <Redirect to="/" />
+            }
+          />
           <Route render={() => <h1>Page not found!</h1>} />
         </Switch>
       </Container>

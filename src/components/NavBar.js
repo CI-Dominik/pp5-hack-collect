@@ -15,6 +15,8 @@ const NavBar = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
 
+    const isAdmin = currentUser?.is_staff;
+
     const handleSignOut = async () => {
         try {
             await axios.post('/dj-rest-auth/logout/');
@@ -76,7 +78,7 @@ const NavBar = () => {
     return (
         <>
             <Navbar collapseOnSelect bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary p-2 sticky-top text-white">
-
+                {console.log(currentUser)}
                 <NavLink className="text-decoration-none" to="/">
                     <Navbar.Brand className={styles.Title}>Hack Collect</Navbar.Brand>
                 </NavLink>
@@ -92,6 +94,13 @@ const NavBar = () => {
                     <Nav className="ms-auto">
                         <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/">Home</NavLink>
                         <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/hacks">Hacks</NavLink>
+                        {isAdmin && currentUser && <NavLink
+                            exact
+                            className={styles.NavLink}
+                            to="/category-manager"
+                        >
+                            <i className="fa-solid fa-list"></i> Categories
+                        </NavLink>}
                         {currentUser ? loggedInLinks : loggedOutLinks}
                     </Nav>
                 </Navbar.Collapse>
