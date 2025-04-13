@@ -23,7 +23,7 @@ const NavBar = () => {
             setCurrentUser(null);
             removeTokenTimestamp();
         } catch (error) {
-            console.log("Error:", error)
+            console.log(error)
         }
 
     }
@@ -78,7 +78,6 @@ const NavBar = () => {
     return (
         <>
             <Navbar collapseOnSelect bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary p-2 sticky-top text-white">
-                {console.log(currentUser)}
                 <NavLink className="text-decoration-none" to="/">
                     <Navbar.Brand className={styles.Title}>Hack Collect</Navbar.Brand>
                 </NavLink>

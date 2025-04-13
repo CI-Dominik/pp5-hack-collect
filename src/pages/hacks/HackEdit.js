@@ -79,9 +79,9 @@ function HackEdit() {
     };
 
     const textFields = (
-        <div className="text-center">
+        <div>
             <Form.Group>
-                <Form.Label>Title:</Form.Label>
+                <Form.Label className="text-white">Title:</Form.Label>
                 <Form.Control
                     type="text"
                     name="title"
@@ -95,7 +95,7 @@ function HackEdit() {
             ))}
 
             <Form.Group>
-                <Form.Label>Content:</Form.Label>
+                <Form.Label className="text-white">Content:</Form.Label>
                 <Form.Control
                     as="textarea"
                     rows={6}
@@ -111,49 +111,64 @@ function HackEdit() {
 
             <Button
                 onClick={() => history.goBack()}
+                className="mx-1 my-1"
             >
-                cancel
+                Cancel
             </Button>
-            <Button type="submit">
-                save
+            <Button className="mx-1 my-1" type="submit">
+                Save
             </Button>
         </div>
     );
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} className="p-3">
             <Row>
-                <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
-                    <Container
-                        className={`d-flex flex-column justify-content-center`}
-                    >
-                        <Form.Group className="text-center">
-                            <figure>
-                                <Image src={image} rounded />
+                <Col className="py-3 px-2" md={7} lg={8}>
+                    <Container className="d-flex flex-column h-100">
+                        <Form.Group className="text-center w-100">
+                            <figure className="mb-3">
+                                <Image src={image} rounded fluid className="shadow-sm" style={{ maxHeight: '300px', objectFit: 'contain' }} />
                             </figure>
-                            <div>
-                                <Form.Label className={`btn btn-primary`} htmlFor="image-upload">
-                                    Change the image
+
+                            <div className="mb-3">
+                                <Form.Label
+                                    className="btn btn-outline-primary"
+                                    htmlFor="image-upload"
+                                >
+                                    Change Image
                                 </Form.Label>
+                                <Form.File
+                                    id="image-upload"
+                                    accept="image/*"
+                                    onChange={handleChangeImage}
+                                    ref={imageInput}
+                                    className="d-none"
+                                />
                             </div>
 
-                            <Form.File id="image-upload" accept="image/*" onChange={handleChangeImage} ref={imageInput} />
-
+                            {errors?.image?.map((err, idx) => (
+                                <Alert key={idx} variant="warning" className="text-start">
+                                    {err}
+                                </Alert>
+                            ))}
                         </Form.Group>
 
-                        {errors?.image?.map((err, idx) => (
-                            <Alert key={idx} variant="warning">{err}</Alert>
-                        ))}
-
-                        <div className="d-md-none">{textFields}</div>
+                        <div className="d-md-none w-100">
+                            {textFields}
+                        </div>
                     </Container>
                 </Col>
-                <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-                    <Container>{textFields}</Container>
+
+                <Col md={5} lg={4} className="d-none d-md-block px-2 py-3">
+                    <Container className="h-100 d-flex flex-column justify-content-center">
+                        {textFields}
+                    </Container>
                 </Col>
             </Row>
-        </Form >
+        </Form>
     );
+
 }
 
 export default HackEdit;
