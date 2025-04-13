@@ -46,8 +46,8 @@ function HackPage() {
   }, [id]);
 
   return (
-    <Container>
-      <Row className="h-100">
+    <Container fluid className="min-vh-100 d-flex flex-column">
+      <Row className="flex-grow-1">
         <Col className="py-2 p-0 p-lg-2" lg={6}>
           {isLoading ? (
             <Asset spinner />
@@ -81,6 +81,7 @@ function HackPage() {
               ))}
               dataLength={comments.results.length}
               loader={<Asset spinner />}
+              className="min-vh-100 d-flex flex-column"
               hasMore={!!comments.next}
               next={() => fetchMoreData(comments, setComments)}
             />
