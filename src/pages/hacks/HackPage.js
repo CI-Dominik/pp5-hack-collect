@@ -52,7 +52,7 @@ function HackPage() {
           {isLoading ? (
             <Asset spinner />
           ) : hack.results.length ? (
-            <Hack {...hack.results[0]} hackPage />
+            <Hack {...hack.results[0]} hackPage setHack={setHack} />
           ) : (
             <h1 className="text-white">No hack found!</h1>
           )}

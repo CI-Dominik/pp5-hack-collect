@@ -92,7 +92,9 @@ const Hack = (props) => {
             />
             {!average_rating > 0 && <p>Not rated yet.</p>}
           </div>
-          {hackPage && currentUser && !is_owner && <RatingComponent hackId={id} />}
+          {hackPage && currentUser && !is_owner && (
+            <RatingComponent hackId={id} setHack={props.setHack} />
+          )}
         </div>
         <div className="d-flex flex-column">
           <div className="d-flex justify-content-between mt-1">
