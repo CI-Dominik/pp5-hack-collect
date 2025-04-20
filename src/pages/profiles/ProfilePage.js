@@ -125,7 +125,7 @@ function ProfilePage() {
     );
 
     return (
-        <>
+        <Container>
             <div className="d-block d-lg-none mb-3">
                 <PopularProfiles />
             </div>
@@ -148,7 +148,7 @@ function ProfilePage() {
                     <PopularProfiles />
                 </Col>
             </Row>
-        </>
+        </Container>
     );
 }
 

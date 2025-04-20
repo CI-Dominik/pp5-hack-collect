@@ -60,7 +60,7 @@ const Hack = (props) => {
   };
 
   return (
-    <Container>
+    <>
       <Card className={styles.Hack}>
         <Card.Header>
           <div className="d-flex align-items-center justify-content-between">
@@ -127,7 +127,7 @@ const Hack = (props) => {
           </div>
         </Card.Body>
       </Card>
-    </Container>
+    </>
   );
 };
 

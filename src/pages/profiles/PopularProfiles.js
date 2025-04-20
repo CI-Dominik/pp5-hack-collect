@@ -9,12 +9,12 @@ const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
 
   return (
-    <Container className={styles.popularContainer}>
+<>
       {popularProfiles.results.length ? (
         <>
           <div className={styles.title}>Most followed profiles</div>
           {mobile ? (
-            <div className={styles.mobileScroll}>
+            <div>
               {popularProfiles.results.slice(0, 4).map((profile) => (
                 <Profile key={profile.id} profile={profile} mobile />
               ))}
@@ -28,7 +28,7 @@ const PopularProfiles = ({ mobile }) => {
       ) : (
         <Asset spinner />
       )}
-    </Container>
+</>
   );
 };
 
