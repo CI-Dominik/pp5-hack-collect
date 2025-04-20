@@ -4,7 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media } from "react-bootstrap";
 import { useHistory, Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
-import ActionDropdown from "../../components/ActionDropdown";
+import { ActionDropdown } from "../../components/ActionDropdown";
 import Avatar from '../../components/Avatar'
 import RatingComponent from "../../components/RatingComponent";
 import { Rating } from 'react-simple-star-rating'

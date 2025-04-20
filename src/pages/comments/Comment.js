@@ -3,7 +3,7 @@ import { Media, Modal, Button } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
-import ActionDropdown from "../../components/ActionDropdown";
+import { ActionDropdown } from "../../components/ActionDropdown";
 import CommentEditForm from "./CommentEditForm";
 
 const Comment = (props) => {

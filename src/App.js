@@ -11,6 +11,7 @@ import HackPage from './pages/hacks/HackPage';
 import HackEdit from './pages/hacks/HackEdit';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import CategoryManager from './pages/categories/CategoryManager';
+import ProfilePage from './pages/profiles/ProfilePage';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
               isAdmin ? <CategoryManager /> : <Redirect to="/" />
             }
           />
+          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route render={() => <h1>Page not found!</h1>} />
         </Switch>
       </Container>
