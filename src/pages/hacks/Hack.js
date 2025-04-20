@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/Hack.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media } from "react-bootstrap";
@@ -28,6 +28,23 @@ const Hack = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+  const [categoryValue, setCategoryValue] = useState(null);
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        if (category) {
+          const cat = await axiosRes.get(`/categories/${category}`);
+          setCategoryValue(cat);
+        }
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+
+    handleMount();
+  }, [id, category])
 
   const handleEdit = () => {
     history.push(`/hacks/${id}/edit`);
@@ -82,6 +99,7 @@ const Hack = (props) => {
         </Media>
       </Card.Header>
       <Card.Body>
+        <p>Category: {categoryValue?.data?.name || "None"}</p>
         <div className="d-flex justify-content-between">
           <div className="d-flex flex-column">
             <p>Average rating:</p>
