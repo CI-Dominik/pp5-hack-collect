@@ -9,34 +9,53 @@ import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min
 import { axiosReq } from "../../api/axiosDefaults";
 
 function HackEdit() {
-
     const [errors, setErrors] = useState({});
-
+    const [categories, setCategories] = useState([]);
     const [hackData, setHackData] = useState({
         title: "",
         content: "",
         image: "",
+        category: "",
     });
 
-    const { title, content, image } = hackData;
-
+    const { title, content, image, category } = hackData;
     const imageInput = useRef(null);
     const history = useHistory();
     const { id } = useParams();
 
     useEffect(() => {
-        const handleMount = async () => {
+        const fetchData = async () => {
             try {
-                const { data } = await axiosReq.get(`/hacks/${id}`);
-                const { title, content, image, is_owner } = data;
+                const [categoriesRes, hackRes] = await Promise.all([
+                    axiosReq.get("/categories/"),
+                    axiosReq.get(`/hacks/${id}`),
+                ]);
 
-                is_owner ? setHackData({ title, content, image }) : history.push("/");
+                const categoriesData = categoriesRes.data.results;
+                const hack = hackRes.data;
+
+                setCategories(categoriesData);
+
+                if (hack.is_owner) {
+                    const foundCategory = categoriesData.find(
+                        (cat) => cat.id === hack.category?.id
+                    );
+
+                    setHackData({
+                        title: hack.title,
+                        content: hack.content,
+                        image: hack.image,
+                        category: foundCategory?.id || categoriesData[0]?.id || "",
+                    });
+                } else {
+                    history.push("/");
+                }
             } catch (err) {
                 console.log(err);
             }
         };
 
-        handleMount();
+        fetchData();
     }, [history, id]);
 
     const handleChange = (event) => {
@@ -62,6 +81,7 @@ function HackEdit() {
 
         patchData.append("title", title);
         patchData.append("content", content);
+        patchData.append("category", category);
 
         if (imageInput.current.files[0] && imageInput.current.files[0].size > 0) {
             patchData.append("image", imageInput.current.files[0]);
@@ -79,7 +99,7 @@ function HackEdit() {
     };
 
     const textFields = (
-        <div>
+        <>
             <Form.Group>
                 <Form.Label className="text-white">Title:</Form.Label>
                 <Form.Control
@@ -88,11 +108,10 @@ function HackEdit() {
                     value={title}
                     onChange={handleChange}
                 />
+                {errors?.title?.map((err, idx) => (
+                    <Alert key={idx} variant="warning">{err}</Alert>
+                ))}
             </Form.Group>
-
-            {errors?.title?.map((err, idx) => (
-                <Alert key={idx} variant="warning">{err}</Alert>
-            ))}
 
             <Form.Group>
                 <Form.Label className="text-white">Content:</Form.Label>
@@ -103,22 +122,39 @@ function HackEdit() {
                     value={content}
                     onChange={handleChange}
                 />
+                {errors?.content?.map((err, idx) => (
+                    <Alert key={idx} variant="warning">{err}</Alert>
+                ))}
             </Form.Group>
 
-            {errors?.content?.map((err, idx) => (
-                <Alert key={idx} variant="warning">{err}</Alert>
-            ))}
+            {categories.length > 0 && category && (
+                <Form.Group>
+                    <Form.Label className="text-white">Category:</Form.Label>
+                    <Form.Control
+                        as="select"
+                        name="category"
+                        value={category}
+                        onChange={handleChange}
+                    >
+                        {categories.map((cat) => (
+                            <option key={cat.id} value={cat.id}>
+                                {cat.name}
+                            </option>
+                        ))}
+                    </Form.Control>
+                    {errors?.category?.map((err, idx) => (
+                        <Alert key={idx} variant="warning">{err}</Alert>
+                    ))}
+                </Form.Group>
+            )}
 
-            <Button
-                onClick={() => history.goBack()}
-                className="mx-1 my-1"
-            >
+            <Button onClick={() => history.goBack()} className="mx-1 my-1">
                 Cancel
             </Button>
             <Button className="mx-1 my-1" type="submit">
                 Save
             </Button>
-        </div>
+        </>
     );
 
     return (
@@ -128,7 +164,13 @@ function HackEdit() {
                     <Container className="d-flex flex-column h-100">
                         <Form.Group className="text-center w-100">
                             <figure className="mb-3">
-                                <Image src={image} rounded fluid className="shadow-sm" style={{ maxHeight: '300px', objectFit: 'contain' }} />
+                                <Image
+                                    src={image}
+                                    rounded
+                                    fluid
+                                    className="shadow-sm"
+                                    style={{ maxHeight: "300px", objectFit: "contain" }}
+                                />
                             </figure>
 
                             <div className="mb-3">
@@ -154,9 +196,7 @@ function HackEdit() {
                             ))}
                         </Form.Group>
 
-                        <div className="d-md-none w-100">
-                            {textFields}
-                        </div>
+                        <div className="d-md-none w-100">{textFields}</div>
                     </Container>
                 </Col>
 
@@ -168,7 +208,6 @@ function HackEdit() {
             </Row>
         </Form>
     );
-
 }
 
 export default HackEdit;
