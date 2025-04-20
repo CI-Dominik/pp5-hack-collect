@@ -30,7 +30,6 @@ const CreateHack = () => {
 
     try {
       const { data } = await axiosReq.post("/hacks/", formData);
-      console.log(data);
       setErrors({});
       setSuccess('Hack created successfully!');
       event.target.reset();
