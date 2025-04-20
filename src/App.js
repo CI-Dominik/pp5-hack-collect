@@ -33,6 +33,7 @@ function App() {
           <Route exact path="/sign-in" render={() => <SignInForm />} />
           <Route exact path="/sign-up" render={() => <SignUpForm />} />
           <Route exact path="/rated" render={() => <HackList filter={`ratings__owner__profile=${profile_id}&`} />} />
+          <Route exact path="/followed" render={() => <HackList filter={`owner__followed__owner__profile=${profile_id}&`} />} />
           <Route
             exact
             path="/category-manager"
