@@ -26,7 +26,7 @@ const Profile = (props) => {
       <div>
         <strong>{owner}</strong>
       </div>
-      <div className={`text-right ${!mobile && "ml-auto"}`}>
+      <div className={`text-right ${!mobile && "ms-auto"}`}>
         {!mobile &&
           currentUser &&
           !is_owner &&
