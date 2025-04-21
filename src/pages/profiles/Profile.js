@@ -21,10 +21,8 @@ const Profile = (props) => {
       <div>
         <Link className="align-self-center" to={`/profiles/${id}`}>
           <Avatar src={image} height={imageSize} />
+          <strong className="text-decoration-none text-white">{owner}</strong>
         </Link>
-      </div>
-      <div>
-        <strong>{owner}</strong>
       </div>
       <div className={`text-right ${!mobile && "ms-auto"}`}>
         {!mobile &&
@@ -32,15 +30,17 @@ const Profile = (props) => {
           !is_owner &&
           (following_id ? (
             <Button
+            className="btn btn-secondary"
               onClick={() => handleUnfollow(profile)}
             >
-              unfollow
+              Unfollow
             </Button>
           ) : (
             <Button
+            className="btn btn-primary"
               onClick={() => handleFollow(profile)}
             >
-              follow
+              Follow
             </Button>
           ))}
       </div>

@@ -58,26 +58,30 @@ function ProfilePage() {
                             className={styles.profileImage}
                         />
                     </Col>
-                    <Col lg={6}>
-                        <h3 className="mt-3 mt-lg-0">{profile?.owner}</h3>
-                        <Row className="mt-3 justify-content-center">
-                            <Col xs={4} className={styles.statBox}>
+                    <Col className="text-center" lg={8}>
+                        <h3 className="my-md-3">{profile?.owner}</h3>
+                        <Row className="d-flex flex-row mt-2 gap-1 justify-content-center">
+                            <Col lg={3} className={`${styles.statBox} text-center p-1`}>
                                 <div>{profile?.hacks_count}</div>
                                 <div>Hacks</div>
                             </Col>
-                            <Col xs={4} className={styles.statBox}>
+                            <Col lg={3} className={`${styles.statBox} text-center p-1`}>
                                 <div>{profile?.followers_count}</div>
                                 <div>Follower</div>
                             </Col>
-                            <Col xs={4} className={styles.statBox}>
+                            <Col lg={3} className={`${styles.statBox} text-center p-1`}>
                                 <div>{profile?.following_count}</div>
                                 <div>Following</div>
                             </Col>
                         </Row>
                     </Col>
-                    <Col lg={3} className="text-center text-lg-end mt-3 mt-lg-0">
+                </Row>
+
+                <Row>
+                    <Col className="text-center">
                         {currentUser && !is_owner && (
                             <Button
+                            className="mt-2 mt-md-0"
                                 variant={profile?.following_id ? "secondary" : "primary"}
                                 onClick={() =>
                                     profile?.following_id
@@ -104,7 +108,7 @@ function ProfilePage() {
     const mainProfileHacks = (
         <>
             <hr className="border-secondary" />
-            <p className="text-center text-light">{profile?.owner}'s Hacks</p>
+            <h1 className="text-center text-light">{profile?.owner}'s Hacks</h1>
             <hr className="border-secondary" />
             {profileHacks.results.length ? (
                 <InfiniteScroll
@@ -127,7 +131,7 @@ function ProfilePage() {
     return (
         <Container>
             <div className="d-block d-lg-none mb-3">
-                <PopularProfiles />
+                <PopularProfiles mobile />
             </div>
 
             <Row>
