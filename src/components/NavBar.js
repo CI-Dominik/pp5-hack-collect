@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 import useClickOutside from '../hooks/useClickOutside';
 import styles from '../styles/NavBar.module.css';
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
@@ -10,10 +12,10 @@ import { removeTokenTimestamp } from '../utils/utils';
 import Avatar from './Avatar';
 
 const NavBar = () => {
-
     const { expanded, setExpanded, ref } = useClickOutside();
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
+    const [showSignOutModal, setShowSignOutModal] = useState(false);
 
     const isAdmin = currentUser?.is_staff;
 
@@ -23,10 +25,18 @@ const NavBar = () => {
             setCurrentUser(null);
             removeTokenTimestamp();
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
+    };
 
-    }
+    const handleSignOutClick = () => {
+        setShowSignOutModal(true);
+    };
+
+    const handleConfirmSignOut = () => {
+        setShowSignOutModal(false);
+        handleSignOut();
+    };
 
     const loggedInLinks = (
         <>
@@ -47,8 +57,8 @@ const NavBar = () => {
             <NavLink
                 exact
                 className={styles.NavLink}
-                to="/"
-                onClick={handleSignOut}
+                to="#"
+                onClick={handleSignOutClick}
             >
                 <i className="fas fa-sign-out-alt"></i> Sign-out
             </NavLink>
@@ -58,7 +68,6 @@ const NavBar = () => {
             >
                 <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={30} />
             </NavLink>
-
         </>
     );
 
@@ -116,10 +125,27 @@ const NavBar = () => {
                         {currentUser ? loggedInLinks : loggedOutLinks}
                     </Nav>
                 </Navbar.Collapse>
-
             </Navbar>
-        </>
-    )
-}
 
-export default NavBar
+            {/* Sign-out Confirmation Modal */}
+            <Modal show={showSignOutModal} onHide={() => setShowSignOutModal(false)} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>Confirm Sign-out</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Are you sure you want to sign out?
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowSignOutModal(false)}>
+                        Cancel
+                    </Button>
+                    <Button variant="danger" onClick={handleConfirmSignOut}>
+                        Sign out
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </>
+    );
+};
+
+export default NavBar;
