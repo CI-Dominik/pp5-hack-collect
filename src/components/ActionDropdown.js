@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router";
 
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
@@ -14,28 +16,45 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
 ));
 
 export const ActionDropdown = ({ handleEdit, handleDelete }) => {
-  return (
-    <Dropdown className="ml-auto" drop="left">
-      <Dropdown.Toggle as={ThreeDots} />
+  const [showConfirm, setShowConfirm] = useState(false);
 
-      <Dropdown.Menu
-        className="text-center"
-        popperConfig={{ strategy: "fixed" }}
-      >
-        <Dropdown.Item
-          onClick={handleEdit}
-          aria-label="edit"
-        >
-          <i className="fas fa-edit" /> Edit
-        </Dropdown.Item>
-        <Dropdown.Item
-          onClick={handleDelete}
-          aria-label="delete"
-        >
-          <i className="fas fa-trash-alt" /> Delete
-        </Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+  const handleConfirmDelete = () => {
+    setShowConfirm(false);
+    handleDelete();
+  };
+
+  return (
+    <>
+      <Dropdown className="ml-auto" drop="left">
+        <Dropdown.Toggle as={ThreeDots} />
+
+        <Dropdown.Menu className="text-center" popperConfig={{ strategy: "fixed" }}>
+          <Dropdown.Item onClick={handleEdit} aria-label="edit">
+            <i className="fas fa-edit" /> Edit
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => setShowConfirm(true)} aria-label="delete">
+            <i className="fas fa-trash-alt" /> Delete
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+
+      <Modal show={showConfirm} onHide={() => setShowConfirm(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Deletion</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Are you sure you want to delete this item? This action cannot be undone.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowConfirm(false)}>
+            Cancel
+          </Button>
+          <Button variant="danger" onClick={handleConfirmDelete}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 };
 
