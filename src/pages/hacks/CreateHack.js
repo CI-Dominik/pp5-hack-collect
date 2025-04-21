@@ -45,35 +45,44 @@ const CreateHack = () => {
     <Container className="mt-3">
       <Row className="justify-content-center">
         <Col md={6} className="bg-light p-4 border rounded">
-        <p>ADD HACK INFORMATION</p>
+          <p>ADD HACK INFORMATION</p>
         </Col>
         <Col md={6} className="bg-light p-4 rounded">
           <h2 className="text-center mb-4">Create Hack</h2>
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="title" className="mb-3">
-              <Form.Label>Title</Form.Label>
-              <Form.Control type="text" name="title" className="form-control" />
+            <Form.Group className="mb-3">
+              <Form.Label htmlFor="title">Title</Form.Label>
+              <Form.Control type="text" name="title" id="title" className="form-control" />
               {errors?.title?.map((err, idx) => (
                 <Alert key={idx} variant="warning" className="mt-2">{err}</Alert>
               ))}
             </Form.Group>
-            <Form.Group controlId="content" className="mb-3">
-              <Form.Label>Content</Form.Label>
-              <Form.Control as="textarea" name="content" className="form-control" />
+
+            <Form.Group className="mb-3">
+              <Form.Label htmlFor="content">Content</Form.Label>
+              <Form.Control as="textarea" name="content" id="content" className="form-control" />
               {errors?.content?.map((err, idx) => (
                 <Alert key={idx} variant="warning" className="mt-2">{err}</Alert>
               ))}
             </Form.Group>
-            <Form.Group controlId="image" className="mb-3">
-              <Form.Label>Image file:</Form.Label><br />
-              <Form.Control type="file" name="image" ref={imageInput} className="form-control-file" />
+
+            <Form.Group className="mb-3">
+              <p>Image</p>
+              <Form.Label
+                className={`btn d-block my-auto image-upload`}
+                htmlFor="image-upload"
+              >
+                Add an image file
+              </Form.Label>
+              <Form.Control type="file" id="image-upload" name="image" ref={imageInput} className="form-control-file" />
               {errors?.image?.map((err, idx) => (
                 <Alert key={idx} variant="warning" className="mt-2">{err}</Alert>
               ))}
             </Form.Group>
-            <Form.Group controlId="category" className="mb-3">
-              <Form.Label>Category</Form.Label>
-              <Form.Control as="select" name="category" className="form-control">
+
+            <Form.Group className="mb-3">
+              <Form.Label htmlFor="category">Category</Form.Label>
+              <Form.Control as="select" name="category" id="category" className="form-control">
                 {categories && categories.length > 0 && categories.map(category => (
                   <option key={category.id} value={category.id}>{category.name}</option>
                 ))}
@@ -82,9 +91,11 @@ const CreateHack = () => {
                 <Alert key={idx} variant="warning" className="mt-2">{err}</Alert>
               ))}
             </Form.Group>
+
             <Button variant="primary" type="submit" className="btn-block mt-3">
               Create Hack
             </Button>
+
             {success && (
               <Alert variant="success" className="mt-3">
                 {success}
@@ -95,6 +106,7 @@ const CreateHack = () => {
       </Row>
     </Container>
   );
+
 };
 
 export default CreateHack;

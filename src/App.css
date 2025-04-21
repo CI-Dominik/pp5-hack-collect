@@ -7,3 +7,14 @@
 body {
   background-color: #2b3035;
 }
+
+input[type="file"] {
+  display: none;
+}
+
+.image-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}

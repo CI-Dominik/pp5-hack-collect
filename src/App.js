@@ -12,6 +12,7 @@ import HackEdit from './pages/hacks/HackEdit';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import CategoryManager from './pages/categories/CategoryManager';
 import ProfilePage from './pages/profiles/ProfilePage';
+import ProfileEditForm from './pages/profiles/ProfileEditForm';
 
 function App() {
 
@@ -42,6 +43,11 @@ function App() {
             }
           />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route
+            exact
+            path="/profiles/:id/edit"
+            render={() => <ProfileEditForm />}
+          />
           <Route render={() => <h1>Page not found!</h1>} />
         </Switch>
       </Container>
