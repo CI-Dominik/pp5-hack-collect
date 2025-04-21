@@ -3,8 +3,10 @@ import axios from 'axios';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { axiosReq } from '../../api/axiosDefaults';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useRedirect } from '../../hooks/useRedirect';
 
 const CreateHack = () => {
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
   const [categories, setCategories] = useState([]);
   const [success, setSuccess] = useState(null);

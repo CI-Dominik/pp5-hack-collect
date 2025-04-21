@@ -4,9 +4,11 @@ import { useHistory } from "react-router-dom";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { Button, Form } from "react-bootstrap";
 import { setTokenTimestamp } from "../../utils/utils";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
+  useRedirect("logged");
 
   const [signInData, setSignInData] = useState({
     username: "",
