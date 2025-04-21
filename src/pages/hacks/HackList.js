@@ -74,7 +74,7 @@ function HackList({ message, filter = "" }) {
           <div className="d-lg-none">
             <PopularProfiles mobile />
           </div>
-
+          <p className="text-white m-0">Filter Hacks by Category:</p>
           <div className="mb-3 d-flex flex-wrap gap-2">
             {categories.map((cat) => (
               <Button
