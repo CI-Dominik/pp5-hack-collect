@@ -23,6 +23,7 @@ const Hack = (props) => {
     profile_id,
     profile_image,
     hackPage,
+    comments_count,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -69,6 +70,7 @@ const Hack = (props) => {
                 <Avatar className="mr-3" src={profile_image} text={owner} />
               </Link>
               <div className="ml-3">Created: {created_at}</div>
+              <div className="ml-3"><i class="fa-solid fa-comment"></i> {comments_count}</div>
             </div>
             {is_owner && (
               <div className="text-right">

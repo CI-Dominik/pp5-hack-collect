@@ -27,6 +27,7 @@ function HackPage() {
   const profile_image = currentUser?.profile_image;
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     const handleMount = async () => {
       try {
         const [{ data: hackData }, { data: comments }] = await Promise.all([
