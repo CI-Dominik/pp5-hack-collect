@@ -13,8 +13,8 @@ h5 {
 
 .HackImage {
   width: 100%;
-  height: 100%;
-  aspect-ratio: 1/1;
+  height: auto;
+  max-height: 800px;
   object-fit: cover;
   margin-top: 10px;
   border-radius: 10px;
