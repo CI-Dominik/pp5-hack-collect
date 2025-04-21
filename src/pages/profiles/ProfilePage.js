@@ -81,7 +81,7 @@ function ProfilePage() {
                     <Col className="text-center">
                         {currentUser && !is_owner && (
                             <Button
-                            className="mt-2 mt-md-0"
+                                className="mt-2 mt-md-0"
                                 variant={profile?.following_id ? "secondary" : "primary"}
                                 onClick={() =>
                                     profile?.following_id

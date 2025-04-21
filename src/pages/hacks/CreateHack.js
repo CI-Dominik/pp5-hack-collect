@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { axiosReq } from '../../api/axiosDefaults';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const CreateHack = () => {
   const [errors, setErrors] = useState({});
   const [categories, setCategories] = useState([]);
   const [success, setSuccess] = useState(null);
   const imageInput = React.createRef();
+
+  const history = useHistory();
 
   useEffect(() => {
     axios.get('/categories/')
@@ -29,10 +32,11 @@ const CreateHack = () => {
     formData.append("category", event.target.category.value);
 
     try {
-      const { data } = await axiosReq.post("/hacks/", formData);
+      await axiosReq.post("/hacks/", formData);
       setErrors({});
       setSuccess('Hack created successfully!');
       event.target.reset();
+      history.push("/hacks/")
     } catch (error) {
       console.log(error);
       if (error.response?.status !== 401) {
