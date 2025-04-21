@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom"; // react-router-dom v5
-import { Button, Card, Form, Row, Col, Modal } from "react-bootstrap";
+import { Button, Card, Form, Row, Col, Modal, Alert } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
@@ -12,6 +12,7 @@ const CategoryManager = () => {
   const [editingId, setEditingId] = useState(null);
   const [editingName, setEditingName] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     const handleMount = async () => {
@@ -23,8 +24,7 @@ const CategoryManager = () => {
         const { data } = await axiosReq.get("/categories/");
         setCategories(data.results);
       } catch (err) {
-        console.error(err);
-        history.push("/");
+        setErrors(err?.response?.data);
       }
     };
 
@@ -39,7 +39,7 @@ const CategoryManager = () => {
       const { data } = await axiosReq.get("/categories/");
       setCategories(data.results);
     } catch (error) {
-      console.error(error);
+      setErrors(error?.response?.data);
     }
   };
 
@@ -98,6 +98,12 @@ const CategoryManager = () => {
           </Col>
         </Row>
       </Form>
+
+      {errors?.name?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
       {categories.map((cat) => (
         <Card className="mb-3" key={cat.id}>
