@@ -5,9 +5,11 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import { ActionDropdown } from "../../components/ActionDropdown";
 import CommentEditForm from "./CommentEditForm";
+import { Link } from "react-router-dom";
 
 const Comment = (props) => {
     const {
+        profile_id,
         profile_image,
         owner,
         updated_at,
@@ -50,11 +52,13 @@ const Comment = (props) => {
 
     return (
         <>
-            <Media className="d-flex w-100 my-2 text-white">
-                <Avatar src={profile_image} />
+            <Media className="d-flex w-100 my-2 text-white gap-2">
+                <Link to={`/profiles/${profile_id}`} className="text-decoration-none text-black mr-3">
+                    <Avatar className="mr-3" src={profile_image} />
+                </Link>
                 <Media.Body className="align-self-center ml-2 w-100">
                     <div className="d-flex justify-content-between align-items-start">
-                        <span>{owner} - {updated_at}</span>
+                        <span className="fw-bold"><Link to={`/profiles/${profile_id}`} className="text-decoration-none text-white">{owner}</Link> - {updated_at}</span>
                         {is_owner && (
                             <div>
                                 <ActionDropdown
