@@ -13,6 +13,8 @@ import { useCurrentUser } from './contexts/CurrentUserContext';
 import CategoryManager from './pages/categories/CategoryManager';
 import ProfilePage from './pages/profiles/ProfilePage';
 import ProfileEditForm from './pages/profiles/ProfileEditForm';
+import UserPasswordForm from './pages/profiles/UserPasswordForm';
+import UsernameForm from './pages/profiles/UsernameForm';
 
 function App() {
 
@@ -43,6 +45,16 @@ function App() {
             }
           />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route
+            exact
+            path="/profiles/:id/edit/username"
+            render={() => <UsernameForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit/password"
+            render={() => <UserPasswordForm />}
+          />
           <Route
             exact
             path="/profiles/:id/edit"

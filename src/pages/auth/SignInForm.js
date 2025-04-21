@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
-import { Button, Form } from "react-bootstrap";
+import { Alert, Button, Form } from "react-bootstrap";
 import { setTokenTimestamp } from "../../utils/utils";
 import { useRedirect } from "../../hooks/useRedirect";
 
@@ -66,8 +66,13 @@ function SignInForm() {
                   />
                   {errors.password && <div className="text-danger">{errors.password}</div>}
                 </Form.Group>
-                <Button type="submit" className="btn btn-primary btn-block">Sign-in</Button>
+                <Button type="submit" className="btn btn-primary btn-block mt-2">Sign-in</Button>
               </Form>
+              {errors?.non_field_errors?.map((message, idx) => (
+                <Alert className="mt-2" variant="danger" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             </div>
           </div>
         </div>

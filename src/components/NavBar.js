@@ -10,12 +10,15 @@ import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContex
 import axios from 'axios';
 import { removeTokenTimestamp } from '../utils/utils';
 import Avatar from './Avatar';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const NavBar = () => {
     const { expanded, setExpanded, ref } = useClickOutside();
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
     const [showSignOutModal, setShowSignOutModal] = useState(false);
+
+    const history = useHistory();
 
     const isAdmin = currentUser?.is_staff;
 
@@ -24,6 +27,7 @@ const NavBar = () => {
             await axios.post('/dj-rest-auth/logout/');
             setCurrentUser(null);
             removeTokenTimestamp();
+            history.push("/");
         } catch (error) {
             console.log(error);
         }
