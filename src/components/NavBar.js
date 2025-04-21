@@ -83,7 +83,7 @@ const NavBar = () => {
                 </NavLink>
                 {currentUser && <NavLink
                     exact
-                    className={styles.NavLink}
+                    className={`${styles.NavLink} d-none d-md-block`}
                     activeClassName={styles.Active}
                     to="/add-hack">
                     <i className="fas fa-plus"></i> Add Hack
@@ -93,6 +93,13 @@ const NavBar = () => {
                     <Nav className="ms-auto">
                         <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/">Home</NavLink>
                         <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/hacks">Hacks</NavLink>
+                        {currentUser && <NavLink
+                            exact
+                            className={`${styles.NavLink} d-block d-md-none`}
+                            activeClassName={styles.Active}
+                            to="/add-hack">
+                            <i className="fas fa-plus"></i> Add Hack
+                        </NavLink>}
                         {isAdmin && currentUser && <NavLink
                             exact
                             className={styles.NavLink}
