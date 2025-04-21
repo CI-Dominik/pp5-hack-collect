@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom"; // react-router-dom v5
+import { useHistory } from "react-router-dom";
 import { Button, Card, Form, Row, Col, Modal, Alert } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -53,7 +53,7 @@ const CategoryManager = () => {
       const { data } = await axiosReq.get("/categories/");
       setCategories(data.results);
     } catch (error) {
-      console.error(error);
+      setErrors(error?.response?.data);
     }
   };
 
@@ -71,7 +71,7 @@ const CategoryManager = () => {
       const { data } = await axiosReq.get("/categories/");
       setCategories(data.results);
     } catch (error) {
-      console.error(error);
+      setErrors(error?.response?.data);
     }
   };
 
