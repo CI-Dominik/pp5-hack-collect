@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/Hack.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Container, Media } from "react-bootstrap";
+import { Card, Media } from "react-bootstrap";
 import { useHistory, Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { ActionDropdown } from "../../components/ActionDropdown";
@@ -63,13 +63,19 @@ const Hack = (props) => {
     <>
       <Card className={styles.Hack}>
         <Card.Header>
-          <div className="d-flex align-items-center justify-content-between">
-            <Avatar src={profile_image} text={owner} />
+          <div className="d-flex flex-row align-items-center justify-content-between">
+            <div className="d-flex flex-row justify-content-center align-items-center gap-3">
+              <Link to={`/profiles/${profile_id}`} className="text-decoration-none text-black mr-3">
+                <Avatar className="mr-3" src={profile_image} text={owner} />
+              </Link>
+              <div className="ml-3">Created: {created_at}</div>
+            </div>
             {is_owner && (
-              <div className="ms-auto text-right">
+              <div className="text-right">
                 <ActionDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
               </div>
             )}
+
           </div>
           <Media>
             {hackPage ? (
@@ -102,7 +108,7 @@ const Hack = (props) => {
         <Card.Body>
           <p>Category: {categoryValue?.data?.name || "None"}</p>
           <div className="d-flex justify-content-between">
-            <div className="d-flex flex-column">
+            <div className="d-flex flex-column align-items-center">
               <p>Average rating:</p>
               <Rating
                 initialValue={average_rating}
@@ -116,10 +122,7 @@ const Hack = (props) => {
             )}
           </div>
           <div className="d-flex flex-column">
-            <div className="d-flex justify-content-between mt-1">
-              <p>
-                (Created: {created_at} by <span className="fw-bold">{owner}</span>)
-              </p>
+            <div className="d-flex justify-content-end mt-1">
               <p>
                 Last updated: {updated_at}
               </p>
