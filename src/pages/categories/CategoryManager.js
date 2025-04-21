@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom"; // react-router-dom v5
 import { Button, Card, Form, Row, Col, Modal } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const CategoryManager = () => {
   const currentUser = useCurrentUser();
+  const history = useHistory();
   const [categories, setCategories] = useState([]);
   const [newCategory, setNewCategory] = useState("");
   const [editingId, setEditingId] = useState(null);
@@ -12,24 +14,30 @@ const CategoryManager = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    fetchCategories();
-  }, []);
+    const handleMount = async () => {
+      if (!currentUser || !currentUser.is_staff) {
+        history.push("/");
+        return;
+      }
+      try {
+        const { data } = await axiosReq.get("/categories/");
+        setCategories(data.results);
+      } catch (err) {
+        console.error(err);
+        history.push("/");
+      }
+    };
 
-  const fetchCategories = async () => {
-    try {
-      const { data } = await axiosReq.get("/categories/");
-      setCategories(data.results);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    handleMount();
+  }, [currentUser, history]);
 
   const handleCreate = async () => {
     if (!newCategory.trim()) return;
     try {
       await axiosReq.post("/categories/", { name: newCategory });
       setNewCategory("");
-      fetchCategories();
+      const { data } = await axiosReq.get("/categories/");
+      setCategories(data.results);
     } catch (error) {
       console.error(error);
     }
@@ -42,7 +50,8 @@ const CategoryManager = () => {
     }
     try {
       await axiosReq.delete(`/categories/${id}/`);
-      fetchCategories();
+      const { data } = await axiosReq.get("/categories/");
+      setCategories(data.results);
     } catch (error) {
       console.error(error);
     }
@@ -59,17 +68,14 @@ const CategoryManager = () => {
       await axiosReq.put(`/categories/${editingId}/`, { name: editingName });
       setEditingId(null);
       setEditingName("");
-      fetchCategories();
+      const { data } = await axiosReq.get("/categories/");
+      setCategories(data.results);
     } catch (error) {
       console.error(error);
     }
   };
 
   const handleCloseModal = () => setShowModal(false);
-
-  if (!currentUser || !currentUser.is_staff) {
-    return <p>You need to be logged in and have admin privileges to use this page.</p>;
-  }
 
   return (
     <div className="p-4" style={{ maxWidth: "600px", margin: "0 auto" }}>
