@@ -38,7 +38,6 @@ const CreateHack = () => {
       event.target.reset();
       history.push("/hacks/")
     } catch (error) {
-      console.log(error);
       if (error.response?.status !== 401) {
         setErrors(error.response?.data);
       }

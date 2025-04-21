@@ -5,10 +5,12 @@ import InputGroup from "react-bootstrap/InputGroup";
 
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import { Alert } from "react-bootstrap";
 
 function CommentCreateForm(props) {
     const { hack, setHack, setComments, profileImage } = props;
     const [content, setContent] = useState("");
+    const [errors, setErrors] = useState({});
 
     const handleChange = (event) => {
         setContent(event.target.value);
@@ -34,8 +36,10 @@ function CommentCreateForm(props) {
                 ],
             }));
             setContent("");
-        } catch (err) {
-            console.log(err);
+        } catch (error) {
+            if (error.response?.status !== 401) {
+                setErrors(error.response?.data);
+            }
         }
     };
 
@@ -54,6 +58,9 @@ function CommentCreateForm(props) {
                     />
                 </InputGroup>
             </Form.Group>
+            {errors?.content?.map((err, idx) => (
+                <Alert key={idx} variant="warning" className="mt-2">{err}</Alert>
+            ))}
             <button
                 className={`btn ${!content ? "btn-secondary" : "btn-primary"} d-block ml-auto my-2`}
                 disabled={!content.trim()}
