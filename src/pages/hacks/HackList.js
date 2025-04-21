@@ -15,6 +15,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import PopularProfiles from "../profiles/PopularProfiles";
 
 function HackList({ message, filter = "" }) {
   const [hacks, setHacks] = useState({ results: [] });
@@ -70,6 +71,10 @@ function HackList({ message, filter = "" }) {
     <Container>
       <Row className="h-100">
         <Col className="py-2 p-0 p-lg-2" lg={8}>
+          <div className="d-lg-none">
+            <PopularProfiles mobile />
+          </div>
+
           <div className="mb-3 d-flex flex-wrap gap-2">
             {categories.map((cat) => (
               <Button
@@ -120,6 +125,9 @@ function HackList({ message, filter = "" }) {
               <Asset spinner />
             </Container>
           )}
+        </Col>
+        <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+          <PopularProfiles />
         </Col>
       </Row>
     </Container>
