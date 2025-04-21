@@ -107,8 +107,8 @@ const Hack = (props) => {
         </Card.Header>
         <Card.Body>
           <p>Category: {categoryValue?.data?.name || "None"}</p>
-          <div className="d-flex justify-content-between">
-            <div className="d-flex flex-column align-items-center">
+          <div className="d-flex flex-column flex-xl-row justify-content-between">
+            <div className="d-flex flex-column align-items-left">
               <p>Average rating:</p>
               <Rating
                 initialValue={average_rating}
@@ -118,7 +118,9 @@ const Hack = (props) => {
               {!average_rating > 0 && <p>Not rated yet.</p>}
             </div>
             {hackPage && currentUser && !is_owner && (
-              <RatingComponent hackId={id} setHack={props.setHack} />
+              <div>
+                <RatingComponent hackId={id} setHack={props.setHack} />
+              </div>
             )}
           </div>
           <div className="d-flex flex-column">

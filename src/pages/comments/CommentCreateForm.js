@@ -7,7 +7,7 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function CommentCreateForm(props) {
-    const { hack, setHack, setComments, profileImage, profile_id } = props;
+    const { hack, setHack, setComments, profileImage } = props;
     const [content, setContent] = useState("");
 
     const handleChange = (event) => {
@@ -45,7 +45,7 @@ function CommentCreateForm(props) {
                 <InputGroup>
                     <Avatar src={profileImage} />
                     <Form.Control
-                        className="p-0"
+                        className="p-0 mx-2"
                         placeholder=" What do you think?"
                         as="textarea"
                         value={content}

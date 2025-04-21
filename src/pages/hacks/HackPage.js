@@ -48,7 +48,7 @@ function HackPage() {
   return (
     <Container fluid className="min-vh-100 d-flex flex-column">
       <Row className="flex-grow-1">
-        <Col className="py-2 p-0 p-lg-2" lg={6}>
+        <Col className="py-2 p-0 p-lg-2" lg={8}>
           {isLoading ? (
             <Asset spinner />
           ) : hack.results.length ? (
@@ -57,7 +57,7 @@ function HackPage() {
             <h1 className="text-white">No hack found!</h1>
           )}
         </Col>
-        <Col className="py-2 p-0 p-lg-2" lg={6}>
+        <Col className="py-2 p-lg-2" lg={4}>
           {currentUser && hack?.results?.length ? (
             <CommentCreateForm
               profile_id={currentUser.profile_id}

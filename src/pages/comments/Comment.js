@@ -8,7 +8,6 @@ import CommentEditForm from "./CommentEditForm";
 
 const Comment = (props) => {
     const {
-        profile_id,
         profile_image,
         owner,
         updated_at,
