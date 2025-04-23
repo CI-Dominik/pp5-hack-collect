@@ -1,0 +1,37 @@
+/* HomePage.module.css */
+
+.heroSection {
+  background: linear-gradient(135deg, #1e1e2f, #3a3a58);
+  color: #fff;
+}
+
+.featuresSection {
+  background-color: #2b2b3c;
+}
+
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-weight: 600;
+  color: #00bcd4;
+}
+
+.card-text {
+  color: #dcdcdc;
+}
+
+p.lead {
+  font-size: 1.25rem;
+  color: #e0e0e0;
+}
+
+button {
+  font-weight: 500;
+}

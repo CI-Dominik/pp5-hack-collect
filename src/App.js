@@ -4,7 +4,6 @@ import Container from 'react-bootstrap/Container'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import SignInForm from './pages/auth/SignInForm';
 import SignUpForm from './pages/auth/SignUpForm';
-import HeroArea from './components/HeroArea';
 import HackList from './pages/hacks/HackList';
 import CreateHack from './pages/hacks/CreateHack';
 import HackPage from './pages/hacks/HackPage';
@@ -15,6 +14,7 @@ import ProfilePage from './pages/profiles/ProfilePage';
 import ProfileEditForm from './pages/profiles/ProfileEditForm';
 import UserPasswordForm from './pages/profiles/UserPasswordForm';
 import UsernameForm from './pages/profiles/UsernameForm';
+import HomePage from './components/HomePage';
 
 function App() {
 
@@ -32,7 +32,7 @@ function App() {
       <Container className="p-0">
         <NavBar />
         <Switch>
-          <Route exact path="/" render={() => <HeroArea />} />
+          <Route exact path="/" render={() => <HomePage />} />
           <Route exact path="/hacks" render={() => <HackList />} />
           <Route exact path="/hacks/:id" render={() => <HackPage />} />
           <Route exact path="/hacks/:id/edit" render={() => <HackEdit />} />
