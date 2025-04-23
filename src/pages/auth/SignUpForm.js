@@ -23,6 +23,8 @@ const SignUpForm = () => {
     })
   }
 
+  // Post registration data
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

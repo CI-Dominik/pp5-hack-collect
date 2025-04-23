@@ -19,6 +19,9 @@ function SignInForm() {
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
+
+  // Send login data and log in user
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -70,9 +73,9 @@ function SignInForm() {
               </Form>
               {errors?.non_field_errors?.map((message, idx) => (
                 <Alert className="mt-2" variant="danger" key={idx}>
-                    {message}
+                  {message}
                 </Alert>
-            ))}
+              ))}
             </div>
           </div>
         </div>

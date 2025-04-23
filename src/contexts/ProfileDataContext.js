@@ -3,12 +3,14 @@ import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { followHelper, unfollowHelper } from "../utils/utils";
 
+// Create contexts for profile data and its setter
 const ProfileDataContext = createContext();
 const SetProfileDataContext = createContext();
 
 export const useProfileData = () => useContext(ProfileDataContext);
 export const useSetProfileData = () => useContext(SetProfileDataContext);
 
+// Provider for global access to profile data
 export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({
     pageProfile: { results: [] },
@@ -17,6 +19,7 @@ export const ProfileDataProvider = ({ children }) => {
 
   const currentUser = useCurrentUser();
 
+  // Handle following a profile
   const handleFollow = async (clickedProfile) => {
     try {
       const { data } = await axiosRes.post("/followers/", {
@@ -42,6 +45,7 @@ export const ProfileDataProvider = ({ children }) => {
     }
   };
 
+  // Handle unfollowing a profile
   const handleUnfollow = async (clickedProfile) => {
     try {
       await axiosRes.delete(`/followers/${clickedProfile.following_id}/`);
@@ -65,6 +69,7 @@ export const ProfileDataProvider = ({ children }) => {
     }
   };
 
+  // Fetch popular profiles when currentUser changes (or on mount)
   useEffect(() => {
     const handleMount = async () => {
       try {

@@ -10,9 +10,13 @@ export const SetCurrentUserContext = createContext()
 export const useCurrentUser = () => useContext(CurrentUserContext)
 export const useSetCurrentUser = () => useContext(SetCurrentUserContext)
 
+// Provider for the homepage to get the currently logged-in user
+
 export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null)
   const history = useHistory();
+
+  // Refresh authentication token
 
   const handleMount = async () => {
     try {
@@ -26,6 +30,8 @@ export const CurrentUserProvider = ({ children }) => {
   useEffect(() => {
     handleMount();
   }, []);
+
+  // Add interceptor for requests
 
   useMemo(() => {
     axiosReq.interceptors.request.use(
@@ -50,6 +56,8 @@ export const CurrentUserProvider = ({ children }) => {
         return Promise.reject(error);
       }
     );
+
+    // Add interceptor for responses
 
     axiosRes.interceptors.response.use(
       (response) => response,

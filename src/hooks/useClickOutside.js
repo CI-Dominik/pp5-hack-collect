@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
+// Close menu when not clicking on ref element
+
 const useClickOutside = () => {
     const [expanded, setExpanded] = useState(false);
     const ref = useRef(null);
