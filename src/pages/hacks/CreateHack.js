@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Alert, Card } from 'react-bootstrap';
 import { axiosReq } from '../../api/axiosDefaults';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useRedirect } from '../../hooks/useRedirect';
@@ -17,12 +17,8 @@ const CreateHack = () => {
   useEffect(() => {
     // Fetch category options for dropdown
     axios.get('/categories/')
-      .then(response => {
-        setCategories(response.data.results);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+      .then(response => setCategories(response.data.results))
+      .catch(error => console.log(error));
   }, []);
 
   const handleSubmit = async (event) => {
@@ -39,7 +35,7 @@ const CreateHack = () => {
       // Post new hack to the API
       await axiosReq.post("/hacks/", formData);
       setErrors({});
-      setSuccess('Hack created successfully!');
+      setSuccess('Your hack was posted successfully!');
       event.target.reset(); // Clear the form
       history.push("/hacks/"); // Redirect to hack list
     } catch (error) {
@@ -51,65 +47,86 @@ const CreateHack = () => {
   };
 
   return (
-    <Container className="mt-3">
+    <Container className="py-4 text-light">
       <Row className="justify-content-center">
-        <Col md={6} className="bg-light p-4 border rounded">
-          <p>ADD HACK INFORMATION</p>
-        </Col>
-        <Col md={6} className="bg-light p-4 rounded">
-          <h2 className="text-center mb-4">Create Hack</h2>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3">
-              <Form.Label htmlFor="title">Title</Form.Label>
-              <Form.Control type="text" name="title" id="title" className="form-control" />
-              {errors?.title?.map((err, idx) => (
-                <Alert key={idx} variant="warning" className="mt-2">{err}</Alert>
-              ))}
-            </Form.Group>
+        <Col md={10} lg={8}>
+          <Card className="bg-dark border-secondary shadow-lg p-4">
+            <Card.Body>
+              <h2 className="mb-4 text-center text-info">Post a Life Hack</h2>
+              <p className="text-light text-center mb-4">
+                Life hacks are small, clever tips that make everyday tasks easier or more efficient. Share your best ideas with the community!
+              </p>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3">
+                  <Form.Label className="text-light text-white">Title</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="title"
+                    className="bg-dark text-light border-secondary"
+                  />
+                  {errors?.title?.map((err, idx) => (
+                    <Alert key={idx} variant="warning" className="mt-2">{err}</Alert>
+                  ))}
+                </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label htmlFor="content">Content</Form.Label>
-              <Form.Control as="textarea" name="content" id="content" className="form-control" />
-              {errors?.content?.map((err, idx) => (
-                <Alert key={idx} variant="warning" className="mt-2">{err}</Alert>
-              ))}
-            </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label className="text-light">Description</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    name="content"
+                    className="bg-dark text-light text-white border-secondary"
+                  />
+                  {errors?.content?.map((err, idx) => (
+                    <Alert key={idx} variant="warning" className="mt-2">{err}</Alert>
+                  ))}
+                </Form.Group>
 
-            <Form.Group className="mb-3">
-              <p>Image</p>
-              <Form.Label className="btn d-block my-auto image-upload" htmlFor="image-upload">
-                Add an image file
-              </Form.Label>
-              <Form.Control type="file" id="image-upload" name="image" ref={imageInput} className="form-control-file" />
-              {errors?.image?.map((err, idx) => (
-                <Alert key={idx} variant="warning" className="mt-2">{err}</Alert>
-              ))}
-            </Form.Group>
+                <Form.Group className="mb-3">
+                  <p className="text-light">Image</p>
+                  <Form.Label className="btn d-block my-auto image-upload text-white" htmlFor="image-upload">
+                    Add an image file
+                  </Form.Label>
+                  <Form.Control
+                    type="file"
+                    id="image-upload"
+                    name="image"
+                    ref={imageInput}
+                    className="form-control-file bg-dark text-light border-secondary"
+                  />
+                  {errors?.image?.map((err, idx) => (
+                    <Alert key={idx} variant="warning" className="mt-2">{err}</Alert>
+                  ))}
+                </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label htmlFor="category">Category</Form.Label>
-              {/* Dropdown populated from API data */}
-              <Form.Control as="select" name="category" id="category" className="form-control">
-                {categories && categories.length > 0 && categories.map(category => (
-                  <option key={category.id} value={category.id}>{category.name}</option>
-                ))}
-              </Form.Control>
-              {errors?.category?.map((err, idx) => (
-                <Alert key={idx} variant="warning" className="mt-2">{err}</Alert>
-              ))}
-            </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label className="text-light">Category</Form.Label>
+                  <Form.Control
+                    as="select"
+                    name="category"
+                    className="bg-dark text-light border-secondary"
+                  >
+                    {categories.map(category => (
+                      <option key={category.id} value={category.id}>{category.name}</option>
+                    ))}
+                  </Form.Control>
+                  {errors?.category?.map((err, idx) => (
+                    <Alert key={idx} variant="warning" className="mt-2">{err}</Alert>
+                  ))}
+                </Form.Group>
 
-            <Button variant="primary" type="submit" className="btn-block mt-3">
-              Create Hack
-            </Button>
+                <Button variant="primary" type="submit" className="w-100 mt-3">
+                  Post Hack
+                </Button>
 
-            {/* Show success message */}
-            {success && (
-              <Alert variant="success" className="mt-3">
-                {success}
-              </Alert>
-            )}
-          </Form>
+                {/* Show success message */}
+                {success && (
+                  <Alert variant="success" className="mt-3">
+                    {success}
+                  </Alert>
+                )}
+              </Form>
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
     </Container>

@@ -181,9 +181,9 @@ const CategoryManager = () => {
       {/* Warning modal when trying to delete last category */}
       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Deletion Not Allowed</Modal.Title>
+          <Modal.Title className="text-black">Deletion Not Allowed</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="text-black">
           At least one category must exist. You cannot delete the last remaining category.
         </Modal.Body>
         <Modal.Footer>

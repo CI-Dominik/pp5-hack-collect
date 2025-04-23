@@ -119,7 +119,7 @@ const NavBar = () => {
                     to="/add-hack">
                     <i className="fas fa-plus"></i> Add Hack
                 </NavLink>}
-                <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="responsive-navbar-nav" />
+                <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="responsive-navbar-nav" style={{ backgroundColor: '#00bcd4' }} />
                 <Navbar.Collapse>
                     <Nav className="ms-auto">
                         <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/">Home</NavLink>
@@ -155,9 +155,9 @@ const NavBar = () => {
             {/* Sign-out Confirmation Modal */}
             <Modal show={showSignOutModal} onHide={() => setShowSignOutModal(false)} centered>
                 <Modal.Header closeButton>
-                    <Modal.Title>Confirm Sign-out</Modal.Title>
+                    <Modal.Title className="text-black">Confirm Sign-out</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className="text-black">
                     Are you sure you want to sign out?
                 </Modal.Body>
                 <Modal.Footer>

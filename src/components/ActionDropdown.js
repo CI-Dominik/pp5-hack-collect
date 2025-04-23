@@ -45,9 +45,9 @@ export const ActionDropdown = ({ handleEdit, handleDelete }) => {
 
       <Modal show={showConfirm} onHide={() => setShowConfirm(false)} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Confirm Deletion</Modal.Title>
+          <Modal.Title className="text-black">Confirm Deletion</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="text-black">
           Are you sure you want to delete this item? This action cannot be undone.
         </Modal.Body>
         <Modal.Footer>
