@@ -18,3 +18,25 @@
   cursor: default;
   color: #cfced3;
 }
+
+/* Button Styling */
+
+.CategoryButton {
+  border: 2px solid #00bcd4;
+  color: #00bcd4;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.75rem;
+}
+
+.CategoryButton:hover {
+  background-color: #26d1e6;
+  color: #1a1a1a;
+}
+
+.ActiveCategory {
+  background-color: #00bcd4 !important;
+  color: #1a1a1a !important;
+  border-color: #00bcd4 !important;
+}

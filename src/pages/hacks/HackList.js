@@ -85,7 +85,8 @@ function HackList({ message, filter = "" }) {
             {categories.map((cat) => (
               <Button
                 key={cat.id}
-                variant={categoryFilter === cat.name ? "primary" : "outline-primary"}
+                className={`${styles.CategoryButton} ${categoryFilter === cat.name ? styles.ActiveCategory : ""}`}
+                variant="outline-light"
                 onClick={() => handleCategoryClick(cat.name)}
               >
                 {cat.name}
