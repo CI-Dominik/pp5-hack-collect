@@ -9,15 +9,13 @@ import { ProfileDataProvider } from './contexts/ProfileDataContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Router>
-      <ProfileDataProvider>
-        <CurrentUserProvider>
-          <App />
-        </CurrentUserProvider>
-      </ProfileDataProvider>
-    </Router>
-  </React.StrictMode>
+  <Router>
+    <ProfileDataProvider>
+      <CurrentUserProvider>
+        <App />
+      </CurrentUserProvider>
+    </ProfileDataProvider>
+  </Router>
 );
 
 reportWebVitals();
