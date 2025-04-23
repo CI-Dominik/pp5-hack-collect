@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import { Alert, Image } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+import styles from '../../styles/HackEdit.module.css';
 
 function HackEdit() {
     const [errors, setErrors] = useState({});
@@ -183,7 +184,7 @@ function HackEdit() {
 
                             <div className="mb-3">
                                 <Form.Label
-                                    className="btn btn-outline-primary"
+                                    className={`btn ${styles.CustomButton}`}
                                     htmlFor="image-upload"
                                 >
                                     Change Image
