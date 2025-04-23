@@ -16,37 +16,50 @@ const Profile = (props) => {
   const { handleFollow, handleUnfollow } = useSetProfileData();
 
   // Display profiles based on mobile or desktop layout
-
   return (
     <div
-      className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
+      className={`my-2 d-flex align-items-center ${mobile ? "flex-row mx-2" : "flex-row justify-content-between"}`}
     >
-      <div>
-        <Link className={`align-self-center text-decoration-none ${styles.ProfileLink}`} to={`/profiles/${id}`}>
+      <div className="d-flex align-items-center justify-content-between">
+        <Link
+          className={`align-self-center text-decoration-none ${styles.ProfileLink}`}
+          to={`/profiles/${id}`}
+        >
           <Avatar src={image} height={imageSize} />
-          <strong className={`text-decoration-none text-white ${styles.ProfileLink}`}>{owner}</strong>
         </Link>
+
+        {!mobile && (
+          <div className="ms-3">
+            <Link className={`text-decoration-none text-white ${styles.ProfileLink}`} to={`/profiles/${id}`}>
+              <strong>{owner}</strong>
+            </Link>
+          </div>
+        )}
       </div>
-      <div className={`text-right ${!mobile && "ms-auto"}`}>
-        {!mobile &&
-          currentUser &&
-          !is_owner &&
-            (following_id ? (
-              <Button
-                className="btn btn-secondary"
-                onClick={() => handleUnfollow(profile)}
-              >
-                Unfollow
-              </Button>
-            ) : (
-              <Button
-                className="btn btn-primary"
-                onClick={() => handleFollow(profile)}
-              >
-                Follow
-              </Button>
-            ))}
-      </div>
+
+      {!mobile && (
+        <div className="d-flex justify-content-between ms-auto">
+          {currentUser && !is_owner && (
+            <div>
+              {following_id ? (
+                <Button
+                  className="btn btn-secondary"
+                  onClick={() => handleUnfollow(profile)}
+                >
+                  Unfollow
+                </Button>
+              ) : (
+                <Button
+                  className="btn btn-primary"
+                  onClick={() => handleFollow(profile)}
+                >
+                  Follow
+                </Button>
+              )}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

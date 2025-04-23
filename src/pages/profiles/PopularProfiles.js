@@ -9,23 +9,21 @@ const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
 
   // List of most followed profiles
-
   return (
     <Container className="text-center">
       {popularProfiles.results.length ? (
         <>
           <div className={styles.title}>Most followed profiles</div>
-          {mobile ? (
-            <div className="d-flex flex-column flex-md-row justify-content-around">
-              {popularProfiles.results.slice(0, 4).map((profile) => (
+          <div className={mobile ? "d-flex flex-row flex-wrap justify-content-around" : "d-flex flex-column w-100"}>
+            {mobile
+              ? popularProfiles.results.slice(0, 4).map((profile) => (
                 <Profile key={profile.id} profile={profile} mobile />
+
+              ))
+              : popularProfiles.results.map((profile) => (
+                <Profile key={profile.id} profile={profile} />
               ))}
-            </div>
-          ) : (
-            popularProfiles.results.map((profile) => (
-              <Profile key={profile.id} profile={profile} />
-            ))
-          )}
+          </div>
         </>
       ) : (
         <Asset spinner />
