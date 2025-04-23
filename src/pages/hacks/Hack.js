@@ -32,25 +32,27 @@ const Hack = (props) => {
   const [categoryValue, setCategoryValue] = useState(null);
 
   useEffect(() => {
+    // Fetch category details if category ID is present
     const handleMount = async () => {
       try {
         if (category) {
           const cat = await axiosRes.get(`/categories/${category}`);
           setCategoryValue(cat);
         }
+      } catch (error) {
+        console.log(error);
       }
-      catch (error) {
-        console.log(error)
-      }
-    }
+    };
 
     handleMount();
-  }, [id, category])
+  }, [id, category]);
 
+  // Navigate to the edit page
   const handleEdit = () => {
     history.push(`/hacks/${id}/edit`);
   };
 
+  // Delete the hack and return to previous page
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/hacks/${id}`);
@@ -66,20 +68,23 @@ const Hack = (props) => {
         <Card.Header>
           <div className="d-flex flex-row align-items-center justify-content-between">
             <div className="d-flex flex-row justify-content-center align-items-center gap-3">
+              {/* Link to profile with avatar */}
               <Link to={`/profiles/${profile_id}`} className="text-decoration-none text-black mr-3">
                 <Avatar className="mr-3" src={profile_image} text={owner} />
               </Link>
               <div className="ml-3">Created: {created_at}</div>
               <div className="ml-3"><i className="fa-solid fa-comment"></i> {comments_count}</div>
             </div>
+            {/* Show action dropdown only for the owner */}
             {is_owner && (
               <div className="text-right">
                 <ActionDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
               </div>
             )}
-
           </div>
+
           <Media>
+            {/* Show image with or without link depending on context */}
             {hackPage ? (
               <img src={image} alt={title} className={styles.HackImage} />
             ) : (
@@ -87,6 +92,7 @@ const Hack = (props) => {
                 <img src={image} alt={title} className={styles.HackImage} />
               </Link>
             )}
+            {/* Show title with or without link depending on context */}
             {hackPage ? (
               <Card.Title className="text-center fw-bold"><h1>{title}</h1></Card.Title>
             ) : (
@@ -95,20 +101,21 @@ const Hack = (props) => {
               </Link>
             )}
             {!hackPage && <h3>Preview</h3>}
+            {/* Show either full or truncated content */}
             <Card.Text>
               {hackPage ? (
                 content
               ) : (
-                content.length > 50 ? (
-                  content.slice(0, 50) + "..."
-                ) : (
-                  content
-                )
-              )}</Card.Text>
+                content.length > 50 ? content.slice(0, 50) + "..." : content
+              )}
+            </Card.Text>
           </Media>
         </Card.Header>
+
         <Card.Body>
+          {/* Show category name if loaded */}
           <p>Category: {categoryValue?.data?.name || "None"}</p>
+
           <div className="d-flex flex-column flex-xl-row justify-content-between">
             <div className="d-flex flex-column align-items-left">
               <p>Average rating:</p>
@@ -119,12 +126,15 @@ const Hack = (props) => {
               />
               {!average_rating > 0 && <p>Not rated yet.</p>}
             </div>
+
+            {/* Show rating component only on detail page for non-owners */}
             {hackPage && currentUser && !is_owner && (
               <div>
                 <RatingComponent hackId={id} setHack={props.setHack} />
               </div>
             )}
           </div>
+
           <div className="d-flex flex-column">
             <div className="d-flex justify-content-end mt-1">
               <p>

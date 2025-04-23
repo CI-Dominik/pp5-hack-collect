@@ -22,12 +22,15 @@ const Comment = (props) => {
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
 
-    const [showConfirm, setShowConfirm] = useState(false);
-    const [isEditing, setIsEditing] = useState(false);
+    const [showConfirm, setShowConfirm] = useState(false); // Modal visibility for delete confirmation
+    const [isEditing, setIsEditing] = useState(false);     // Toggle edit mode
 
+    // Handle comment deletion
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/comments/${id}`);
+
+            // Decrement comment count in the related post/hack
             setHack(prevHack => ({
                 results: [{
                     ...prevHack.results[0],
@@ -35,6 +38,7 @@ const Comment = (props) => {
                 }]
             }));
 
+            // Remove comment from local state
             setComments(prevComments => ({
                 ...prevComments,
                 results: prevComments.results.filter(comment => comment.id !== id)
@@ -46,6 +50,7 @@ const Comment = (props) => {
         }
     };
 
+    // Enable edit mode
     const handleEdit = () => {
         setIsEditing(true);
     };
@@ -53,12 +58,17 @@ const Comment = (props) => {
     return (
         <>
             <Media className="d-flex w-100 my-2 text-white gap-2">
+                {/* User avatar and profile link */}
                 <Link to={`/profiles/${profile_id}`} className="text-decoration-none text-black mr-3">
                     <Avatar className="mr-3" src={profile_image} />
                 </Link>
                 <Media.Body className="align-self-center ml-2 w-100">
                     <div className="d-flex justify-content-between align-items-start">
-                        <span className="fw-bold"><Link to={`/profiles/${profile_id}`} className="text-decoration-none text-white">{owner}</Link> - {updated_at}</span>
+                        {/* Comment owner and timestamp */}
+                        <span className="fw-bold">
+                            <Link to={`/profiles/${profile_id}`} className="text-decoration-none text-white">{owner}</Link> - {updated_at}
+                        </span>
+                        {/* Dropdown for edit/delete actions if current user is the owner */}
                         {is_owner && (
                             <div>
                                 <ActionDropdown
@@ -68,6 +78,7 @@ const Comment = (props) => {
                             </div>
                         )}
                     </div>
+                    {/* Show edit form or comment content */}
                     {isEditing ? (
                         <CommentEditForm
                             id={id}
@@ -81,6 +92,7 @@ const Comment = (props) => {
                 </Media.Body>
             </Media>
 
+            {/* Delete confirmation modal */}
             <Modal show={showConfirm} onHide={() => setShowConfirm(false)} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Delete Comment</Modal.Title>

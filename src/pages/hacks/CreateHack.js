@@ -6,15 +6,16 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useRedirect } from '../../hooks/useRedirect';
 
 const CreateHack = () => {
-  useRedirect("loggedOut");
+  useRedirect("loggedOut"); // Redirects user if not logged in
+
   const [errors, setErrors] = useState({});
   const [categories, setCategories] = useState([]);
   const [success, setSuccess] = useState(null);
   const imageInput = React.createRef();
-
   const history = useHistory();
 
   useEffect(() => {
+    // Fetch category options for dropdown
     axios.get('/categories/')
       .then(response => {
         setCategories(response.data.results);
@@ -26,20 +27,23 @@ const CreateHack = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData();
 
+    // Prepare form data including image file
+    const formData = new FormData();
     formData.append("title", event.target.title.value);
     formData.append("content", event.target.content.value);
     formData.append("image", imageInput.current.files[0]);
     formData.append("category", event.target.category.value);
 
     try {
+      // Post new hack to the API
       await axiosReq.post("/hacks/", formData);
       setErrors({});
       setSuccess('Hack created successfully!');
-      event.target.reset();
-      history.push("/hacks/")
+      event.target.reset(); // Clear the form
+      history.push("/hacks/"); // Redirect to hack list
     } catch (error) {
+      // Handle validation or other server-side errors
       if (error.response?.status !== 401) {
         setErrors(error.response?.data);
       }
@@ -73,10 +77,7 @@ const CreateHack = () => {
 
             <Form.Group className="mb-3">
               <p>Image</p>
-              <Form.Label
-                className={`btn d-block my-auto image-upload`}
-                htmlFor="image-upload"
-              >
+              <Form.Label className="btn d-block my-auto image-upload" htmlFor="image-upload">
                 Add an image file
               </Form.Label>
               <Form.Control type="file" id="image-upload" name="image" ref={imageInput} className="form-control-file" />
@@ -87,6 +88,7 @@ const CreateHack = () => {
 
             <Form.Group className="mb-3">
               <Form.Label htmlFor="category">Category</Form.Label>
+              {/* Dropdown populated from API data */}
               <Form.Control as="select" name="category" id="category" className="form-control">
                 {categories && categories.length > 0 && categories.map(category => (
                   <option key={category.id} value={category.id}>{category.name}</option>
@@ -101,6 +103,7 @@ const CreateHack = () => {
               Create Hack
             </Button>
 
+            {/* Show success message */}
             {success && (
               <Alert variant="success" className="mt-3">
                 {success}
@@ -111,7 +114,6 @@ const CreateHack = () => {
       </Row>
     </Container>
   );
-
 };
 
 export default CreateHack;

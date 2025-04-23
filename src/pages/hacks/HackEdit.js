@@ -24,6 +24,7 @@ function HackEdit() {
     const { id } = useParams();
 
     useEffect(() => {
+        // Fetch hack details and available categories on component mount
         const fetchData = async () => {
             try {
                 const [categoriesRes, hackRes] = await Promise.all([
@@ -36,6 +37,7 @@ function HackEdit() {
 
                 setCategories(categoriesData);
 
+                // Only allow edit if the current user is the owner
                 if (hack.is_owner) {
                     const foundCategory = categoriesData.find(
                         (cat) => cat.id === hack.category?.id
@@ -58,6 +60,7 @@ function HackEdit() {
         fetchData();
     }, [history, id]);
 
+    // Handle text input changes
     const handleChange = (event) => {
         setHackData({
             ...hackData,
@@ -65,6 +68,7 @@ function HackEdit() {
         });
     };
 
+    // Handle image selection and preview
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
             URL.revokeObjectURL(image);
@@ -75,6 +79,7 @@ function HackEdit() {
         }
     };
 
+    // Submit updated hack data to the API
     const handleSubmit = async (event) => {
         event.preventDefault();
         const patchData = new FormData();
@@ -83,6 +88,7 @@ function HackEdit() {
         patchData.append("content", content);
         patchData.append("category", category);
 
+        // Only append image if a new one is selected
         if (imageInput.current.files[0] && imageInput.current.files[0].size > 0) {
             patchData.append("image", imageInput.current.files[0]);
         }
@@ -98,6 +104,7 @@ function HackEdit() {
         }
     };
 
+    // Common form fields
     const textFields = (
         <>
             <Form.Group>
@@ -162,6 +169,7 @@ function HackEdit() {
             <Row>
                 <Col className="py-3 px-2" md={7} lg={8}>
                     <Container className="d-flex flex-column h-100">
+                        {/* Image preview and upload button */}
                         <Form.Group className="text-center w-100">
                             <figure className="mb-3">
                                 <Image
@@ -196,10 +204,12 @@ function HackEdit() {
                             ))}
                         </Form.Group>
 
+                        {/* Mobile view text fields */}
                         <div className="d-md-none w-100">{textFields}</div>
                     </Container>
                 </Col>
 
+                {/* Desktop view text fields */}
                 <Col md={5} lg={4} className="d-none d-md-block px-2 py-3">
                     <Container className="h-100 d-flex flex-column justify-content-center">
                         {textFields}
