@@ -1,25 +1,87 @@
-/* Hack Styling */
-
 .Hack {
-  background-color: #ffffff;
-  border: 1px solid #dadadf;
-  border-radius: 25px;
-  margin-bottom: 16px;
-  color: #2b3035;
+  background-color: #2c2f3d;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
 }
 
-.Hack figure,
-h5 {
-  margin: 0 0;
+.CardHeader {
+  background-color: #1a1d27;
+  color: white;
+  border-radius: 8px 8px 0 0;
 }
-
-/* Hack Image Styling */
 
 .HackImage {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  max-height: 800px;
-  object-fit: cover;
-  margin-top: 10px;
-  border-radius: 10px;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.HackTitle {
+  color: #00bcd4 !important;
+  margin-top: 20px;
+}
+
+.HackTitle:hover {
+  color: #26d1e6 !important;
+}
+
+.CardBody {
+  background-color: #2c2f3d;
+  color: white;
+  border-radius: 0 0 8px 8px;
+}
+
+.CardBody h1,
+.CardHeader .CardTitle h1 {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.CardBody p {
+  color: #f4b400;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.Media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.RatingComponent {
+  margin-top: 1rem;
+}
+
+.CardBody p.text-white {
+  color: white;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.CardFooter {
+  background-color: #1a1d27;
+  color: white;
+  border-radius: 0 0 8px 8px;
+}
+
+.ActionDropdown {
+  color: #f4b400;
+}
+
+.link-light:hover,
+.CardHeader .text-decoration-none:hover,
+.CardBody .text-decoration-none:hover {
+  text-decoration: underline;
+  color: #f4b400;
+}
+
+.CardBody p:not(.RatingComponent) {
+  font-style: italic;
+  color: #b0b0b0;
 }

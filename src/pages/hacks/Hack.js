@@ -7,7 +7,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { ActionDropdown } from "../../components/ActionDropdown";
 import Avatar from '../../components/Avatar'
 import RatingComponent from "../../components/RatingComponent";
-import { Rating } from 'react-simple-star-rating'
+import { Rating } from 'react-simple-star-rating';
 
 const Hack = (props) => {
   const {
@@ -63,88 +63,86 @@ const Hack = (props) => {
   };
 
   return (
-    <>
-      <Card className={styles.Hack}>
-        <Card.Header>
-          <div className="d-flex flex-row align-items-center justify-content-between">
-            <div className="d-flex flex-row justify-content-center align-items-center gap-3">
-              {/* Link to profile with avatar */}
-              <Link to={`/profiles/${profile_id}`} className="text-decoration-none text-black mr-3">
-                <Avatar className="mr-3" src={profile_image} text={owner} />
-              </Link>
-              <div className="ml-3">Created: {created_at}</div>
-              <div className="ml-3"><i className="fa-solid fa-comment"></i> {comments_count}</div>
-            </div>
-            {/* Show action dropdown only for the owner */}
-            {is_owner && (
-              <div className="text-right">
-                <ActionDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
-              </div>
-            )}
+    <Card className={styles.Hack}>
+      <Card.Header className={styles.CardHeader}>
+        <div className="d-flex flex-row align-items-center justify-content-between">
+          <div className="d-flex flex-row justify-content-center align-items-center gap-3">
+            {/* Link to profile with avatar */}
+            <Link to={`/profiles/${profile_id}`} className="text-decoration-none text-white">
+              <Avatar className="mr-3" src={profile_image} text={owner} />
+            </Link>
+            <div className="ml-3 text-white">Created: {created_at}</div>
+            <div className="ml-3 text-white"><i className="fa-solid fa-comment"></i> {comments_count}</div>
           </div>
+          {/* Show action dropdown only for the owner */}
+          {is_owner && (
+            <div className="text-right">
+              <ActionDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
+            </div>
+          )}
+        </div>
 
-          <Media>
-            {/* Show image with or without link depending on context */}
-            {hackPage ? (
+        <Media>
+          {/* Show image with or without link depending on context */}
+          {hackPage ? (
+            <img src={image} alt={title} className={styles.HackImage} />
+          ) : (
+            <Link to={`/hacks/${id}`}>
               <img src={image} alt={title} className={styles.HackImage} />
-            ) : (
-              <Link to={`/hacks/${id}`}>
-                <img src={image} alt={title} className={styles.HackImage} />
-              </Link>
-            )}
-            {/* Show title with or without link depending on context */}
+            </Link>
+          )}
+          {/* Show title with or without link depending on context */}
+          {hackPage ? (
+            <Card.Title className="text-center fw-bold"><h2 className={`${styles.HackTitle}`}>{title}</h2></Card.Title>
+          ) : (
+            <Link className="text-decoration-none my-4" to={`/hacks/${id}`}>
+              <Card.Title className="text-center fw-bold text-decoration-none link-light"><h2 className={`${styles.HackTitle}`}>{title}</h2></Card.Title>
+            </Link>
+          )}
+          {!hackPage && <h3 className="text-white">Preview</h3>}
+          {/* Show either full or truncated content */}
+          <Card.Text className="text-white">
             {hackPage ? (
-              <Card.Title className="text-center fw-bold"><h1>{title}</h1></Card.Title>
+              content
             ) : (
-              <Link to={`/hacks/${id}`}>
-                <Card.Title className="text-center fw-bold text-decoration-none link-dark"><h1>{title}</h1></Card.Title>
-              </Link>
+              content.length > 50 ? content.slice(0, 50) + "..." : content
             )}
-            {!hackPage && <h3>Preview</h3>}
-            {/* Show either full or truncated content */}
-            <Card.Text>
-              {hackPage ? (
-                content
-              ) : (
-                content.length > 50 ? content.slice(0, 50) + "..." : content
-              )}
-            </Card.Text>
-          </Media>
-        </Card.Header>
+          </Card.Text>
+        </Media>
+      </Card.Header>
 
-        <Card.Body>
-          {/* Show category name if loaded */}
-          <p>Category: {categoryValue?.data?.name || "None"}</p>
+      <Card.Body className={styles.CardBody}>
+        {/* Show category name if loaded */}
+        <p className="text-white">Category: {categoryValue?.data?.name || "None"}</p>
 
-          <div className="d-flex flex-column flex-xl-row justify-content-between">
-            <div className="d-flex flex-column align-items-left">
-              <p>Average rating:</p>
-              <Rating
-                initialValue={average_rating}
-                readonly
-                allowHover={false}
-              />
-              {!average_rating > 0 && <p>Not rated yet.</p>}
-            </div>
-
-            {/* Show rating component only on detail page for non-owners */}
-            {hackPage && currentUser && !is_owner && (
-              <div>
-                <RatingComponent hackId={id} setHack={props.setHack} />
-              </div>
-            )}
+        <div className="d-flex flex-column flex-xl-row justify-content-between">
+          <div className="d-flex flex-column align-items-left">
+            <p className="text-white">Average rating:</p>
+            <Rating
+              initialValue={average_rating}
+              readonly
+              allowHover={false}
+            />
+            {!average_rating > 0 && <p className="text-white">Not rated yet.</p>}
           </div>
 
-          <div className="d-flex flex-column">
-            <div className="d-flex justify-content-end mt-1">
-              <p>
-                Last updated: {updated_at}
-              </p>
+          {/* Show rating component only on detail page for non-owners */}
+          {hackPage && currentUser && !is_owner && (
+            <div>
+              <RatingComponent hackId={id} setHack={props.setHack} />
             </div>
+          )}
+        </div>
+
+        <div className="d-flex flex-column">
+          <div className="d-flex justify-content-end mt-1">
+            <p className="text-white">
+              Last updated: {updated_at}
+            </p>
           </div>
-        </Card.Body>
-      </Card>
-    </>
+        </div>
+      </Card.Body>
+    </Card>
   );
 };
 
