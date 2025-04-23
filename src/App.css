@@ -1,3 +1,5 @@
+/* General Styling */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,9 +10,13 @@ body {
   background-color: #2b3035;
 }
 
+/* Input Field Styling */
+
 input[type="file"] {
   display: none;
 }
+
+/* Input Field Styling for upload */
 
 .image-upload {
   border: 1px solid #ccc;
