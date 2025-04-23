@@ -1,3 +1,5 @@
+/* Hack Styling */
+
 .Hack {
   background-color: #ffffff;
   border: 1px solid #dadadf;
@@ -10,6 +12,8 @@
 h5 {
   margin: 0 0;
 }
+
+/* Hack Image Styling */
 
 .HackImage {
   width: 100%;

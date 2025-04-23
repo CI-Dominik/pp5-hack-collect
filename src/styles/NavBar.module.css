@@ -1,8 +1,12 @@
+/* General Styling */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Navigation Link Styling */
 
 .NavLink {
     color: white;
@@ -19,11 +23,15 @@
     color: grey;
 }
 
+/* Title Styling */
+
 .Title {
     color: white;
     text-decoration: none !important;
     font-weight: bold;
 }
+
+/* Media Queries */
 
 @media (width <= 991px) {
     .NavLink {
