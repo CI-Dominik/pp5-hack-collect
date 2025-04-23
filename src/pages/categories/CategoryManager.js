@@ -122,7 +122,6 @@ const CategoryManager = () => {
         <Card className="mb-3" key={cat.id}>
           <Card.Body>
             {editingId === cat.id ? (
-              // Edit mode for a category
               <Form>
                 <Row className="align-items-center">
                   <Col xs={7}>
@@ -140,7 +139,6 @@ const CategoryManager = () => {
                 </Row>
               </Form>
             ) : (
-              // Normal display of category
               <Row className="align-items-center">
                 <Col xs={6}>{cat.name}</Col>
                 <Col className="text-end">
