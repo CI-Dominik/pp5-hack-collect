@@ -24,6 +24,8 @@ const UsernameForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
+  // Check if user is allowed to view the site
+
   useEffect(() => {
     if (currentUser?.profile_id?.toString() === id) {
       setUsername(currentUser.username);
@@ -31,6 +33,8 @@ const UsernameForm = () => {
       history.push("/");
     }
   }, [currentUser, history, id]);
+
+  // Set new username
 
   const handleSubmit = async (event) => {
     event.preventDefault();

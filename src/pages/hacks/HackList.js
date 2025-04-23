@@ -26,6 +26,8 @@ function HackList({ message, filter = "" }) {
   const [categoryFilter, setCategoryFilter] = useState("");
   const [categories, setCategories] = useState([]);
 
+  // Get categories
+
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -37,6 +39,8 @@ function HackList({ message, filter = "" }) {
     };
     fetchCategories();
   }, []);
+
+  // Get hacks based on filters and queries
 
   useEffect(() => {
     const fetchHacks = async () => {
@@ -50,6 +54,8 @@ function HackList({ message, filter = "" }) {
         console.log(err);
       }
     };
+
+    // Add loading time to reduce API fetches
 
     setHasLoaded(false);
     const timer = setTimeout(() => {

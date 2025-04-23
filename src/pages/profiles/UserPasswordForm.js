@@ -31,11 +31,15 @@ const UserPasswordForm = () => {
     });
   };
 
+  // Check if user is allowed to view the site
+
   useEffect(() => {
     if (currentUser?.profile_id?.toString() !== id) {
       history.push("/");
     }
   }, [currentUser, history, id]);
+
+  // Set new password
 
   const handleSubmit = async (event) => {
     event.preventDefault();

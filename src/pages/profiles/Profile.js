@@ -14,6 +14,8 @@ const Profile = (props) => {
 
   const { handleFollow, handleUnfollow } = useSetProfileData();
 
+  // Display profiles based on mobile or desktop layout
+
   return (
     <div
       className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
@@ -28,21 +30,22 @@ const Profile = (props) => {
         {!mobile &&
           currentUser &&
           !is_owner &&
-          (following_id ? (
-            <Button
-            className="btn btn-secondary"
-              onClick={() => handleUnfollow(profile)}
-            >
-              Unfollow
-            </Button>
-          ) : (
-            <Button
-            className="btn btn-primary"
-              onClick={() => handleFollow(profile)}
-            >
-              Follow
-            </Button>
-          ))}
+          {/* Following button based on follow status */ }
+            (following_id ? (
+              <Button
+                className="btn btn-secondary"
+                onClick={() => handleUnfollow(profile)}
+              >
+                Unfollow
+              </Button>
+            ) : (
+              <Button
+                className="btn btn-primary"
+                onClick={() => handleFollow(profile)}
+              >
+                Follow
+              </Button>
+            ))}
       </div>
     </div>
   );

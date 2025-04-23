@@ -26,6 +26,7 @@ function ProfilePage() {
     const [profile] = pageProfile.results;
     const is_owner = currentUser?.username === profile?.owner;
 
+    // Fetch profile and hacks data
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -45,6 +46,8 @@ function ProfilePage() {
         };
         fetchData();
     }, [id, setProfileData]);
+
+    // Layout for the needed profile
 
     const mainProfile = (
         <Card className={`${styles.profileContainer} mb-4`}>
@@ -104,6 +107,8 @@ function ProfilePage() {
             </Card.Body>
         </Card>
     );
+
+    // Layout for the hacks related to the profile
 
     const mainProfileHacks = (
         <>

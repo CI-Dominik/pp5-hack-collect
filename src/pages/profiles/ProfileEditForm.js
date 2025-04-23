@@ -31,6 +31,7 @@ const ProfileEditForm = () => {
 
     const [errors, setErrors] = useState({});
 
+    // Fetch profile data if the current user matches the profile id
     useEffect(() => {
         const handleMount = async () => {
             if (currentUser?.profile_id?.toString() === id) {
@@ -40,16 +41,17 @@ const ProfileEditForm = () => {
                     setProfileData({ name, content, image });
                 } catch (err) {
                     console.log(err);
-                    history.push("/");
+                    history.push("/"); // Redirect if profile fetch fails
                 }
             } else {
-                history.push("/");
+                history.push("/"); // Redirect if current user doesn't match
             }
         };
 
         handleMount();
     }, [currentUser, history, id]);
 
+    // Update profile data as the user types
     const handleChange = (event) => {
         setProfileData({
             ...profileData,
@@ -57,6 +59,7 @@ const ProfileEditForm = () => {
         });
     };
 
+    // Handle form submission and update the profile
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
@@ -73,7 +76,7 @@ const ProfileEditForm = () => {
                 ...currentUser,
                 profile_image: data.image,
             }));
-            history.goBack();
+            history.goBack(); // Go back to the previous page after successful update
         } catch (err) {
             console.log(err);
             setErrors(err.response?.data);

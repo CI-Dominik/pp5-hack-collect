@@ -8,6 +8,8 @@ import styles from "../../styles/PopularProfiles.module.css";
 const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
 
+  // List of most followed profiles
+
   return (
     <Container className="text-center">
       {popularProfiles.results.length ? (

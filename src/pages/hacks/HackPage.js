@@ -27,6 +27,7 @@ function HackPage() {
   const profile_image = currentUser?.profile_image;
 
   useEffect(() => {
+    // Scroll to top to start without Infinite Scroll
     window.scrollTo({ top: 0, behavior: "smooth" });
     const handleMount = async () => {
       try {
