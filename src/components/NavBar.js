@@ -12,6 +12,8 @@ import { removeTokenTimestamp } from '../utils/utils';
 import Avatar from './Avatar';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
+// NavBar component for whole site
+
 const NavBar = () => {
     const { expanded, setExpanded, ref } = useClickOutside();
     const currentUser = useCurrentUser();
@@ -20,7 +22,11 @@ const NavBar = () => {
 
     const history = useHistory();
 
+    // Get admin status
+
     const isAdmin = currentUser?.is_staff;
+
+    // Allowing users to sign out
 
     const handleSignOut = async () => {
         try {
@@ -41,6 +47,8 @@ const NavBar = () => {
         setShowSignOutModal(false);
         handleSignOut();
     };
+
+    // Links to display with logged in status
 
     const loggedInLinks = (
         <>
@@ -75,6 +83,8 @@ const NavBar = () => {
         </>
     );
 
+    // Links to display with logged out status
+
     const loggedOutLinks = (
         <>
             <NavLink
@@ -96,7 +106,9 @@ const NavBar = () => {
 
     return (
         <>
+            {/* Navbar */}
             <Navbar expanded={expanded} collapseOnSelect bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary p-2 text-white">
+                {/* Links contained in Navbar */}
                 <NavLink className="text-decoration-none" to="/">
                     <Navbar.Brand className={styles.Title}>Hack Collect</Navbar.Brand>
                 </NavLink>
@@ -112,6 +124,9 @@ const NavBar = () => {
                     <Nav className="ms-auto">
                         <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/">Home</NavLink>
                         <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/hacks">Hacks</NavLink>
+
+                        {/* Enable hack creation only for logged in users */}
+
                         {currentUser && <NavLink
                             exact
                             className={`${styles.NavLink} d-block d-md-none`}
@@ -119,6 +134,9 @@ const NavBar = () => {
                             to="/add-hack">
                             <i className="fas fa-plus"></i> Add Hack
                         </NavLink>}
+
+                        {/* Enable category adjustment link only for admins */}
+
                         {isAdmin && currentUser && <NavLink
                             exact
                             className={styles.NavLink}
@@ -126,6 +144,9 @@ const NavBar = () => {
                         >
                             <i className="fa-solid fa-list"></i> Categories
                         </NavLink>}
+
+                        {/* Display links based on login status */}
+
                         {currentUser ? loggedInLinks : loggedOutLinks}
                     </Nav>
                 </Navbar.Collapse>

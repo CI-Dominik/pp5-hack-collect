@@ -11,6 +11,10 @@ const RatingComponent = ({ hackId, setHack }) => {
 
   const currentUser = useCurrentUser();
 
+  const hasChanged = tempRating !== (rating?.rating || 0);
+
+  // Check for exisiting user rating
+
   useEffect(() => {
     const fetchRating = async () => {
       try {
@@ -31,6 +35,8 @@ const RatingComponent = ({ hackId, setHack }) => {
     fetchRating();
   }, [hackId, currentUser]);
 
+  // Submission of the given rating
+
   const handleSubmitRating = async () => {
     try {
       if (!hasRating) {
@@ -44,7 +50,7 @@ const RatingComponent = ({ hackId, setHack }) => {
         });
         setRating((prev) => ({ ...prev, rating: tempRating }));
       }
-  
+
       if (setHack) {
         const { data } = await axiosReq.get(`/hacks/${hackId}`);
         setHack({ results: [data] });
@@ -53,6 +59,8 @@ const RatingComponent = ({ hackId, setHack }) => {
       console.error(error);
     }
   };
+
+  // Rating deletion
 
   const handleRatingDelete = async () => {
     try {
@@ -71,8 +79,6 @@ const RatingComponent = ({ hackId, setHack }) => {
       console.error(error);
     }
   };
-
-  const hasChanged = tempRating !== (rating?.rating || 0);
 
   return (
     <div className="d-flex flex-column">

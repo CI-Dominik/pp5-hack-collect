@@ -2,8 +2,8 @@
 
 xxxxxxxxxxxxxxxxx
 
-Link to the live website: [Link to Hack Collect](LINK)<br>
-Link to the website's project board: [Link to the GitHub Project](LINK)
+Link to the live website: [Link to Hack Collect](https://pp5-hack-collect-76d639ad2680.herokuapp.com/)<br>
+Link to the website's project board: [Link to the GitHub Project](xxxxxxxxxxxxxxxxx)
 
 ![Mockup image of the Homepage](docs/mockup.jpg)
 

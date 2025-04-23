@@ -4,6 +4,8 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router";
 
+// Reference
+
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
     className="fas fa-ellipsis-v"
@@ -25,6 +27,7 @@ export const ActionDropdown = ({ handleEdit, handleDelete }) => {
 
   return (
     <>
+      {/* Dropdown menu */}
       <Dropdown className="ml-auto" drop="left">
         <Dropdown.Toggle as={ThreeDots} />
 
@@ -37,6 +40,8 @@ export const ActionDropdown = ({ handleEdit, handleDelete }) => {
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
+
+      {/* Deletion modal */}
 
       <Modal show={showConfirm} onHide={() => setShowConfirm(false)} centered>
         <Modal.Header closeButton>
