@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { Button } from "react-bootstrap";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
+import styles from '../../styles/Profile.module.css';
 
 const Profile = (props) => {
   const { profile, mobile, imageSize = 55 } = props;
@@ -21,9 +22,9 @@ const Profile = (props) => {
       className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
     >
       <div>
-        <Link className="align-self-center" to={`/profiles/${id}`}>
+        <Link className={`align-self-center text-decoration-none ${styles.ProfileLink}`} to={`/profiles/${id}`}>
           <Avatar src={image} height={imageSize} />
-          <strong className="text-decoration-none text-white">{owner}</strong>
+          <strong className={`text-decoration-none text-white ${styles.ProfileLink}`}>{owner}</strong>
         </Link>
       </div>
       <div className={`text-right ${!mobile && "ms-auto"}`}>

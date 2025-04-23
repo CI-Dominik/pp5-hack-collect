@@ -4,3 +4,7 @@
   border-radius: 50%;
   object-fit: cover;
 }
+
+.AvatarHover:hover {
+  color: #26d1e6 !important;
+}
