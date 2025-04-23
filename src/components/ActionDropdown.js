@@ -3,6 +3,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router";
+import styles from '../styles/ActionDropdown.module.css';
 
 // Reference
 
@@ -42,19 +43,18 @@ export const ActionDropdown = ({ handleEdit, handleDelete }) => {
       </Dropdown>
 
       {/* Deletion modal */}
-
       <Modal show={showConfirm} onHide={() => setShowConfirm(false)} centered>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className={styles.modalHeaderCustom}>
           <Modal.Title className="text-black">Confirm Deletion</Modal.Title>
         </Modal.Header>
         <Modal.Body className="text-black">
           Are you sure you want to delete this item? This action cannot be undone.
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowConfirm(false)}>
+          <Button className={`${styles.modalCustomBtn} ${styles.modalCancel}`} onClick={() => setShowConfirm(false)}>
             Cancel
           </Button>
-          <Button variant="danger" onClick={handleConfirmDelete}>
+          <Button className={`${styles.modalCustomBtn} ${styles.modalSignout}`} onClick={handleConfirmDelete}>
             Delete
           </Button>
         </Modal.Footer>

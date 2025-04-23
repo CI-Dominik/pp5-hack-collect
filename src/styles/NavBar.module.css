@@ -66,3 +66,26 @@
     color: #26d1e6;
     transform: scale(1.05);
 }
+
+/* Modal Styling */
+
+.modal-custom-btn {
+    color: #1a1a1a;
+    border: none;
+}
+
+.modal-cancel {
+    background-color: #26d1e6;
+}
+
+.modal-cancel:hover {
+    background-color: #00bcd4;
+}
+
+.modal-signout {
+    background-color: #00bcd4;
+}
+
+.modal-signout:hover {
+    background-color: #26d1e6;
+}

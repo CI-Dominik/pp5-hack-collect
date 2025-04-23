@@ -154,17 +154,23 @@ const NavBar = () => {
 
             {/* Sign-out Confirmation Modal */}
             <Modal show={showSignOutModal} onHide={() => setShowSignOutModal(false)} centered>
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className={styles.modalHeaderCustom}>
                     <Modal.Title className="text-black">Confirm Sign-out</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="text-black">
                     Are you sure you want to sign out?
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={() => setShowSignOutModal(false)}>
+                <Modal.Footer className={styles.modalFooterCustom}>
+                    <Button
+                        className={`${styles.modalCustomBtn} ${styles.modalCancel}`}
+                        onClick={() => setShowSignOutModal(false)}
+                    >
                         Cancel
                     </Button>
-                    <Button variant="danger" onClick={handleConfirmSignOut}>
+                    <Button
+                        className={`${styles.modalCustomBtn} ${styles.modalSignout}`}
+                        onClick={handleConfirmSignOut}
+                    >
                         Sign out
                     </Button>
                 </Modal.Footer>

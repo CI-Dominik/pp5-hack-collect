@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Button, Card, Form, Row, Col, Modal, Alert } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import styles from '../../styles/CategoryManager.module.css';
 
 const CategoryManager = () => {
   const currentUser = useCurrentUser();
@@ -180,14 +181,14 @@ const CategoryManager = () => {
 
       {/* Warning modal when trying to delete last category */}
       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className={styles.modalHeaderCustom}>
           <Modal.Title className="text-black">Deletion Not Allowed</Modal.Title>
         </Modal.Header>
         <Modal.Body className="text-black">
           At least one category must exist. You cannot delete the last remaining category.
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
+          <Button className={`${styles.modalCustomBtn} ${styles.modalCancel}`} onClick={() => setShowModal(false)}>
             OK
           </Button>
         </Modal.Footer>
@@ -199,17 +200,17 @@ const CategoryManager = () => {
         onHide={() => setConfirmDeleteId(null)}
         centered
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Confirm Deletion</Modal.Title>
+        <Modal.Header closeButton className={styles.modalHeaderCustom}>
+          <Modal.Title className="text-black">Confirm Deletion</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="text-black">
           Are you sure you want to delete this category?
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setConfirmDeleteId(null)}>
+          <Button className={`${styles.modalCustomBtn} ${styles.modalCancel}`} onClick={() => setConfirmDeleteId(null)}>
             Cancel
           </Button>
-          <Button variant="danger" onClick={confirmDelete}>
+          <Button className={`${styles.modalCustomBtn} ${styles.modalSignout}`} onClick={confirmDelete}>
             Delete
           </Button>
         </Modal.Footer>
