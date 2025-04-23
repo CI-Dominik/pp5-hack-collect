@@ -30,7 +30,6 @@ const Profile = (props) => {
         {!mobile &&
           currentUser &&
           !is_owner &&
-          {/* Following button based on follow status */ }
             (following_id ? (
               <Button
                 className="btn btn-secondary"
