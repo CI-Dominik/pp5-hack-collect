@@ -18,8 +18,12 @@ import UsernameForm from './pages/profiles/UsernameForm';
 
 function App() {
 
+  // Get current user and profile ID
+
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
+
+  // Get admin status
 
   const isAdmin = currentUser?.is_staff;
 
@@ -37,6 +41,7 @@ function App() {
           <Route exact path="/sign-up" render={() => <SignUpForm />} />
           <Route exact path="/rated" render={() => <HackList filter={`ratings__owner__profile=${profile_id}&`} />} />
           <Route exact path="/followed" render={() => <HackList filter={`owner__followed__owner__profile=${profile_id}&`} />} />
+          {/* Category Manager only for admins */}
           <Route
             exact
             path="/category-manager"
@@ -60,6 +65,7 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
+          {/* Rendering when no page was found */}
           <Route render={() => <h1>Page not found!</h1>} />
         </Switch>
       </Container>
