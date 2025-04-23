@@ -24,3 +24,19 @@ input[type="file"] {
   padding: 6px 12px;
   cursor: pointer;
 }
+
+/* Button Optimization */
+
+.btn-primary {
+  background-color: #00bcd4 !important;
+  border-color: #00bcd4 !important;
+  color: #121212 !important;
+  font-weight: 500;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #26d1e6 !important;
+  border-color: #26d1e6 !important;
+  color: #121212 !important;
+}

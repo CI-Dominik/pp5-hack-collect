@@ -1,5 +1,4 @@
 /* General Styling */
-
 * {
     margin: 0;
     padding: 0;
@@ -7,34 +6,63 @@
 }
 
 /* Navigation Link Styling */
-
 .NavLink {
-    color: white;
+    color: #dcdcdc;
     text-decoration: none;
-    padding: 0 10px;
-    font-weight: bold;
-}
-
-.Active {
-    border-bottom: 1px white solid;
+    padding: 0 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease;
 }
 
 .NavLink:hover {
-    color: grey;
+    color: #00bcd4;
+}
+
+.Active {
+    color: #00bcd4;
+    border-bottom: 2px solid #00bcd4;
 }
 
 /* Title Styling */
-
 .Title {
-    color: white;
-    text-decoration: none !important;
-    font-weight: bold;
+    color: #00bcd4;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
-/* Media Queries */
-
-@media (width <= 991px) {
+/* Responsive padding */
+@media (width <=991px) {
     .NavLink {
-        padding: 5px 0;
+        padding: 8px 0;
     }
+}
+
+/* Navbar background override */
+.bg-body-tertiary {
+    background-color: #1a1a2e !important;
+    border-bottom: 1px solid #333;
+}
+
+.CustomNavbar {
+    background-color: #1a1a2e;
+    border-bottom: 1px solid #333;
+    color: #dcdcdc;
+}
+
+/* Title Styling */
+.Title {
+    color: #00bcd4;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.Title:hover {
+    color: #26d1e6;
+    transform: scale(1.05);
 }

@@ -107,7 +107,7 @@ const NavBar = () => {
     return (
         <>
             {/* Navbar */}
-            <Navbar expanded={expanded} collapseOnSelect bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary p-2 text-white">
+            <Navbar expanded={expanded} collapseOnSelect expand="lg" className={`${styles.CustomNavbar} p-2`}>
                 {/* Links contained in Navbar */}
                 <NavLink className="text-decoration-none" to="/">
                     <Navbar.Brand className={styles.Title}>Hack Collect</Navbar.Brand>
