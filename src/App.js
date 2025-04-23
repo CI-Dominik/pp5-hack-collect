@@ -15,6 +15,7 @@ import ProfileEditForm from './pages/profiles/ProfileEditForm';
 import UserPasswordForm from './pages/profiles/UserPasswordForm';
 import UsernameForm from './pages/profiles/UsernameForm';
 import HomePage from './components/HomePage';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -68,6 +69,7 @@ function App() {
           {/* Rendering when no page was found */}
           <Route render={() => <h1>Page not found!</h1>} />
         </Switch>
+        <Footer />
       </Container>
     </div>
   );

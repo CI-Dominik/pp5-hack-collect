@@ -1,0 +1,23 @@
+.footer {
+    background-color: #1c1c2e;
+    color: #ccc;
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+}
+
+.logo {
+    font-weight: bold;
+    color: #00bcd4;
+}
+
+.link {
+    color: #ccc;
+    margin-left: 1rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.link:hover {
+    color: #00bcd4;
+    text-decoration: underline;
+}
