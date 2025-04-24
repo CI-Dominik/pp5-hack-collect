@@ -71,7 +71,7 @@ const Hack = (props) => {
             <Link to={`/profiles/${profile_id}`} className="text-decoration-none text-white">
               <Avatar className="mr-3" src={profile_image} text={owner} />
             </Link>
-            <div className="ml-3 text-white">Created: {created_at}</div>
+            <div className="ml-3 text-white d-none d-md-block">Created: {created_at}</div>
             <div className="ml-3 text-white"><i className="fa-solid fa-comment"></i> {comments_count}</div>
           </div>
           {/* Show action dropdown only for the owner */}
