@@ -101,7 +101,7 @@ const Hack = (props) => {
           )}
           {!hackPage && <h3 className="text-white">Preview</h3>}
           {/* Show either full or truncated content */}
-          <Card.Text className="text-white">
+          <Card.Text className="text-white mb-2">
             {hackPage ? (
               content
             ) : (
