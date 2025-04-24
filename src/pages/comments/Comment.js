@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Media, Modal, Button } from "react-bootstrap";
+import { Media } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -22,8 +22,7 @@ const Comment = (props) => {
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
 
-    const [showConfirm, setShowConfirm] = useState(false); // Modal visibility for delete confirmation
-    const [isEditing, setIsEditing] = useState(false);     // Toggle edit mode
+    const [isEditing, setIsEditing] = useState(false);
 
     // Handle comment deletion
     const handleDelete = async () => {
@@ -45,71 +44,46 @@ const Comment = (props) => {
             }));
         } catch (error) {
             console.log(error);
-        } finally {
-            setShowConfirm(false);
         }
     };
 
-    // Enable edit mode
     const handleEdit = () => {
         setIsEditing(true);
     };
 
     return (
-        <>
-            <Media className="d-flex w-100 my-2 text-white gap-2">
-                {/* User avatar and profile link */}
-                <Link to={`/profiles/${profile_id}`} className="text-decoration-none text-black mr-3">
-                    <Avatar className="mr-3" src={profile_image} />
-                </Link>
-                <Media.Body className="align-self-center ml-2 w-100">
-                    <div className="d-flex justify-content-between align-items-start">
-                        {/* Comment owner and timestamp */}
-                        <span className="fw-bold">
-                            <Link to={`/profiles/${profile_id}`} className="text-decoration-none text-white">{owner}</Link> - {updated_at}
-                        </span>
-                        {/* Dropdown for edit/delete actions if current user is the owner */}
-                        {is_owner && (
-                            <div>
-                                <ActionDropdown
-                                    handleEdit={handleEdit}
-                                    handleDelete={() => setShowConfirm(true)}
-                                />
-                            </div>
-                        )}
-                    </div>
-                    {/* Show edit form or comment content */}
-                    {isEditing ? (
-                        <CommentEditForm
-                            id={id}
-                            content={content}
-                            setComments={setComments}
-                            setIsEditing={setIsEditing}
+        <Media className="d-flex w-100 my-2 text-white gap-2">
+            {/* User avatar and profile link */}
+            <Link to={`/profiles/${profile_id}`} className="text-decoration-none text-black mr-3">
+                <Avatar className="mr-3" src={profile_image} />
+            </Link>
+            <Media.Body className="align-self-center ml-2 w-100">
+                <div className="d-flex justify-content-between align-items-start">
+                    {/* Comment owner and timestamp */}
+                    <span className="fw-bold">
+                        <Link to={`/profiles/${profile_id}`} className="text-decoration-none text-white">{owner}</Link> - {updated_at}
+                    </span>
+                    {/* Dropdown for edit/delete actions if current user is the owner */}
+                    {is_owner && (
+                        <ActionDropdown
+                            handleEdit={handleEdit}
+                            handleDelete={handleDelete}
                         />
-                    ) : (
-                        <p>{content}</p>
                     )}
-                </Media.Body>
-            </Media>
-
-            {/* Delete confirmation modal */}
-            <Modal show={showConfirm} onHide={() => setShowConfirm(false)} centered>
-                <Modal.Header closeButton>
-                    <Modal.Title>Delete Comment</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    Are you sure you want to delete this comment?
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={() => setShowConfirm(false)}>
-                        Cancel
-                    </Button>
-                    <Button variant="danger" onClick={handleDelete}>
-                        Delete
-                    </Button>
-                </Modal.Footer>
-            </Modal>
-        </>
+                </div>
+                {/* Show edit form or comment content */}
+                {isEditing ? (
+                    <CommentEditForm
+                        id={id}
+                        content={content}
+                        setComments={setComments}
+                        setIsEditing={setIsEditing}
+                    />
+                ) : (
+                    <p>{content}</p>
+                )}
+            </Media.Body>
+        </Media>
     );
 };
 
