@@ -20,3 +20,9 @@
 .modal-signout:hover {
     background-color: #26d1e6;
 }
+
+/* Cursor Styling */
+
+.CursorPointer {
+    cursor: pointer;
+}
