@@ -9,7 +9,7 @@ import styles from '../styles/ActionDropdown.module.css';
 
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
-    className={`fa-solid fa-pen ${styles.CursorPointer}`}
+    className={`fa-solid fa-pen ms-2 ${styles.CursorPointer}`}
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
