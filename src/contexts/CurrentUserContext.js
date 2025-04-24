@@ -22,9 +22,7 @@ export const CurrentUserProvider = ({ children }) => {
     try {
       const { data } = await axiosRes.get('dj-rest-auth/user/')
       setCurrentUser(data);
-    } catch (error) {
-      console.log("ERROR:", error)
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

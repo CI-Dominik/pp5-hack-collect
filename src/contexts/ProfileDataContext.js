@@ -40,9 +40,7 @@ export const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   // Handle unfollowing a profile
@@ -64,9 +62,7 @@ export const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   // Fetch popular profiles when currentUser changes (or on mount)
@@ -80,9 +76,7 @@ export const ProfileDataProvider = ({ children }) => {
           ...prevState,
           popularProfiles: data,
         }));
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     handleMount();

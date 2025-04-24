@@ -34,9 +34,7 @@ const NavBar = () => {
             setCurrentUser(null);
             removeTokenTimestamp();
             history.push("/");
-        } catch (error) {
-            console.log(error);
-        }
+        } catch (error) {}
     };
 
     const handleSignOutClick = () => {

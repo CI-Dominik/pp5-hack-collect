@@ -40,9 +40,7 @@ function ProfilePage() {
                 }));
                 setProfileHacks(profileHacks);
                 setHasLoaded(true);
-            } catch (err) {
-                console.log(err);
-            }
+            } catch (err) {}
         };
         fetchData();
     }, [id, setProfileData]);

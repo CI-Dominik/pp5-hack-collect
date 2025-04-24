@@ -43,9 +43,7 @@ const Comment = (props) => {
                 ...prevComments,
                 results: prevComments.results.filter(comment => comment.id !== id)
             }));
-        } catch (error) {
-            console.log(error);
-        }
+        } catch (error) {}
     };
 
     const handleEdit = () => {

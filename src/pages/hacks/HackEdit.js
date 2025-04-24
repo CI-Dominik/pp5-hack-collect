@@ -53,9 +53,7 @@ function HackEdit() {
                 } else {
                     history.push("/");
                 }
-            } catch (err) {
-                console.log(err);
-            }
+            } catch (err) {}
         };
 
         fetchData();
@@ -98,7 +96,6 @@ function HackEdit() {
             await axiosReq.patch(`/hacks/${id}`, patchData);
             history.push(`/hacks/${id}`);
         } catch (error) {
-            console.log(error);
             if (error.response?.status !== 401) {
                 setErrors(error.response?.data);
             }

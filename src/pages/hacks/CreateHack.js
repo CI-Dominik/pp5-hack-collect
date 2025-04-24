@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Container, Row, Col, Form, Button, Alert, Card } from 'react-bootstrap';
 import { axiosReq } from '../../api/axiosDefaults';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
@@ -15,10 +14,14 @@ const CreateHack = () => {
   const history = useHistory();
 
   useEffect(() => {
-    // Fetch category options for dropdown
-    axios.get('/categories/')
-      .then(response => setCategories(response.data.results))
-      .catch(error => console.log(error));
+    const fetchCategories = async () => {
+      try {
+        const { data } = await axiosReq.get('/categories/');
+        setCategories(data.results);
+      } catch (error) {}
+    };
+
+    fetchCategories();
   }, []);
 
   const handleSubmit = async (event) => {

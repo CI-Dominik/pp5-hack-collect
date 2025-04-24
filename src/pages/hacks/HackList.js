@@ -33,9 +33,7 @@ function HackList({ message, filter = "" }) {
       try {
         const { data } = await axiosReq.get("/categories/");
         setCategories(data.results);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
     fetchCategories();
   }, []);
@@ -50,9 +48,7 @@ function HackList({ message, filter = "" }) {
         );
         setHacks(data);
         setHasLoaded(true);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     // Add loading time to reduce API fetches

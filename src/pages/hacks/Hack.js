@@ -39,9 +39,7 @@ const Hack = (props) => {
           const cat = await axiosRes.get(`/categories/${category}`);
           setCategoryValue(cat);
         }
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
 
     handleMount();
@@ -57,9 +55,7 @@ const Hack = (props) => {
     try {
       await axiosRes.delete(`/hacks/${id}`);
       history.goBack();
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (

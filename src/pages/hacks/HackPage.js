@@ -37,9 +37,8 @@ function HackPage() {
         ]);
         setHack({ results: [hackData] });
         setComments(comments);
-      } catch (err) {
-        console.log(err);
-      } finally {
+      } catch (err) {} 
+      finally {
         setIsLoading(false);
       }
     };

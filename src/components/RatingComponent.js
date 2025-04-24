@@ -27,9 +27,7 @@ const RatingComponent = ({ hackId, setHack }) => {
             setHasRating(true);
           }
         }
-      } catch (error) {
-        console.error(error);
-      }
+      } catch (error) {}
     };
 
     fetchRating();
@@ -55,9 +53,7 @@ const RatingComponent = ({ hackId, setHack }) => {
         const { data } = await axiosReq.get(`/hacks/${hackId}`);
         setHack({ results: [data] });
       }
-    } catch (error) {
-      console.error(error);
-    }
+    } catch (error) {}
   };
 
   // Rating deletion
@@ -75,9 +71,7 @@ const RatingComponent = ({ hackId, setHack }) => {
           setHack({ results: [data] });
         }
       }
-    } catch (error) {
-      console.error(error);
-    }
+    } catch (error) {}
   };
 
   return (
