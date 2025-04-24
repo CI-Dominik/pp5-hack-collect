@@ -6,6 +6,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { ActionDropdown } from "../../components/ActionDropdown";
 import CommentEditForm from "./CommentEditForm";
 import { Link } from "react-router-dom";
+import styles from '../../styles/Comment.module.css';
 
 const Comment = (props) => {
     const {
@@ -61,7 +62,7 @@ const Comment = (props) => {
                 <div className="d-flex justify-content-between align-items-start">
                     {/* Comment owner and timestamp */}
                     <span className="fw-bold">
-                        <Link to={`/profiles/${profile_id}`} className="text-decoration-none text-white">{owner}</Link> - {updated_at}
+                        <Link to={`/profiles/${profile_id}`} className="text-decoration-none text-white"><span className={`${styles.CommentOwner}`}>{owner}</span></Link> - {updated_at}
                     </span>
                     {/* Dropdown for edit/delete actions if current user is the owner */}
                     {is_owner && (
