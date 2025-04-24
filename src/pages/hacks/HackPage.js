@@ -48,7 +48,7 @@ function HackPage() {
   }, [id]);
 
   return (
-    <Container fluid className="min-vh-100 d-flex flex-column">
+    <Container fluid className="min-vh-100 d-flex p-4 flex-column">
       <Row className="flex-grow-1">
         <Col className="py-2 p-0 p-lg-2" lg={8}>
           {isLoading ? (
