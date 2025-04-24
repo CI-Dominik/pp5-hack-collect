@@ -33,13 +33,6 @@
     text-transform: uppercase;
 }
 
-/* Responsive padding */
-@media (width <=991px) {
-    .NavLink {
-        padding: 8px 0;
-    }
-}
-
 /* Navbar background override */
 .bg-body-tertiary {
     background-color: #1a1a2e !important;
@@ -88,4 +81,32 @@
 
 .modal-signout:hover {
     background-color: #26d1e6;
+}
+
+/* Hack Button */
+
+.AddHackButton {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+    padding: 0;
+    background-color: #00bcd4;
+    border-radius: 50%;
+    color: white;
+    border: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.AddHackButton:hover {
+    background-color: #26d1e6;
+    text-decoration: none;
+    color: white;
+}
+
+/* Media Queries  */
+
+@media (width <=991px) {
+    .NavLink {
+        padding: 8px 0;
+    }
 }

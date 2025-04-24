@@ -112,13 +112,16 @@ const NavBar = () => {
                 <NavLink className="text-decoration-none" to="/">
                     <Navbar.Brand className={styles.Title}>Hack Collect</Navbar.Brand>
                 </NavLink>
-                {currentUser && <NavLink
-                    exact
-                    className={`${styles.NavLink} d-none d-md-block`}
-                    activeClassName={styles.Active}
-                    to="/add-hack">
-                    <i className="fas fa-plus"></i> Add Hack
-                </NavLink>}
+                {/* Add Hack Button in desktop view */}
+                {currentUser && (
+                    <NavLink
+                        exact
+                        to="/add-hack"
+                        className={`${styles.NavLink} d-none d-lg-flex align-items-center justify-content-center ${styles.AddHackButton}`}
+                    >
+                        <i className="fas fa-plus"></i>
+                    </NavLink>
+                )}
                 <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="responsive-navbar-nav" style={{ backgroundColor: '#00bcd4' }} />
                 <Navbar.Collapse>
                     <Nav className="ms-auto">
