@@ -134,13 +134,13 @@ function ProfilePage() {
     );
 
     return (
-        <Container>
+        <Container className="p-2">
             <div className="d-block d-lg-none mb-3">
                 <PopularProfiles mobile />
             </div>
 
             <Row>
-                <Col className="py-2 p-0 p-lg-2" lg={8}>
+                <Col className="py-2 p-lg-2" lg={8}>
                     <Container className="mt-3 p-0">
                         {hasLoaded ? (
                             <>
