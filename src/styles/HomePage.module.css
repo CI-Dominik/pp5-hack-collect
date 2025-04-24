@@ -1,37 +1,45 @@
 /* HomePage.module.css */
 
-.heroSection {
+.HeroSection {
   background: linear-gradient(135deg, #1e1e2f, #3a3a58);
   color: #fff;
 }
 
-.featuresSection {
+.FeaturesSection {
   background-color: #2b2b3c;
 }
 
-.card {
+.Card {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #3a3a58;
+  border: none;
+  color: #fff;
 }
 
-.card:hover {
+.Card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-.card-title {
+.CardTitle {
   font-weight: 600;
   color: #00bcd4;
 }
 
-.card-text {
+.CardText {
   color: #dcdcdc;
 }
 
-p.lead {
+.LeadText {
   font-size: 1.25rem;
   color: #e0e0e0;
 }
 
-button {
+.InfoAlert {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.Button {
   font-weight: 500;
 }

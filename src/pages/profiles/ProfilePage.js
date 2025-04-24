@@ -58,6 +58,7 @@ function ProfilePage() {
                         <Image
                             src={profile?.image}
                             roundedCircle
+                            alt="Avatar"
                             className={styles.profileImage}
                         />
                     </Col>

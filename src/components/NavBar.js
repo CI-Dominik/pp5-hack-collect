@@ -117,6 +117,7 @@ const NavBar = () => {
                     <NavLink
                         exact
                         to="/add-hack"
+                        title="Add Hack"
                         className={`${styles.NavLink} d-none d-lg-flex align-items-center justify-content-center ${styles.AddHackButton}`}
                     >
                         <i className="fas fa-plus"></i>
