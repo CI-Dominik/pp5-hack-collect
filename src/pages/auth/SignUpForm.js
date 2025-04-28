@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
 import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
@@ -75,6 +75,11 @@ const SignUpForm = () => {
                 </Form.Group>
                 <Button type="submit" className="btn btn-primary btn-block">Sign-up</Button>
               </Form>
+              {errors?.non_field_errors?.map((message, idx) => (
+                <Alert className="mt-2" variant="danger" key={idx}>
+                  {message}
+                </Alert>
+              ))}
             </div>
           </div>
         </div>
