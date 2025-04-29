@@ -18,7 +18,7 @@ const HomePage = () => {
             </p>
             <Button
               as={Link}
-              to={currentUser ? "/hacks" : "/signup"}
+              to={currentUser ? "/hacks" : "/sign-up"}
               variant="primary"
               size="lg"
               className={styles.Button}
