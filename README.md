@@ -43,14 +43,16 @@ Link to the website's project board: [Link to the GitHub Project](xxxxxxxxxxxxxx
     
 <br>
 
+[**REUSABLE COMPONENTS**](#reusable-components)
+  * [TEXT](#LINK)
+
+<br>
+
 [**TESTING**](#testing)
     
 <br>
 
 [**VALIDATOR TESTING**](#validator-testing)
-  * [HTML validator](#html-validator)
-  * [CSS validator](#css-validator)
-  * [JavaScript validator](#javascript-validator)
   * [Flake8 validator](#flake8-validator)
 
 <br>
@@ -123,10 +125,6 @@ For easy access, a plus button is placed right next to the title link to add a h
 
 ![Screenshot of the Database Diagram](docs/database.jpg)
 
-**Model**
-
-xxxxxxxxxxxxxxxxx
-
 ---
 
 ## **DESIGN**
@@ -163,7 +161,7 @@ xxxxxxxxxxxxxxxxx
 * All styles were applied by using and linking a CSS (Cascading Style Sheet) file.
 
 ### JavaScript
-* JavaScript was used to create the functionality of the modals.
+* JavaScript was used to create the functionality of the homepage.
 
 ### Python
 * Python was used as a programming language for editing backend code.
@@ -175,7 +173,7 @@ xxxxxxxxxxxxxxxxx
 * Cloudinary was used to store the image files uploaded by users.
 
 ### Visual Studio Code
-* Visual Studio Code was used to clone the GitHub repository, edit the homepage's code and commit / push the results to GitHub.
+* Visual Studio Code was used to clone the GitHub repository, edit the homepage's code and commit / push the results to GitHub. In addition, plugins were used to verify the code structure and best practices.
 
 ### GitHub
 * GitHub was used to store the homepage's files, the user stories and epics.
@@ -185,6 +183,15 @@ xxxxxxxxxxxxxxxxx
 
 ### Fontawesome
 * Fontawesome was linked in the homepage's code to include icon files.
+
+---
+
+## **REUSABLE COMPONENTS**
+
+### Name
+* Description
+
+![Image of component](docs/components/xxxxxxxxx.jpg)
 
 ---
 
