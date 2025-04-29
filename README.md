@@ -98,13 +98,14 @@ Link to the website's project board: [Link to the GitHub Project](xxxxxxxxxxxxxx
 ## **USER EXPERIENCE**
 
 ## Target audience
-* xxxxxxxxxxxxxxxxx
+* The homepage's target audience are those who want to make their life easier by using normal household objects in a much more creative way. It is aimed towards people who want to do creative work. Those who like to tinker and bring more color into their life.
 
 ## User's journey
-* xxxxxxxxxxxxxxxxx
+* The user is welcomed by the home page that displays a short summary of what they can expect. There, for logged-out users, a convenient sign-up button is placed in the hero area. If the user is already logged in, a button that takes them to the hack page is displayed instead to get them started immediately.
+For easy access, a plus button is placed right next to the title link to add a hack. Once this site gets resized to mobile size, the button gets removed and placed in the navigation menu.
 
 ## Intuitive and consistent design
-* xxxxxxxxxxxxxxxxx
+* A consistent layout was used throughout the homepage to ensure a coherent user experience. Every element is styled and placed for convenient access.
 
 ---
 
@@ -118,11 +119,9 @@ Link to the website's project board: [Link to the GitHub Project](xxxxxxxxxxxxxx
 ![Screenshot of the xxxxxxxxxxxxxxxxx](docs/features/xxxxxxxxxxxxxxxxx.jpg)
 
 ## Database Connection
-* A database was used to store relevant pieces of information like usernames, hacks or ratings.
+* A PostgreSQL database was used to store relevant pieces of information like profiles, hacks or ratings.
 
-![Screenshot of the Database Diagram](docs/database/database_diagram.jpg)
-
-A PostgreSQL database was used to store all the relevant data.
+![Screenshot of the Database Diagram](docs/database.jpg)
 
 **Model**
 
