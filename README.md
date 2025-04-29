@@ -196,25 +196,6 @@ xxxxxxxxxxxxxxxxx
 
 ## **VALIDATOR TESTING**
 
-### HTML validator
-* All pages were checked for their HTML structure by the W3C Markup Validation Service. No document showed any errors.
-
-<br>
-
-![Screenshot of the HTML validation](docs/validation/html-validation.jpg)
-
-### CSS validator
-* The custom stylesheet file styles.css was checked via the W3C CSS Validation Service. No errors were found.
-
-<br>
-
-![Screenshot of the CSS validation](docs/validation/css-validation.jpg)
-
-### JavaScript validator
-* The files were tested using the JSHint validator. xxxxxxxxxxxxxxxxx
-
-![Screenshot of the JavaScript validation](docs/validation/XXXXXXXXXXXXXXX.jpg)
-
 ### Flake8 validator
 * Flake8 was used in Visual Studio Code to check the Python code in all files that were used, changed and adjusted. No errors occurred.
 
