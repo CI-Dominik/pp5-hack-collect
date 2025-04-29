@@ -132,7 +132,7 @@ xxxxxxxxxxxxxxxxx
 ## **DESIGN**
 
 ## Color choice
-* xxxxxxxxxxxxxxxxx
+* A dark design was chosen as it fits the need for users to prefer a dark theme rather than a light theme nowadays. Blue highlights were used to display a strong contrast.
 
 <br>
 
@@ -314,6 +314,9 @@ xxxxxxxxxxxxxxxxx
 
 ## [W3Schools](https://www.w3schools.com/)
 * Used to lookup tips for the code.
+
+## [Coolors](https://coolors.co/)
+* Used to generate the color palette.
 
 ## [Favicon Generator](https://favicon.io/)
 * Used to generate the favicon for the homepage.
