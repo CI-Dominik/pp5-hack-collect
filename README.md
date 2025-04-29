@@ -1,6 +1,6 @@
 # **HACK COLLECT**: Hack your Life easier!
 
-xxxxxxxxxxxxxxxxx
+This is Hack Collect. A place for people to share their life hacks and make all of our days easier!
 
 Link to the live website: [Link to Hack Collect](https://pp5-hack-collect-76d639ad2680.herokuapp.com/)<br>
 Link to the website's project board: [Link to the GitHub Project](xxxxxxxxxxxxxxxxx)
