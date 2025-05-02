@@ -59,6 +59,7 @@ Link to the website's project board: [Link to the Trello board](https://trello.c
 <br>
 
 [**VALIDATOR TESTING**](#validator-testing)
+  * [W3C CSS Validation](#w3c-css-validation)
   * [Flake8 validator](#flake8-validator)
 
 <br>
@@ -264,6 +265,13 @@ For easy access, a plus button is placed right next to the title link to add a h
 ---
 
 ## **VALIDATOR TESTING**
+
+### W3C CSS Validation
+* W3C CSS Validation was used to verfiy all CSS files. The results came out with no errors.
+
+![CSS validation](docs/css_validation.jpg)
+
+<br>
 
 ### Flake8 validator
 * Flake8 was used in Visual Studio Code to check the Python code in all files that were used, changed and adjusted. No errors occurred.
