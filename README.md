@@ -3,7 +3,7 @@
 This is Hack Collect. A place for people to share their life hacks and make all of our days easier!
 
 Link to the live website: [Link to Hack Collect](https://pp5-hack-collect-76d639ad2680.herokuapp.com/)<br>
-Link to the website's project board: [Link to the GitHub Project](xxxxxxxxxxxxxxxxx)
+Link to the website's project board: [Link to the Trello board](https://trello.com/b/Yi2LxF35/hack-collect)
 
 ![Mockup image of the Homepage](docs/mockup.jpg)
 
@@ -16,8 +16,14 @@ Link to the website's project board: [Link to the GitHub Project](xxxxxxxxxxxxxx
     
 <br>
 
-[**FEATURES**](#features)
-  * [Feature](#feature)
+[**AGILE PLANNING0**](#agile-planning)
+  * [Epics](#epics)
+  * [User Stories](#user-stories)
+
+<br>
+
+[**DATABASE**](#database)
+  * [Database connection](#database-connection)
 
 <br>
 
@@ -111,14 +117,30 @@ For easy access, a plus button is placed right next to the title link to add a h
 
 ---
 
-## **FEATURES**
+## AGILE PLANNING
+* Here everyting related to the agile planning is displayed. This section contains the used epics and user stories, including their final results.
 
-## Feature
-* xxxxxxxxxxxxxxxxx
+## Epics
+
+### HEADLINE
+* DESCRIPTION
+
+![Image of the feature](docs/agile/xxxxxxxxxxxxxxxxxx.jpg)
 
 <br>
 
-![Screenshot of the xxxxxxxxxxxxxxxxx](docs/features/xxxxxxxxxxxxxxxxx.jpg)
+## User Stories
+
+### HEADLINE
+* DESCRIPTION
+
+![Image of the feature](docs/agile/xxxxxxxxxxxxxxxxxx.jpg)
+
+<br>
+
+---
+
+## **DATABASE**
 
 ## Database Connection
 * A PostgreSQL database was used to store relevant pieces of information like profiles, hacks or ratings.
@@ -191,7 +213,7 @@ For easy access, a plus button is placed right next to the title link to add a h
 ### Name
 * Description
 
-![Image of component](docs/components/xxxxxxxxx.jpg)
+![Image of the component](docs/components/xxxxxxxxx.jpg)
 
 ---
 
@@ -223,8 +245,20 @@ For easy access, a plus button is placed right next to the title link to add a h
 
 ## **BUGS**
 
-## Unfixed bugs
-* No unfixed bugs are known at this point.
+## 401 authentication error
+* An error occurs in the console displaying a 401 error when sending the authorization token. This is a known bug of Django Rest Framework and was not resolvable for me at the moment of completing the project. The site's functionality is not impacted by this.
+
+![401 error](docs/bugs/401-error.jpg)
+
+## WebSocket connection error
+* After some time, a WebSocket error occurs in the console, even though no WebSocket was used. The error has no impact on the site's functionality.
+
+![WebSocket error](docs/bugs/websocket-error.jpg)
+
+## findDOMNode error
+* Even with strict mode turned off, an error regarding the usage of findDOMNode appears when clicking the NavBar component's toggle icon. This is due to an ending support in future versions to warn the development team. It has no impact on the site's functionality.
+
+![findDOMNode error](docs/bugs/finddomnode-error.jpg)
 
 ---
 
@@ -299,6 +333,9 @@ For easy access, a plus button is placed right next to the title link to add a h
 
 ## [Flake8 Extension](https://flake8.pycqa.org/en/latest/)
 * Used to verify Python code.
+
+## [react-simple-star-rating component](https://github.com/awran5/react-simple-star-rating)
+* react-simple-star-rating component was used to build the rating component.
 
 ## [W3Schools](https://www.w3schools.com/)
 * Used to lookup tips for the code.
