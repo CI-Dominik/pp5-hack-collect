@@ -162,15 +162,55 @@ For easy access, a plus button is placed right next to the title link to add a h
 
 ### Mobile view
 
-*xxxxxxxxxxxxxxxxx PAGE*
+*HACKS PAGE*
 
-![Picture of the xxxxxxxxxxxxxxxxx page](docs/wireframes/xxxxxxxxxxxxxxxxx.jpg)
+![Picture of the hacks page](docs/wireframes/hacks_page_mobile.jpg)
+
+* This layout was used as a base for the hack, followed and rated pages.
+
+<br>
+
+*LOGIN PAGE*
+
+![Picture of the login page](docs/wireframes/login_page_mobile.jpg)
+
+<br>
+
+*SIGN-UP PAGE*
+
+![Picture of the sign-up page](docs/wireframes/sign_up_mobile.jpg)
+
+<br>
+
+*PROFILE PAGE*
+
+![Picture of the profile page](docs/wireframes/profile_page_mobile.jpg)
 
 ### Desktop view
 
-*xxxxxxxxxxxxxxxxx PAGE*
+*HACKS PAGE*
 
-![Picture of the xxxxxxxxxxxxxxxxx page](docs/wireframes/xxxxxxxxxxxxxxxxx.jpg)
+![Picture of the hacks page](docs/wireframes/hacks_page_desktop.jpg)
+
+* This layout was used as a base for the hack, followed and rated pages.
+
+<br>
+
+*LOGIN PAGE*
+
+![Picture of the login page](docs/wireframes/login_page_desktop.jpg)
+
+<br>
+
+*SIGN-UP PAGE*
+
+![Picture of the sign-up page](docs/wireframes/sign_up_desktop.jpg)
+
+<br>
+
+*PROFILE PAGE*
+
+![Picture of the profile page](docs/wireframes/profile_page_desktop.jpg)
 
 ---
 
