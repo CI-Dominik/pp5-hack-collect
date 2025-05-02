@@ -25,6 +25,10 @@
     border-bottom: 2px solid #00bcd4;
 }
 
+.NavMargin {
+    margin-right: 3px !important;
+}
+
 /* Title Styling */
 .Title {
     color: #00bcd4;
@@ -86,9 +90,9 @@
 /* Hack Button */
 
 .AddHackButton {
-    width: 36px;
-    height: 36px;
-    font-size: 1.2rem;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
     padding: 0;
     background-color: #00bcd4;
     border-radius: 50%;
@@ -105,8 +109,16 @@
 
 /* Media Queries  */
 
-@media (width <=991px) {
+@media (width <= 991px) {
     .NavLink {
         padding: 8px 0;
+    }
+}
+
+@media (width <= 1199px) {
+    .AddHackButton {
+        width: 25px;
+        height: 25px;
+        font-size: 0.7rem;
     }
 }

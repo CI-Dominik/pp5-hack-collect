@@ -55,14 +55,14 @@ const NavBar = () => {
                 className={styles.NavLink}
                 activeClassName={styles.Active}
                 to="/followed">
-                <i className="fas fa-stream"></i> Followed
+                <i className={`fas fa-stream ${styles.NavMargin}`}></i> Followed
             </NavLink>
             <NavLink
                 exact
                 className={styles.NavLink}
                 activeClassName={styles.Active}
                 to="/rated">
-                <i className="fas fa-star"></i> Rated
+                <i className={`fas fa-star ${styles.NavMargin}`}></i> Rated
             </NavLink>
             <NavLink
                 exact
@@ -70,7 +70,7 @@ const NavBar = () => {
                 to="#"
                 onClick={handleSignOutClick}
             >
-                <i className="fas fa-sign-out-alt"></i> Sign-out
+                <i className={`fas fa-sign-out-alt ${styles.NavMargin}`}></i> Sign-out
             </NavLink>
             <NavLink
                 className={styles.NavLink}
@@ -90,14 +90,14 @@ const NavBar = () => {
                 className={styles.NavLink}
                 activeClassName={styles.Active}
                 to="/sign-in">
-                <i className="fas fa-sign-in-alt"></i> Sign-in
+                <i className={`fas fa-sign-in-alt ${styles.NavMargin}`}></i> Sign-in
             </NavLink>
             <NavLink
                 exact
                 className={styles.NavLink}
                 activeClassName={styles.Active}
                 to="/sign-up">
-                <i className="fas fa-user-plus"></i> Sign-up
+                <i className={`fas fa-user-plus ${styles.NavMargin}`}></i> Sign-up
             </NavLink>
         </>
     );
@@ -117,15 +117,16 @@ const NavBar = () => {
                         to="/add-hack"
                         title="Add Hack"
                         className={`${styles.NavLink} d-none d-lg-flex align-items-center justify-content-center ${styles.AddHackButton}`}
+                        activeClassName={styles.Active}
                     >
-                        <i className="fas fa-plus"></i>
+                        <i className={`fas fa-plus ${styles.AddHackButtonStyle}`}></i>
                     </NavLink>
                 )}
                 <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="responsive-navbar-nav" style={{ backgroundColor: '#00bcd4' }} />
                 <Navbar.Collapse>
                     <Nav className="ms-auto">
-                        <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/">Home</NavLink>
-                        <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/hacks">Hacks</NavLink>
+                        <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/"><i className={`fa-solid fa-house ${styles.NavMargin}`}></i> Home</NavLink>
+                        <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/hacks"><i className={`fa-solid fa-cloud-bolt ${styles.NavMargin}`}></i> Hacks</NavLink>
 
                         {/* Enable hack creation only for logged in users */}
 
@@ -134,7 +135,7 @@ const NavBar = () => {
                             className={`${styles.NavLink} d-block d-md-none`}
                             activeClassName={styles.Active}
                             to="/add-hack">
-                            <i className="fas fa-plus"></i> Add Hack
+                            <i className={`fas fa-plus ${styles.NavMargin}`}></i> Add Hack
                         </NavLink>}
 
                         {/* Enable category adjustment link only for admins */}
@@ -144,7 +145,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             to="/category-manager"
                         >
-                            <i className="fa-solid fa-list"></i> Categories
+                            <i className={`fa-solid fa-list ${styles.NavMargin}`}></i> Categories
                         </NavLink>}
 
                         {/* Display links based on login status */}
