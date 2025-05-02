@@ -73,7 +73,7 @@ const SignUpForm = () => {
                   />
                   {errors.password2 && <div className="text-danger">{errors.password2}</div>}
                 </Form.Group>
-                <Button type="submit" className="btn btn-primary btn-block">Sign-up</Button>
+                <Button type="submit" className="btn btn-primary btn-block mt-2">Sign-up</Button>
               </Form>
               {errors?.non_field_errors?.map((message, idx) => (
                 <Alert className="mt-2" variant="danger" key={idx}>
