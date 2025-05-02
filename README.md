@@ -313,19 +313,36 @@ For easy access, a plus button is placed right next to the title link to add a h
 ## **ACCESSIBILITY**
 
 ## Lighthouse testing
+* All pages were checked using the Google Chrome's Lighthouse test. The results for performance and best practices were low in this scenario. The performance was impacted by big images that people upload and the overall massive library React provides. This could be resolved by converting the pictures in the future.<br>
+The best practices received a low score because of the errors that appeared in Chrome's console. Those issues can be viewed in the bugs section.
 
 ### Mobile view
-* xxxxxxxxxxxxxxxxx
 
-*xxxxxxxxxxxxxxxxx PAGE*
+*HOME PAGE*
 
-![Picture of the XXXXXXXXXX page's results](docs/lighthouse/xxxxxxxxxxxxxxxxx.jpg)
+![Picture of the home page's results](docs/lighthouse/homepage_mobile.jpg)
+
+*HACKS PAGE*
+
+![Picture of the hacks page's results](docs/lighthouse/hacks_mobile.jpg)
+
+*PROFILE PAGE*
+
+![Picture of the profile page's results](docs/lighthouse/profile_mobile.jpg)
 
 ### Desktop view
 
-*xxxxxxxxxxxxxxxxx PAGE*
+*HOME PAGE*
 
-![Picture of the XXXXXXXXXX page's results](docs/lighthouse/xxxxxxxxxxxxxxxxx.jpg)
+![Picture of the home page's results](docs/lighthouse/homepage_desktop.jpg)
+
+*HACKS PAGE*
+
+![Picture of the hacks page's results](docs/lighthouse/hacks_desktop.jpg)
+
+*PROFILE PAGE*
+
+![Picture of the profile page's results](docs/lighthouse/profile_desktop.jpg)
 
 ## WAVE extension
 * The WAVE extension in Google Chrome was used to determine the accessibility rating of the homepage. XXXXXXXXXXXXXXXXXXXXXXXXXXXX
