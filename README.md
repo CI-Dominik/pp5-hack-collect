@@ -30,8 +30,6 @@ Link to the website's project board: [Link to the Trello board](https://trello.c
 [**DESIGN**](#design)
   * [Color choice](#color-choice)
   * [Wireframes](#wireframes)
-    * [Mobile view](#mobile-view)
-    * [Desktop view](#desktop-view)
     
 <br>
 
@@ -231,6 +229,10 @@ When a user is logged in, they can visit other people's hacks and leave a rating
 
 ## Wireframes
 
+### Click to reveal list of wireframes
+<details>
+<summary>Click to see wireframes</summary>
+
 ### Mobile view
 
 *HACKS PAGE*
@@ -282,6 +284,8 @@ When a user is logged in, they can visit other people's hacks and leave a rating
 *PROFILE PAGE*
 
 ![Picture of the profile page](docs/wireframes/profile_page_desktop.jpg)
+
+</details>
 
 ---
 
