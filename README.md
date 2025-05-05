@@ -50,7 +50,13 @@ Link to the website's project board: [Link to the Trello board](https://trello.c
 <br>
 
 [**REUSABLE COMPONENTS**](#reusable-components)
-  * [TEXT](#LINK)
+  * [Dropdown Menu](#dropdown-menu)
+  * [Asset](#asset)
+  * [Avatar](#avatar)
+  * [NavBar](#navbar)
+  * [Footer](#footer)
+  * [HackList](#hacklist)
+  * [Comments](#comments)
 
 <br>
 
@@ -77,7 +83,6 @@ Link to the website's project board: [Link to the Trello board](https://trello.c
 
 [**ACCESSIBILTIY**](#accessibility)
   * [Lighthouse testing](#lighthouse-testing)
-  * [WAVE extension](#wave-extension)
   * [Goal of accessibility measures](#goal-of-accessibility-measures)
     
 <br>
@@ -123,14 +128,79 @@ For easy access, a plus button is placed right next to the title link to add a h
 
 ## Epics
 
-### HEADLINE
-* DESCRIPTION
+### `EPIC: Authentication System`
+* As a USER, I want to USE AN ACCOUNT LOGIN AND LOGOUT, so I can USE THE HOMEPAGE
 
-![Image of the feature](docs/agile/xxxxxxxxxxxxxxxxxx.jpg)
+To use login and logout features, an authentication system using dj-rest-auth was implemented.
+
+*Login*
+
+![Image of the feature](docs/agile/authentication-system/login.jpg)
+
+*Sign-up*
+
+![Image of the feature](docs/agile/authentication-system/signup.jpg)
 
 <br>
 
-## User Stories
+### `EPIC: Basic site structure`
+* As a USER, I want to SEE A WELL STRUCTURED HOMEPAGE, so I can NAVIGATE WITHOUT PROBLEMS
+
+The navigation bar was designed with three states in mind: logged-out, logged-in and for admin users. Based on these, the links in the navigation element change accordingly.
+
+*Logged-out*
+
+![Image of the feature](docs/agile/basic-site-structure/nav_logged_out.jpg)
+
+*Logged-in*
+
+![Image of the feature](docs/agile/basic-site-structure/nav_logged_in.jpg)
+
+*Admin*
+
+![Image of the feature](docs/agile/basic-site-structure/nav_admin.jpg)
+
+<br>
+
+### `EPIC: HACKS`
+* As a USER, I want to USE THE HACK LIST TO VIEW CONTENT, so I can VIEW AND ADJUST CONTENT
+
+To use the basic functionality of the site and view life hacks, the hacks page was implemented. There, users can see other people's hacks and post their own. The list displays the first ten entries and loads more elements once the bottom is reached, using `InfiniteScroll`.<br>
+The hacks can be displayed by their category or searched by their title or creator. All hacks are sorted starting with the newest entry on the top.
+
+![Image of the feature](docs/agile/hacks/hacks.jpg)
+
+<br>
+
+### `EPIC: Single Hack Page`
+* As a USER, I want to SEE AND INTERACT WITH A HACK, so I can BE PART OF THE COMMUNITY
+
+When clicking on a single hack or typing the URL into the browser, a page for a single hack is displayed. Here, detailed information like the full text, the rating system and comments get displayed. Comments get displayed in packs of ten each. After reaching the bottom, new ones get loaded via `InfiniteScroll`, provided more are present.
+
+![Image of the feature](docs/agile/single-hack-page/single-hack.jpg)
+
+### `EPIC: Profile`
+* As a USER, I want to VIEW AND USE PROFILES, so I can DISPLAY MY PERSONAL INFORMATIONS
+
+To see only one person's hacks, display their statistics and follow or unfollow them, the profile page is used. Should the person visiting be the owner of the page, they can edit their avatar, biography, username or password.
+
+![Image of the feature](docs/agile/profile/profile.jpg)
+
+<br>
+
+### `EPIC: Followers`
+* As a SITE USER, I want to FOLLOW PEOPLE, so I can VIEW THEIR CONTENT
+
+People can follow other users to display their content on the `Followed` site. The content there is displayed in the same way hacks are organized to keep a consistent design across the site.
+
+### `EPIC: Rated Content`
+* As a USER, I want to RATE CONTENT AND VIEW ONLY RATED CONTENT, so I can CONTRIBUTE TO THE SITE
+
+When a user is logged in, they can visit other people's hacks and leave a rating. This way, other people know what kind of quality to expect from a hack. People cannot rate their own hacks.
+
+![Image of the feature](docs/agile/rated-content/rating.jpg)
+
+## Important User Stories
 
 ### HEADLINE
 * DESCRIPTION
@@ -251,10 +321,37 @@ For easy access, a plus button is placed right next to the title link to add a h
 
 ## **REUSABLE COMPONENTS**
 
-### Name
-* Description
+### Dropdown Menu
+* The dropdown menu was used for editing and deleting a hack or a comment. In this component, the needed context gets sent to delete the corresponding content.
 
-![Image of the component](docs/components/xxxxxxxxx.jpg)
+![Image of the component](docs/reusable-components/dropdown.jpg)
+
+### Asset
+* The asset component was used to display the loading spinners.
+
+![Image of the component](docs/reusable-components/spinner.jpg)
+
+
+### Avatar
+* The Avatar component was used to display either their profile picture, their username or both.
+
+![Image of the component](docs/reusable-components/avatar.jpg)
+
+### NavBar
+* The NavBar is seen across all sites to navigate through the homepage.
+
+![Image of the component](docs/reusable-components/nav_admin.jpg)
+
+### Footer
+* The footer is seen across all sites to display the end of the content and the copyright information
+
+![Image of the component](docs/reusable-components/footer.jpg)
+
+### HackList
+* The HackList component can be used with filtering and queries to display content based on the preferences.<br>
+
+### Comments
+* The comments component can be used for comments posted to a specific page.
 
 ---
 
