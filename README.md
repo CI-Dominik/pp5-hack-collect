@@ -372,11 +372,6 @@ When a user is logged in, they can visit other people's hacks and leave a rating
 
 ![CSS validation](docs/css_validation.jpg)
 
-<br>
-
-### Flake8 validator
-* Flake8 was used in Visual Studio Code to check the Python code in all files that were used, changed and adjusted. No errors occurred.
-
 ---
 
 ## **USED PLATFORMS AND DEVICES**
