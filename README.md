@@ -87,9 +87,15 @@ Link to the website's project board: [Link to the Trello board](https://trello.c
 
 [**DEPLOYMENT**](#deployment)
   * [GitHub](#github-1)
-    * [xxxxxxxxxxxxxxxxx](#xxxxxxxxxxxxxxxxx)
+    * [Visual Studio Code connection](#visual-studio-code-connection)
+    * [Commit and Push to GitHub](#commit-and-push-to-github)
   * [Heroku](#heroku)
-    * [xxxxxxxxxxxxxxxxx](#xxxxxxxxxxxxxxxxx)
+    * [Create a new project](#create-a-new-project)
+    * [Naming and region](#naming-and-region)
+    * [Config Vars](#config-vars)
+    * [GitHub connection](#github-connection)
+    * [Deployment](#deployment-1)
+    * [Successful deployment](#successful-deployment)
     
 <br>
 
