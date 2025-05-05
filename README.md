@@ -466,12 +466,43 @@ The best practices received a low score because of the errors that appeared in C
 
 ## Heroku
 
-### Heading
-* xxxxxxxxxxxxxxxxx
+### Create a new project
+* On the dashboard, select the menu to create a new Heroku project.
 
 <br>
 
-![Screenshot of Heroku deployment](docs/heroku/xxxxxxxxxxxxxxxxx.jpg)
+![Screenshot of Heroku deployment](docs/deployment/heroku/01_new.jpg)
+
+### Naming and region
+* Give the app a proper name and select the region the application will be hosted in. For me, I chose Europe.
+
+![Screenshot of Heroku deployment](docs/deployment/heroku/02_naming.jpg)
+
+<br>
+
+### Config Vars
+* To keep your information private, head to the settings page and scroll down to config vars. Here, you can enter important and private information like the database url, the secret key and more.
+
+![Screenshot of Heroku deployment](docs/deployment/heroku/03_config.jpg)
+
+<br>
+
+### GitHub connection
+* Once your config vars are setup, click on the deploy page. There, you need to connect your current GitHub project to your Heroku account. Enter the name and link it.
+
+![Screenshot of Heroku deployment](docs/deployment/heroku/04_github.jpg)
+
+### Deployment
+* When everything is connected successfully, click on deploy to deploy your selected GitHub branch.
+
+![Screenshot of Heroku deployment](docs/deployment/heroku/05_deploy.jpg)
+
+<br>
+
+### Successful deployment
+* When everything worked correctly, a success message will be displayed and a link to the hosted app will appear.
+
+![Screenshot of Heroku deployment](docs/deployment/heroku/06_success.jpg)
 
 ---
 
