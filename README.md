@@ -102,9 +102,7 @@ Link to the website's project board: [Link to the Trello board](https://trello.c
 [**CREDITS**](#credits)
   * [Fontawesome](#fontawesome-1)
   * [Techsini](#techsini)
-  * [HTML validator](#html-validator-1)
   * [CSS validator](#css-validator-1)
-  * [JavaScript validator](#javascript-validator-1)
   * [Flake8 Extension](#flake8-extension)
   * [W3Schools](#w3schools)
   * [Favicon generator](#favicon-generator)
@@ -520,14 +518,8 @@ The best practices received a low score because of the errors that appeared in C
 ## [Techsini](https://techsini.com/multi-mockup/index.php)
 * Used to create the mockup in the readme file.
 
-## [HTML validator](https://validator.w3.org/)
-* Used to verify HTML code.
-
 ## [CSS validator](https://jigsaw.w3.org/css-validator/)
 * Used to verify CSS code.
-
-## [JavaScript validator](https://jshint.com/)
-* Used to verify JavaScript code.
 
 ## [Flake8 Extension](https://flake8.pycqa.org/en/latest/)
 * Used to verify Python code.
@@ -548,7 +540,7 @@ The best practices received a low score because of the errors that appeared in C
 * Videos for understanding some code areas.
 
 ## [Visual Studio Code](https://code.visualstudio.com/)
-* Used to generate HTML boilerplate code and code editing.
+* Used for code editing.
 
 ## Special thanks
 * A special thank you to my mentor Gareth McGirr who helped me along my journey and also to my best friend Frederic, who provided me with helpful insights and assisted me with many testing scenarios.
