@@ -440,13 +440,6 @@ The best practices received a low score because of the errors that appeared in C
 
 ![Picture of the profile page's results](docs/lighthouse/profile_desktop.jpg)
 
-## WAVE extension
-* The WAVE extension in Google Chrome was used to determine the accessibility rating of the homepage. XXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-*xxxxxxxxxxxxxxxxx PAGE*
-
-![Picture of the WAVE results for the xxxxxxxxxxxxxxxxx page](docs/wave-extension/xxxxxxxxxxxxxxxxx.jpg)
-
 ## Goal of accessibility measures
 
 * The goal of accessibility is the same result, performance and view of the content for any person, regardless of their condition. For example, the colors are chosen in a way that all people can use the site without any problems. The contrast needs to be high enough to read every text.<br>
@@ -458,11 +451,18 @@ The best practices received a low score because of the errors that appeared in C
 ## GitHub
 
 ### Visual Studio Code connection
-* xxxxxxxxxxxxxxxxx
+* To deploy the code to GitHub, I used Visual Studio Code to connect to my GitHub account.
+
+**Important**: Due to the accidental login with my secondary account in the bash console, DominikW89 was used for all VS Code deployments. Once I noticed this, I did not want to change it to avoid confusion.
 
 <br>
 
-![Screenshot of GitHub deployment](docs/xxxxxxxxxxxxxxxxx.jpg)
+![Screenshot of GitHub deployment](docs/deployment/vs-code.jpg)
+
+### Commit and Push to GitHub
+* Once the change was made, I pushed the code to GitHub via the VS Code menu. A message needs to be entered for each deployment.
+
+![Screenshot of GitHub deployment](docs/deployment/vs-code-deployment.jpg)
 
 ## Heroku
 
