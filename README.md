@@ -408,6 +408,9 @@ When a user is logged in, they can visit other people's hacks and leave a rating
 
 ![findDOMNode error](docs/bugs/finddomnode-error.jpg)
 
+## Delayed update for PopularProfiles
+* When updating the current profile picture, the change takes place once the page is reloaded. Currently, I was not able to fix this issue. This needs to be addressed in the future.
+
 ---
 
 ## **ACCESSIBILITY**
