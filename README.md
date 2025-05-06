@@ -7,6 +7,14 @@ Link to the website's project board: [Link to the Trello board](https://trello.c
 
 ![Mockup image of the Homepage](docs/mockup.jpg)
 
+## **IMPORTANT NOTE**
+This project was only edited by me, CI-Dominik. While logging into my GitHub account with the Bash console in Visual Studio Code, I used these commands with my private email address by habit.
+
+`git config --global user.name "Dominik Wulf"`<br>
+`git config --global user.email "My private email address"`<br>
+<br>
+The only commits I made with CI-Dominik were for a GitHub board that I later replaced with my Trello board.
+
 ## **TABLE OF CONTENTS**
 
 [**USER EXPERIENCE**](#user-experience)
@@ -16,7 +24,7 @@ Link to the website's project board: [Link to the Trello board](https://trello.c
     
 <br>
 
-[**AGILE PLANNING0**](#agile-planning)
+[**AGILE PLANNING**](#agile-planning)
 
 <br>
 
@@ -474,7 +482,7 @@ The best practices received a low score because of the errors that appeared in C
 ### Visual Studio Code connection
 * To deploy the code to GitHub, I used Visual Studio Code to connect to my GitHub account.
 
-**Important**: Due to the accidental login with my secondary account in the bash console, DominikW89 was used for all VS Code deployments. Once I noticed this, I did not want to change it to avoid confusion.
+**Important**: Due to the accidental login with my secondary account in the bash console, DominikW89 was used for all VS Code deployments. Once I noticed this, I did not change it to avoid confusion. This was due to the usage of my private email address by habit.
 
 <br>
 
