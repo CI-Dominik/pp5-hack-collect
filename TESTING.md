@@ -122,6 +122,8 @@ In this document, every manual test is written down to secure the functionality 
 | View Profile component on desktop | Profile is displayed with full username and follow/unfollow button | Pass |
 | Open ProfileEditForm as profile owner | Current profile data is loaded into the form fields | Pass |
 | Edit bio in ProfileEditForm and save | Updated bio is saved and user is redirected back | Pass |
+| Edit username with less than 15 characters | Username should update | Pass |
+| Edit username with more than 15 characters | Username should not update and a message regarding too many characters should appear | Pass |
 | Upload new profile image in ProfileEditForm and save | New profile image is uploaded and displayed | Pass |
 | Click "Cancel" button in ProfileEditForm | User is redirected back without saving changes | Pass |
 | Attempt to open ProfileEditForm for another user | User is redirected to homepage | Pass |
