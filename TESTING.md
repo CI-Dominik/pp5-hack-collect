@@ -196,6 +196,7 @@ In this document, every manual test is written down to secure the functionality 
 | Select a different category from the dropdown | Category selection updates correctly | Pass |
 | Upload a new valid image file | New image preview is shown immediately | Pass |
 | Upload an invalid file type as image | Appropriate error message is displayed | Pass |
+| Upload an image that is too big in size or dimensions | A warning should appear and the image should not update | Pass |
 | Click the "Cancel" button | User is navigated back to previous page | Pass |
 | Click the "Save" button with all valid fields | Changes are saved and user is redirected to the hack detail page | Pass |
 | Submit form with missing required title | Warning alert is shown under the title field | Pass |
