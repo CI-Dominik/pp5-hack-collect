@@ -171,6 +171,7 @@ In this document, every manual test is written down to secure the functionality 
 |--------------|-----------------|--------|
 | Enter valid username, matching valid passwords, click "Sign-up" | User is redirected to "Sign-in" page | Pass |
 | Enter username that already exists, click "Sign-up" | Error message about existing username is displayed | Pass |
+| Enter username that exceeds 15 characters | A message that no more than 15 characters are allowed should appear | Pass |
 | Enter valid username and mismatched passwords in "Sign-up" form, click "Sign-up" | Error message about password mismatch is displayed | Pass |
 | Submit empty "Sign-up" form | Error messages for all required fields are displayed | Pass |
 | Enter only username in "Sign-up" form, leave passwords empty, click "Sign-up" | Error messages for missing passwords are displayed | Pass |
