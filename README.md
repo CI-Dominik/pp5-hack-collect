@@ -17,8 +17,6 @@ Link to the website's project board: [Link to the Trello board](https://trello.c
 <br>
 
 [**AGILE PLANNING0**](#agile-planning)
-  * [Epics](#epics)
-  * [User Stories](#user-stories)
 
 <br>
 
@@ -114,7 +112,6 @@ Link to the website's project board: [Link to the Trello board](https://trello.c
   * [CSS validator](#css-validator-1)
   * [Flake8 Extension](#flake8-extension)
   * [W3Schools](#w3schools)
-  * [Favicon generator](#favicon-generator)
   * [YouTube](#youtube)
   * [Visual Studio Code](#visual-studio-code-1)
 
@@ -136,8 +133,6 @@ For easy access, a plus button is placed right next to the title link to add a h
 
 ## AGILE PLANNING
 * This section contains the used epics, including their final results in the frontend.
-
-## Epics
 
 ### `EPIC: Authentication System`
 * As a USER, I want to USE AN ACCOUNT LOGIN AND LOGOUT, so I can USE THE HOMEPAGE
@@ -554,9 +549,6 @@ The best practices received a low score because of the errors that appeared in C
 
 ## [Coolors](https://coolors.co/)
 * Used to generate the color palette.
-
-## [Favicon Generator](https://favicon.io/)
-* Used to generate the favicon for the homepage.
 
 ## [YouTube](https://youtube.com)
 * Videos for understanding some code areas.
