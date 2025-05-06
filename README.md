@@ -5,6 +5,8 @@ This is Hack Collect. A place for people to share their life hacks and make all 
 Link to the live website: [Link to Hack Collect](https://pp5-hack-collect-76d639ad2680.herokuapp.com/)<br>
 Link to the website's project board: [Link to the Trello board](https://trello.com/b/Yi2LxF35/hack-collect)
 
+Link to the Django Rest Framework repository: [Link to the GitHub repository](https://github.com/CI-Dominik/pp5-hack-collect-drf)
+
 ![Mockup image of the Homepage](docs/mockup.jpg)
 
 ## **IMPORTANT NOTE**
