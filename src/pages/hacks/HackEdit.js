@@ -8,6 +8,7 @@ import { Alert, Image } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import styles from '../../styles/HackEdit.module.css';
+import Asset from "../../components/Asset";
 
 function HackEdit() {
     const [errors, setErrors] = useState({});
@@ -18,6 +19,7 @@ function HackEdit() {
         image: "",
         category: "",
     });
+    const [isLoading, setIsLoading] = useState(true);
 
     const { title, content, image, category } = hackData;
     const imageInput = useRef(null);
@@ -53,7 +55,9 @@ function HackEdit() {
                 } else {
                     history.push("/");
                 }
-            } catch (err) {}
+            } catch (err) { } finally {
+                setIsLoading(false);
+            }
         };
 
         fetchData();
@@ -163,58 +167,79 @@ function HackEdit() {
     );
 
     return (
-        <Form onSubmit={handleSubmit} className="p-3">
-            <Row>
-                <Col className="py-3 px-2" md={7} lg={8}>
-                    <Container className="d-flex flex-column h-100">
-                        {/* Image preview and upload button */}
-                        <Form.Group className="text-center w-100">
-                            <figure className="mb-3">
-                                <Image
-                                    src={image}
-                                    rounded
-                                    fluid
-                                    className="shadow-sm"
-                                    style={{ maxHeight: "300px", objectFit: "contain" }}
-                                />
-                            </figure>
+        <>
+            {
+                isLoading ? (
+                    <div className="d-flex justify-content-center align-items-center" style={{ height: "60vh" }} >
+                        <Asset spinner />
+                    </div >
+                ) : !hackData.title ? (
+                    <div className="d-flex flex-column justify-content-center align-items-center text-center my-5">
+                        <div className="p-4 border rounded bg-dark shadow" style={{ maxWidth: "500px" }}>
+                            <h1 className="text-danger mb-3">404 - Hack not found</h1>
+                            <p className="text-white mb-4">
+                                Sorry, the hack you're looking for doesn't exist or may have been removed.
+                            </p>
+                            <Button variant="outline-light" onClick={() => history.push("/")}>
+                                Go back to Home
+                            </Button>
+                        </div>
+                    </div>
+                ) : (
+                    <Form onSubmit={handleSubmit} className="p-3">
+                        <Row>
+                            <Col className="py-3 px-2" md={7} lg={8}>
+                                <Container className="d-flex flex-column h-100">
+                                    {/* Image preview and upload button */}
+                                    <Form.Group className="text-center w-100">
+                                        <figure className="mb-3">
+                                            <Image
+                                                src={image}
+                                                rounded
+                                                fluid
+                                                className="shadow-sm"
+                                                style={{ maxHeight: "300px", objectFit: "contain" }}
+                                            />
+                                        </figure>
 
-                            <div className="mb-3">
-                                <Form.Label
-                                    className={`btn ${styles.CustomButton}`}
-                                    htmlFor="image-upload"
-                                >
-                                    Change Image
-                                </Form.Label>
-                                <Form.File
-                                    id="image-upload"
-                                    accept="image/*"
-                                    onChange={handleChangeImage}
-                                    ref={imageInput}
-                                    className="d-none"
-                                />
-                            </div>
+                                        <div className="mb-3">
+                                            <Form.Label
+                                                className={`btn ${styles.CustomButton}`}
+                                                htmlFor="image-upload"
+                                            >
+                                                Change Image
+                                            </Form.Label>
+                                            <Form.File
+                                                id="image-upload"
+                                                accept="image/*"
+                                                onChange={handleChangeImage}
+                                                ref={imageInput}
+                                                className="d-none"
+                                            />
+                                        </div>
 
-                            {errors?.image?.map((err, idx) => (
-                                <Alert key={idx} variant="warning" className="text-start">
-                                    {err}
-                                </Alert>
-                            ))}
-                        </Form.Group>
+                                        {errors?.image?.map((err, idx) => (
+                                            <Alert key={idx} variant="warning" className="text-start">
+                                                {err}
+                                            </Alert>
+                                        ))}
+                                    </Form.Group>
 
-                        {/* Mobile view text fields */}
-                        <div className="d-md-none w-100">{textFields}</div>
-                    </Container>
-                </Col>
+                                    {/* Mobile view text fields */}
+                                    <div className="d-md-none w-100">{textFields}</div>
+                                </Container>
+                            </Col>
 
-                {/* Desktop view text fields */}
-                <Col md={5} lg={4} className="d-none d-md-block px-2 py-3">
-                    <Container className="h-100 d-flex flex-column justify-content-center">
-                        {textFields}
-                    </Container>
-                </Col>
-            </Row>
-        </Form>
+                            <Col md={5} lg={4} className="d-none d-md-block px-2 py-3">
+                                <Container className="h-100 d-flex flex-column justify-content-center">
+                                    {textFields}
+                                </Container>
+                            </Col>
+                        </Row>
+                    </Form>
+                )
+            }
+        </>
     );
 }
 
