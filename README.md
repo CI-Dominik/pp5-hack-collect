@@ -13,7 +13,7 @@ This project was only edited by me, CI-Dominik. While logging into my GitHub acc
 `git config --global user.name "Dominik Wulf"`<br>
 `git config --global user.email "My private email address"`<br>
 <br>
-The only commits I made with CI-Dominik were for a GitHub board that I later replaced with my Trello board.
+Because of this, my private account that I wanted to use for other projects in the futures was used, DominikW89. The only commits I made with CI-Dominik were for a GitHub board that I later replaced with my Trello board.
 
 ## **TABLE OF CONTENTS**
 
@@ -40,7 +40,7 @@ The only commits I made with CI-Dominik were for a GitHub board that I later rep
 <br>
 
 [**TECHNOLOGIES**](#technologies)
-  * [HTML](#html)
+  * [HTML / JSX](#html--jsx)
   * [CSS](#css)
   * [JavaScript](#javascript)
   * [Python](#python)
@@ -70,7 +70,6 @@ The only commits I made with CI-Dominik were for a GitHub board that I later rep
 
 [**VALIDATOR TESTING**](#validator-testing)
   * [W3C CSS Validation](#w3c-css-validation)
-  * [Flake8 validator](#flake8-validator)
 
 <br>
 
@@ -78,7 +77,7 @@ The only commits I made with CI-Dominik were for a GitHub board that I later rep
   * [Axios](#axios)
   * [Bootstrap](#bootstrap)
   * [InfiniteScroll](#infinitescroll)
-  * [Router](#router)
+  * [Route / Switch](#route--switch)
   * [Simple Star Rating](#simple-star-rating)
 
 <br>
@@ -90,7 +89,6 @@ The only commits I made with CI-Dominik were for a GitHub board that I later rep
 <br>
 
 [**BUGS**](#bugs)
-  * [Unfixed bugs](#unfixed-bugs)
 
 <br>
 
@@ -117,7 +115,7 @@ The only commits I made with CI-Dominik were for a GitHub board that I later rep
 [**CREDITS**](#credits)
   * [Fontawesome](#fontawesome-1)
   * [Techsini](#techsini)
-  * [CSS validator](#css-validator-1)
+  * [CSS validator](#css-validator)
   * [Flake8 Extension](#flake8-extension)
   * [W3Schools](#w3schools)
   * [YouTube](#youtube)
