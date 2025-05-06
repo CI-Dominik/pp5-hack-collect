@@ -126,6 +126,7 @@ In this document, every manual test is written down to secure the functionality 
 | Edit username with more than 15 characters | Username should not update and a message regarding too many characters should appear | Pass |
 | Edit username to one that already exists | Username should not update and a warning should appear | Pass |
 | Upload new profile image in ProfileEditForm and save | New profile image is uploaded and displayed | Pass |
+| Upload new profile image that is too large | A warning should appear and the image should not update | Pass |
 | Click "Cancel" button in ProfileEditForm | User is redirected back without saving changes | Pass |
 | Attempt to open ProfileEditForm for another user | User is redirected to homepage | Pass |
 | View ProfilePage with existing hacks | Profile details and list of hacks are displayed | Pass |
