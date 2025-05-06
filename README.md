@@ -68,6 +68,15 @@ Link to the website's project board: [Link to the Trello board](https://trello.c
 
 <br>
 
+[**FRONTEND LIBRARIES**](#frontend-libraries)
+  * [Axios](#axios)
+  * [Bootstrap](#bootstrap)
+  * [InfiniteScroll](#infinitescroll)
+  * [Router](#router)
+  * [Simple Star Rating](#simple-star-rating)
+
+<br>
+
 [**USED PLATFORMS AND DEVICES**](#used-platforms-and-devices)
   * [Browsers](#browsers)
   * [Smartphones](#smartphones)
@@ -126,7 +135,7 @@ For easy access, a plus button is placed right next to the title link to add a h
 ---
 
 ## AGILE PLANNING
-* Here everyting related to the agile planning is displayed. This section contains the used epics and user stories, including their final results.
+* This section contains the used epics, including their final results in the frontend.
 
 ## Epics
 
@@ -201,15 +210,6 @@ People can follow other users to display their content on the `Followed` site. T
 When a user is logged in, they can visit other people's hacks and leave a rating. This way, other people know what kind of quality to expect from a hack. People cannot rate their own hacks.
 
 ![Image of the feature](docs/agile/rated-content/rating.jpg)
-
-## Important User Stories
-
-### HEADLINE
-* DESCRIPTION
-
-![Image of the feature](docs/agile/xxxxxxxxxxxxxxxxxx.jpg)
-
-<br>
 
 ---
 
@@ -375,6 +375,25 @@ When a user is logged in, they can visit other people's hacks and leave a rating
 * W3C CSS Validation was used to verfiy all CSS files. The results came out with no errors.
 
 ![CSS validation](docs/css_validation.jpg)
+
+---
+
+## **FRONTEND LIBRARIES**
+
+### Axios
+* Axios was used to make HTTP requests to the API. In addition, interceptors for refreshing the token were implemented to prevent the user from logging out before 24 hours have passed.
+
+### Bootstrap
+* With the help of Bootstrap, UI elements like buttons or the NavBar were implemented to ensure a consistent website layout.
+
+### InfiniteScroll
+* InfiniteScroll was used to fetch more data once a certain threshold is reached. In the case of this project, a pagination of 10 elements was used.
+
+### Route / Switch
+* Route and Switch were used to create the routes in the App.js file.
+
+### Simple Star Rating
+* To create the base of the RatingComponent, Simple Star Rating was used which provides the displayed stars.
 
 ---
 
