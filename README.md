@@ -471,8 +471,7 @@ When a user is logged in, they can visit other people's hacks and leave a rating
 
 ## **DATABASE**
 
-## Database Connection
-* A PostgreSQL database was used to store relevant pieces of information like profiles, hacks or ratings.
+A PostgreSQL database was used to store relevant pieces of information like profiles, hacks or ratings.
 
 ![Screenshot of the Database Diagram](docs/database.jpg)
 
