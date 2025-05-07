@@ -42,7 +42,6 @@ Because of this, my private account that I wanted to use for other projects in t
 <br>
 
 [**DATABASE**](#database)
-  * [Database connection](#database-connection)
     
 <br>
 
