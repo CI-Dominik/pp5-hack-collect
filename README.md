@@ -27,6 +27,8 @@ Because of this, my private account that I wanted to use for other projects in t
 <br>
 
 [**AGILE PLANNING**](#agile-planning)
+  * [Epics](#epics)
+  * [User Stories](#user-stories)
 
 <br>
 
@@ -140,7 +142,18 @@ For easy access, a plus button is placed right next to the title link to add a h
 ---
 
 ## AGILE PLANNING
-* This section contains the used epics, including their final results in the frontend.
+This section contains the used epics and user stories, including their final results in the frontend. All of the content was planned in a Trello board. For the different stages of the development, the lists To-do, In Progress and Done were used to determine the current status of the task.<br>
+
+The MoSCoW method was used to prioriize the different steps. The principle is based off of these priorities:
+
+* Must Have: Guaranteed to be implemented
+* Should Have: Adds value to the project and should definitely be implemented
+* Could Have: Has small impact if not implemented into the project
+* Won't Have: Not a priority for the current iteration of the project
+
+![Image of the Trello board](docs/agile/board.jpg)
+
+## Epics
 
 ### `EPIC: Authentication System`
 * As a USER, I want to USE AN ACCOUNT LOGIN AND LOGOUT, so I can USE THE HOMEPAGE
@@ -213,6 +226,69 @@ People can follow other users to display their content on the `Followed` site. T
 When a user is logged in, they can visit other people's hacks and leave a rating. This way, other people know what kind of quality to expect from a hack. People cannot rate their own hacks.
 
 ![Image of the feature](docs/agile/rated-content/rating.jpg)
+
+## User Stories
+
+### Epic: Authentication system
+
+| Target | Goal | Benefit |
+|--------|------|---------|
+| User | Log into an account | All functions of the site |
+| User | Log out of an account | Know my data is safe |
+| User | See if my provided data is valid | Successfully use my account |
+| Logged-in user | Sign-out of my account | Keep my information secure |
+
+### Epic: Basic site structure
+
+| Target | Goal | Benefit |
+|--------|------|---------|
+| User | Be welcomed on a starting page | Get an overview over the features |
+| User | Navigate around the homepage | Visit each site |
+| Logged-in user | A link to different pages | Use logged-in content |
+| Admin | Access a link to category management | Adjust things in the frontend |
+| User | See a footer | See the end of the content and get additional information |
+
+### Epic: Hacks
+
+| Target | Goal | Benefit |
+|--------|------|---------|
+| User | See all hacks in a list | View the content |
+| User | See the most popular profiles | View quality content |
+| User | Filter hacks | View only relevant content |
+| User | Search hacks | View only related content |
+| User | Rate content | Contribute to the voting |
+| Hack owner | Edit and delete my hacks | Correct mistakes or delete content |
+
+### Epic: Single hack page
+
+| Target | Goal | Benefit |
+|--------|------|---------|
+| User | View a single hack | See the details and comments |
+| Logged-in user | See and create comments | Interact with the community |
+
+### Epic: Profile
+
+| Target | Goal | Benefit |
+|--------|------|---------|
+| User | See the statistics of a profile | See the owner’s contributions |
+| User | See a profile’s posts | See everything the user contributed |
+| Profile owner | Edit my profile information | Update what is shown |
+| Profile visitor | See popular profiles | Look at other content |
+
+### Epic: Followers
+
+| Target | Goal | Benefit |
+|--------|------|---------|
+| Backend developer | Provide only hacks the person follows | The user can view their prefered content |
+| User | Filter hacks on the following page | View only needed content |
+| User | Follow people I like | View their content |
+
+### Epic: Rated content
+
+| Target | Goal | Benefit |
+|--------|------|---------|
+| User | Rate content I see | Contribute to the page |
+| User | Filter content I rated | View only needed content |
 
 ---
 
