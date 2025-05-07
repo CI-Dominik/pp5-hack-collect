@@ -26,6 +26,15 @@ Because of this, my private account that I wanted to use for other projects in t
     
 <br>
 
+[**THE 5 PLANES OF UX**](#the-5-planes-of-ux)
+  * [Strategy Plane](#1-strategy-plane)
+  * [Scope Plane](#2-scope-plane)
+  * [Structure Plane](#3-structure-plane)
+  * [Skeleton Plane](#4-skeleton-plane)
+  * [Surface Plane](#5-surface-plane)
+
+<br>
+
 [**AGILE PLANNING**](#agile-planning)
   * [Epics](#epics)
   * [User Stories](#user-stories)
@@ -34,12 +43,6 @@ Because of this, my private account that I wanted to use for other projects in t
 
 [**DATABASE**](#database)
   * [Database connection](#database-connection)
-
-<br>
-
-[**DESIGN**](#design)
-  * [Color choice](#color-choice)
-  * [Wireframes](#wireframes)
     
 <br>
 
@@ -138,6 +141,182 @@ For easy access, a plus button is placed right next to the title link to add a h
 
 ## Intuitive and consistent design
 * A consistent layout was used throughout the homepage to ensure a coherent user experience. Every element is styled and placed for convenient access.
+
+---
+
+# The 5 Planes of UX
+
+## 1. Strategy Plane
+
+**Purpose**
+Provide users with a platform to discover, share, and engage with life hacks that simplify everyday tasks.
+Enable registered users to follow others, contribute their own tips, and personalize their experience through user profiles.
+
+**Primary User Needs**
+- Users want to explore practical and effective life hacks in an organized way.
+- Registered users need to publish, edit, and manage their own content.
+- Users want to follow other creators whose content they value.
+- All users should be able to upvote or downvote hacks to indicate usefulness.
+- Profile management should be intuitive and secure.
+
+**Business Goals**  
+- Encourage regular user engagement through a streamlined, visually appealing experience.
+- Promote community growth by enabling easy sharing and following.
+- Ensure content quality through a rating system and optional moderation tools.
+- Lay a solid foundation for future monetization options (e.g., promoted content, premium features).
+
+---
+
+## 2. Scope Plane
+
+**Features**
+- Life Hack submission system (create, edit, delete, preview)
+- User authentication (register, log in, log out, reset/change password)
+- Profile management (bio, avatar, settings)
+- Follow/unfollow functionality
+- Upvote/downvote system for content quality
+- Content filtering (by tag, popularity, newest, etc.)
+- Notification system for follows, new likes, or updates
+- Comment system (with optional moderation tools)
+- 404 error handling for dead links or invalid content
+
+**Content Requirements**
+- Clear CTAs to share or rate content
+- Helpful descriptions and usage tips for each life hack
+- Tags/categories to organize hacks
+- Profile content (usernames, bios, images, public stats)
+
+---
+
+## 3. Structure Plane
+
+**Information Architecture**
+
+**Navigation Menu**:
+
+For all users:
+
+- Home
+- Hacks
+
+For logged-out users:
+
+- Sign-in
+- Sign-up
+
+For logged-in users:
+
+- Followed
+- Rated
+- Sign-out
+- Profile Avatar
+
+For admin users:
+
+- Categories
+
+
+**Hierarchy**  
+- All links accessible through the NavBar that is always present
+- Prominent buttons for submitting new content or editing a profile
+- Following and rating actions are always accessible near user-generated content
+
+**User Flow**
+- Visitors can browse and read life hacks without an account
+- To follow users or submit content, they register or log in
+- Registered users submit a hack → publish
+- Users can follow others → see only their content in the followed page
+- Users can edit or delete their own hacks from their profile
+- Users can rate content → content rating is adjusted accordingly
+
+---
+
+## 4. Skeleton Plane
+
+**Wireframe Suggestions**
+- A card-based layout for life hacks in a list view
+- Navigation bar with quick access to Hack or profile actions
+- Footer with copyright information
+- Login and sign-up page for account management
+- Profile pages showcasing Hacks and stats (Followers, Following, total Hacks)
+
+### **Wireframes**
+
+### Click to reveal list of wireframes
+<details>
+<summary>Click to see wireframes</summary>
+
+### Mobile view
+
+*HACKS PAGE*
+
+![Picture of the hacks page](docs/wireframes/hacks_page_mobile.jpg)
+
+* This layout was used as a base for the hack, followed and rated pages.
+
+<br>
+
+*LOGIN PAGE*
+
+![Picture of the login page](docs/wireframes/login_page_mobile.jpg)
+
+<br>
+
+*SIGN-UP PAGE*
+
+![Picture of the sign-up page](docs/wireframes/sign_up_mobile.jpg)
+
+<br>
+
+*PROFILE PAGE*
+
+![Picture of the profile page](docs/wireframes/profile_page_mobile.jpg)
+
+### Desktop view
+
+*HACKS PAGE*
+
+![Picture of the hacks page](docs/wireframes/hacks_page_desktop.jpg)
+
+* This layout was used as a base for the hack, followed and rated pages.
+
+<br>
+
+*LOGIN PAGE*
+
+![Picture of the login page](docs/wireframes/login_page_desktop.jpg)
+
+<br>
+
+*SIGN-UP PAGE*
+
+![Picture of the sign-up page](docs/wireframes/sign_up_desktop.jpg)
+
+<br>
+
+*PROFILE PAGE*
+
+![Picture of the profile page](docs/wireframes/profile_page_desktop.jpg)
+
+</details>
+
+---
+
+## 5. Surface Plane
+
+**Visual Design Elements**
+
+**Color Scheme**
+
+- A dark design was chosen to align with current user preferences for dark themes  
+- Blue highlights create strong contrast and help guide user attention  
+
+![Color palette of the homepage](docs/colors.jpg)
+
+**Typography**  
+- Headings: Bold and modern sans-serif typeface for clarity
+- Body text: Clean, readable font
+- Use of varied font weights to distinguish between primary actions and secondary content
 
 ---
 
@@ -298,77 +477,6 @@ When a user is logged in, they can visit other people's hacks and leave a rating
 * A PostgreSQL database was used to store relevant pieces of information like profiles, hacks or ratings.
 
 ![Screenshot of the Database Diagram](docs/database.jpg)
-
----
-
-## **DESIGN**
-
-## Color choice
-* A dark design was chosen as it fits the need for users to prefer a dark theme rather than a light theme nowadays. Blue highlights were used to display a strong contrast.
-
-<br>
-
-![Color palette of the homepage](docs/colors.jpg)
-
-## Wireframes
-
-### Click to reveal list of wireframes
-<details>
-<summary>Click to see wireframes</summary>
-
-### Mobile view
-
-*HACKS PAGE*
-
-![Picture of the hacks page](docs/wireframes/hacks_page_mobile.jpg)
-
-* This layout was used as a base for the hack, followed and rated pages.
-
-<br>
-
-*LOGIN PAGE*
-
-![Picture of the login page](docs/wireframes/login_page_mobile.jpg)
-
-<br>
-
-*SIGN-UP PAGE*
-
-![Picture of the sign-up page](docs/wireframes/sign_up_mobile.jpg)
-
-<br>
-
-*PROFILE PAGE*
-
-![Picture of the profile page](docs/wireframes/profile_page_mobile.jpg)
-
-### Desktop view
-
-*HACKS PAGE*
-
-![Picture of the hacks page](docs/wireframes/hacks_page_desktop.jpg)
-
-* This layout was used as a base for the hack, followed and rated pages.
-
-<br>
-
-*LOGIN PAGE*
-
-![Picture of the login page](docs/wireframes/login_page_desktop.jpg)
-
-<br>
-
-*SIGN-UP PAGE*
-
-![Picture of the sign-up page](docs/wireframes/sign_up_desktop.jpg)
-
-<br>
-
-*PROFILE PAGE*
-
-![Picture of the profile page](docs/wireframes/profile_page_desktop.jpg)
-
-</details>
 
 ---
 
