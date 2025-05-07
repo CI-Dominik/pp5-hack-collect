@@ -170,18 +170,16 @@ Enable registered users to follow others, contribute their own tips, and persona
 ## 2. Scope Plane
 
 **Features**
-- Life Hack submission system (create, edit, delete, preview)
-- User authentication (register, log in, log out, reset/change password)
+- Life Hack submission system (create, edit, delete)
+- User authentication (register, log in, log out, change password)
 - Profile management (bio, avatar, settings)
 - Follow/unfollow functionality
-- Upvote/downvote system for content quality
-- Content filtering (by tag, popularity, newest, etc.)
-- Notification system for follows, new likes, or updates
-- Comment system (with optional moderation tools)
+- Rating system for content quality
+- Content filtering by tags
+- Comment system
 - 404 error handling for dead links or invalid content
 
 **Content Requirements**
-- Clear CTAs to share or rate content
 - Helpful descriptions and usage tips for each life hack
 - Tags/categories to organize hacks
 - Profile content (usernames, bios, images, public stats)
