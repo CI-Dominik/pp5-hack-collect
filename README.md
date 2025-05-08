@@ -7,7 +7,7 @@ Link to the website's project board: [Link to the Trello board](https://trello.c
 
 Link to the Django Rest Framework repository: [Link to the GitHub repository](https://github.com/CI-Dominik/pp5-hack-collect-drf)
 
-![Mockup image of the Homepage](docs/mockup.jpg)
+![Mockup image of the homepage](docs/mockup.jpg)
 
 ## **IMPORTANT NOTE**
 This project was only edited by me, CI-Dominik. While logging into my GitHub account with the Bash console in Visual Studio Code, I used these commands with my private email address by habit.
@@ -15,7 +15,7 @@ This project was only edited by me, CI-Dominik. While logging into my GitHub acc
 `git config --global user.name "Dominik Wulf"`<br>
 `git config --global user.email "My private email address"`<br>
 <br>
-Because of this, my private account that I wanted to use for other projects in the futures was used, DominikW89. The only commits I made with CI-Dominik were for a GitHub board that I later replaced with my Trello board.
+Because of this, my private account that I wanted to use for other projects in the future was used, DominikW89. The only commits I made with CI-Dominik were for a GitHub board that I later replaced with my Trello board.
 
 ## **TABLE OF CONTENTS**
 
@@ -132,7 +132,7 @@ Because of this, my private account that I wanted to use for other projects in t
 ## **USER EXPERIENCE**
 
 ## Target audience
-* The homepage's target audience are those who want to make their life easier by using normal household objects in a much more creative way. It is aimed towards people who want to do creative work. Those who like to tinker and bring more color into their life.
+* The homepage's target audience are people who want to make their life easier by using normal household objects in a much more creative way. It is aimed at people who want to do creative work. Those who like to tinker and bring more color into their life.
 
 ## User's journey
 * The user is welcomed by the home page that displays a short summary of what they can expect. There, for logged-out users, a convenient sign-up button is placed in the hero area. If the user is already logged in, a button that takes them to the hack page is displayed instead to get them started immediately.
@@ -221,10 +221,10 @@ For admin users:
 **User Flow**
 - Visitors can browse and read life hacks without an account
 - To follow users or submit content, they register or log in
-- Registered users submit a hack → publish
-- Users can follow others → see only their content in the followed page
+- Registered users submit a hack and publish it
+- Users can follow others and see only their content on the followed page
 - Users can edit or delete their own hacks from their profile
-- Users can rate content → content rating is adjusted accordingly
+- Users can rate content and the content rating is adjusted accordingly
 
 ---
 
@@ -318,9 +318,9 @@ For admin users:
 ---
 
 ## AGILE PLANNING
-This section contains the used epics and user stories, including their final results in the frontend. All of the content was planned in a Trello board. For the different stages of the development, the lists To-do, In Progress and Done were used to determine the current status of the task.<br>
+This section contains the used epics and user stories, including their final results in the frontend. All the content was planned on a Trello board. For the different stages of the development, the lists To-do, In Progress and Done were used to determine the current status of the task.<br>
 
-The MoSCoW method was used to prioriize the different steps. The principle is based off of these priorities:
+The MoSCoW method was used to prioritize the different steps. The principle is based off of these priorities:
 
 * Must Have: Guaranteed to be implemented
 * Should Have: Adds value to the project and should definitely be implemented
@@ -369,7 +369,7 @@ The navigation bar was designed with three states in mind: logged-out, logged-in
 * As a USER, I want to USE THE HACK LIST TO VIEW CONTENT, so I can VIEW AND ADJUST CONTENT
 
 To use the basic functionality of the site and view life hacks, the hacks page was implemented. There, users can see other people's hacks and post their own. The list displays the first ten entries and loads more elements once the bottom is reached, using `InfiniteScroll`.<br>
-The hacks can be displayed by their category or searched by their title or creator. All hacks are sorted starting with the newest entry on the top.
+The hacks can be displayed by their category or searched by their title or creator. All hacks are sorted, starting with the newest entry at the top.
 
 ![Image of the feature](docs/agile/hacks/hacks.jpg)
 
@@ -405,14 +405,14 @@ When a user is logged in, they can visit other people's hacks and leave a rating
 
 ## User Stories
 
-### Epic: Authentication system
+### Epic: Authentication System
 
 | Target | Goal | Benefit |
 |--------|------|---------|
 | User | Log into an account | All functions of the site |
 | User | Log out of an account | Know my data is safe |
 | User | See if my provided data is valid | Successfully use my account |
-| Logged-in user | Sign-out of my account | Keep my information secure |
+| Logged-in user | Sign out of my account | Keep my information secure |
 
 ### Epic: Basic site structure
 
@@ -455,7 +455,7 @@ When a user is logged in, they can visit other people's hacks and leave a rating
 
 | Target | Goal | Benefit |
 |--------|------|---------|
-| Backend developer | Provide only hacks the person follows | The user can view their prefered content |
+| Backend developer | Provide only hacks the person follows | The user can view their preferred content |
 | User | Filter hacks on the following page | View only needed content |
 | User | Follow people I like | View their content |
 
@@ -479,7 +479,7 @@ A PostgreSQL database was used to store relevant pieces of information like prof
 ## **TECHNOLOGIES**
 
 ### HTML / JSX
-* HTML (HyperText Markup Language) and JSX (JavaScript Syntax Extensio) was used to create the structure of the homepage.
+* HTML (HyperText Markup Language) and JSX (JavaScript Syntax Extension) were used to create the structure of the homepage.
 
 ### CSS
 * All styles were applied by using and linking a CSS (Cascading Style Sheet) file.
@@ -491,7 +491,7 @@ A PostgreSQL database was used to store relevant pieces of information like prof
 * Python was used as a programming language for editing backend code.
 
 ### Django REST Framework
-* Django REST Framework was used as a to manage views, URLs, models and serializers.
+* Django REST Framework was used to manage views, URLs, models and serializers.
 
 ### Cloudinary
 * Cloudinary was used to store the image files uploaded by users.
@@ -555,7 +555,7 @@ A PostgreSQL database was used to store relevant pieces of information like prof
 ## **VALIDATOR TESTING**
 
 ### W3C CSS Validation
-* W3C CSS Validation was used to verfiy all CSS files. The results came out with no errors.
+* W3C CSS Validation was used to verify all CSS files. The results came out with no errors.
 
 ![CSS validation](docs/css_validation.jpg)
 
@@ -576,7 +576,7 @@ A PostgreSQL database was used to store relevant pieces of information like prof
 * Route and Switch were used to create the routes in the App.js file.
 
 ### Simple Star Rating
-* To create the base of the RatingComponent, Simple Star Rating was used which provides the displayed stars.
+* To create the base of the RatingComponent, Simple Star Rating was used, which provides the displayed stars.
 
 ---
 
@@ -596,7 +596,7 @@ A PostgreSQL database was used to store relevant pieces of information like prof
 ## **BUGS**
 
 ## 401 authentication error
-* An error occurs in the console displaying a 401 error when sending the authorization token. This is a known bug of Django Rest Framework and was not resolvable for me at the moment of completing the project. The site's functionality is not impacted by this.
+* An error occurs in the console displaying a 401 error when sending the authorization token. This is a known bug of the Django Rest Framework and was not resolvable for me at the moment of completing the project. The site's functionality is not impacted by this.
 
 ![401 error](docs/bugs/401-error.jpg)
 
@@ -618,7 +618,7 @@ A PostgreSQL database was used to store relevant pieces of information like prof
 ## **ACCESSIBILITY**
 
 ## Lighthouse testing
-* All pages were checked using the Google Chrome's Lighthouse test. The results for performance and best practices were low in this scenario. The performance was impacted by big images that people upload and the overall massive library React provides. This could be resolved by converting the pictures in the future.<br>
+* All pages were checked using Google Chrome's Lighthouse test. The results for performance and best practices were low in this scenario. The performance was impacted by the big images that people upload and the overall massive library React provides. This could be resolved by converting the pictures in the future.<br>
 The best practices received a low score because of the errors that appeared in Chrome's console. Those issues can be viewed in the bugs section.
 
 ### Mobile view
@@ -690,14 +690,14 @@ The best practices received a low score because of the errors that appeared in C
 <br>
 
 ### Config Vars
-* To keep your information private, head to the settings page and scroll down to config vars. Here, you can enter important and private information like the database url, the secret key and more.
+* To keep your information private, head to the settings page and scroll down to config vars. Here, you can enter important and private information like the database URL, the secret key and more.
 
 ![Screenshot of Heroku deployment](docs/deployment/heroku/03_config.jpg)
 
 <br>
 
 ### GitHub connection
-* Once your config vars are setup, click on the deploy page. There, you need to connect your current GitHub project to your Heroku account. Enter the name and link it.
+* Once your config vars are set up, click on the Deploy page. There, you need to connect your current GitHub project to your Heroku account. Enter the name and link it.
 
 ![Screenshot of Heroku deployment](docs/deployment/heroku/04_github.jpg)
 
@@ -721,7 +721,7 @@ The best practices received a low score because of the errors that appeared in C
 * Used to implement website icons.
 
 ## [Techsini](https://techsini.com/multi-mockup/index.php)
-* Used to create the mockup in the readme file.
+* Used to create the mockup in the README file.
 
 ## [CSS validator](https://jigsaw.w3.org/css-validator/)
 * Used to verify CSS code.
@@ -745,4 +745,4 @@ The best practices received a low score because of the errors that appeared in C
 * Used for code editing.
 
 ## Special thanks
-* A special thank you to my mentor Gareth McGirr who helped me along my journey and also to my best friend Frederic, who provided me with helpful insights and assisted me with many testing scenarios.
+* A special thank you to my mentor Gareth McGirr who helped me along my journey, and also to my best friend Frederic, who provided me with helpful insights and assisted me with many testing scenarios.
